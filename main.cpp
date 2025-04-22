@@ -1,9 +1,10 @@
 #include "mainwindow.h"
-#include "chart.h"
 
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+
+//123
 
 int main(int argc, char *argv[])
 {

@@ -1,45 +1,64 @@
 #include "chart.h"
 #include <QPainter>
 #include <QtMath>
+#include <QTimer>
 
-chart::chart(QWidget *parent)
+/**
+ * @brief
+ *
+ * @param
+ * @return
+ */
+chart::chart(QWidget *parent,double setPhase)
     : QWidget{parent}
 {
+    phase = setPhase;
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &chart::onTimeout);
+    timer->start(100);
 }
 
-void chart::paintEvent(QPaintEvent *) {
+void chart::paintEvent(QPaintEvent *event) {
+    Q_UNUSED(event);
+
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
 
-    int w = width();
-    int h = height();
-    int centerX = w / 2;
-    int centerY = h / 2;
+    int width = this->width();
+    int height = this->height();
 
-    // Rysuj osie
-    painter.setPen(Qt::black);
-    painter.drawLine(0, centerY, w, centerY); // X
-    painter.drawLine(centerX, 0, centerX, h); // Y
+    int centerX = width / 2;
+    int centerY = height / 2;
 
-    // Skala X: jeden cykl sinusa na szerokości okna
-    double xStep = (2 * M_PI) / w;
+    double xScale = 50.0;
+    double yScale = 50.0;
 
-    // Skala Y: sinus od -1 do 1 przeskalowany na wysokość
-    double yScale = h / 2.0;
+    painter.setPen(QPen(Qt::gray, 1));
+    painter.drawLine(0, centerY, width, centerY);
+    painter.drawLine(centerX, 0, centerX, height);
 
-    // Rysuj wykres
     painter.setPen(QPen(Qt::blue, 2));
-    QPoint prev;
 
-    for (int px = 0; px < w; ++px) {
-        double x = xStep * (px - w / 2);      // przesunięcie względem środka
-        double y = qSin(x);                   // y = sin(x)
-        int py = centerY - int(y * yScale);   // odwrotność osi Y
+    QPointF previousPoint;
 
-        if (px > 0)
-            painter.drawLine(prev, QPoint(px, py));
+    for (int i = 0; i < width; ++i) {
+        double x = (i - centerX) / xScale;
+        double y = qSin(x + phase);
+        double yPixel = centerY - y * yScale;
 
-        prev = QPoint(px, py);
+        QPointF currentPoint(i, yPixel);
+
+        if (i > 0) {
+            painter.drawLine(previousPoint, currentPoint);
+        }
+
+        previousPoint = currentPoint;
     }
+}
+
+void chart::onTimeout()
+{
+    phase += 0.05;
+    update();
 }

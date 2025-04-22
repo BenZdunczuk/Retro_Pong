@@ -2,6 +2,8 @@
 #define MENU_H
 
 #include <QDialog>
+#include <QWidget>
+#include <QMainWindow>
 
 namespace Ui {
 class menu;
@@ -9,13 +11,26 @@ class menu;
 
 class MainWindow;
 
+/**
+ * @brief Klasa menu reprezentuje menu aplikacji Pong.
+ *
+ * Zawiera interfejs graficzny oparty na QDialog, który umożliwia dostęp do 4 przycisków:
+ * wznowienia gry, rozpoczęcia nowej gry, wyjścia z gry oraz uruchomienia benchmarku
+ */
 class menu : public QDialog
 {
     Q_OBJECT
 
 public:
-    //explicit menu(QWidget *parent = nullptr);
+    /**
+     * @brief Konstruktor klasy menu.
+     * @param parent Opcjonalny wskaźnik do rodzica.
+     */
     explicit menu(MainWindow *mainWindow = nullptr);
+
+    /**
+     * @brief Destruktor klasy MainWindow.
+     */
     ~menu();
 
 private slots:

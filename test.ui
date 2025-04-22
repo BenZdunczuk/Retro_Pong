@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="chartWidget" native="true">
+  <widget class="QWidget" name="chartAcc" native="true">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -29,7 +29,7 @@
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="chartWidget2" native="true">
+  <widget class="QWidget" name="chartGyro" native="true">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -58,7 +58,7 @@
     <string>Akcelerometr:</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -201,7 +201,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>

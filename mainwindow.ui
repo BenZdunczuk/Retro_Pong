@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>402</width>
-    <height>381</height>
+    <width>869</width>
+    <height>633</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,14 +27,24 @@
      <string>Pauza</string>
     </property>
    </widget>
+   <widget class="QWidget" name="gameWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>130</y>
+      <width>801</width>
+      <height>441</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>402</width>
-     <height>17</height>
+     <width>869</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

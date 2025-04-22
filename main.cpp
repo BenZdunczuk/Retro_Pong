@@ -4,6 +4,14 @@
 #include <QLocale>
 #include <QTranslator>
 
+/**
+* \file
+* \brief Plik main.cpp
+*
+* Zawiera inicjalizację QApllication, utworzenie i wymuszenie okna MainWidget
+* zawierającego grę i dostęp do menu oraz uruchamia pętlę obsługi aplikacji
+*/
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

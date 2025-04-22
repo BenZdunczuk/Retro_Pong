@@ -18,6 +18,7 @@ menu::~menu()
 
 void menu::on_buttonGoBack_clicked()
 {
+    mainWindowPtr->togglePause();
     menu::close();
 }
 

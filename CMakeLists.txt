@@ -14,6 +14,8 @@ qt_add_executable(pong
     menu.h menu.cpp menu.ui
     test.h test.cpp test.ui
     chart.h chart.cpp
+    ponging.h ponging.cpp
+    connection.h connection.cpp
 )
 
 qt_add_translations(

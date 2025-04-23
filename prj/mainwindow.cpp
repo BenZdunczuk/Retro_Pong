@@ -13,6 +13,13 @@
 * Zawiera definicję metod klasy MainWindow.
 */
 
+    /**
+     * @brief Konstruktor klasy MainWindow.
+     *
+     * Inicjalizuje okno graficzne oraz widget z grą Pong
+     *
+     * @param parent Opcjonalny wskaźnik do rodzica.
+     */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -25,18 +32,28 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(game);
 }
 
+    /**
+     * @brief Destruktor klasy MainWindow.
+     */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+    /**
+     * @brief Metoda zamykająca główne okno aplikacji.
+     */
 void MainWindow::closeMainWindow() {
     this->close();
 }
 
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku pauzy.
+     *
+     * Powoduje zatrzymanie gry oraz otworzenie okienka menu
+     */
 void MainWindow::on_buttonPause_clicked()
 {
-    //menu *pMenu = new menu(this);
     menu pMenu(this);
 
     togglePause();
@@ -44,6 +61,10 @@ void MainWindow::on_buttonPause_clicked()
     pMenu.exec();
 }
 
+    /**
+     * @brief Obsługuje przełączenie stanu przycisku pauzy (toggle).
+     * @param checked True, jeśli przycisk został wciśnięty; False w przeciwnym razie.
+     */
 void MainWindow::on_buttonPause_toggled(bool checked)
 {
     isPaused = !isPaused;
@@ -51,6 +72,9 @@ void MainWindow::on_buttonPause_toggled(bool checked)
     ui->buttonPause->setText(isPaused ? "Wznów" : "Pauza");
 }
 
+    /**
+     * @brief Przełącza stan gry (pomiędzy stanami: gra włączona i zatrzymana).
+     */
 void MainWindow::togglePause()
 {
     isPaused = !isPaused;

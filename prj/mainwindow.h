@@ -6,6 +6,13 @@
 #include <QPushButton>
 #include "ponging.h"
 
+/**
+* \file
+* \brief Definicja metody klasy MainWindow
+*
+* Zawiera definicję metod klasy MainWindow.
+*/
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

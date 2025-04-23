@@ -10,6 +10,8 @@
 *
 * Zawiera inicjalizację QApllication, utworzenie i wymuszenie okna MainWidget
 * zawierającego grę i dostęp do menu oraz uruchamia pętlę obsługi aplikacji
+*
+* Posiada moduł do tłumaczenia aplikacji na język angielski (aktualnie nieużywany)
 */
 
 int main(int argc, char *argv[])

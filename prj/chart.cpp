@@ -4,11 +4,21 @@
 #include <QTimer>
 
 /**
- * @brief
- *
- * @param
- * @return
- */
+* \file
+* \brief Definicja metody klasy chart
+*
+* Zawiera definicję metod klasy chart.
+*/
+
+    /**
+     * @brief Konstruktor klasy chart.
+     *
+     * Inicjalizuje QTimer wykorzystywany do przesuwania wykresu,
+     * ustawia wartość początkowego przesunięcia fazowego
+     *
+     * @param parent Opcjonalny wskaźnik do rodzica.
+     * @param setPhase Przesunięcie fazowe sinusa (tylko w wersji do testowania wyświetlania wykresu)
+     */
 chart::chart(QWidget *parent,double setPhase)
     : QWidget{parent}
 {
@@ -16,9 +26,18 @@ chart::chart(QWidget *parent,double setPhase)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &chart::onTimeout);
-    timer->start(100);
+    int t = 100;        // okres próbkowania w ms
+    timer->start(t);
 }
 
+    /**
+     * @brief Metoda inicjalizująca rysowanie wykresu
+     *
+     * Określa wymiary wykresu, rysuje osie oraz sam wykres,
+     * przesuwa wykres w czasie
+     *
+     * @param event Opcjonalny wskaźnik do rysowania.
+     */
 void chart::paintEvent(QPaintEvent *event) {
     Q_UNUSED(event);
 
@@ -57,6 +76,12 @@ void chart::paintEvent(QPaintEvent *event) {
     }
 }
 
+    /**
+     * @brief Slot odpoweidzialny za przesuwanie wykresu w czasie
+     *
+     * Zwiększa wartość przesunięcia fazowego oraz aktualizuje wykres,
+     * funkcja wywoływana przez QTimer zawarty w konstruktorze
+     */
 void chart::onTimeout()
 {
     phase += 0.05;

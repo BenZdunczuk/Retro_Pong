@@ -5,6 +5,13 @@
 #include <QWidget>
 #include <QMainWindow>
 
+/**
+* \file
+* \brief Definicja metody klasy menu
+*
+* Zawiera definicję metod klasy menu.
+*/
+
 namespace Ui {
 class menu;
 }
@@ -34,15 +41,43 @@ public:
     ~menu();
 
 private slots:
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku wznowienia gry.
+     *
+     * Powoduje wznowienie gry oraz zamknięcie okienka menu
+     */
     void on_buttonGoBack_clicked();
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku wyjścia z gry.
+     *
+     * Powoduje zatrzymanie działania aplikacji
+     */
     void on_buttonExit_clicked();
 
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku nowej gry.
+     *
+     * Powoduje zresetowanie gry oraz zamknięcie okienka menu
+     */
     void on_buttonNewGame_clicked();
 
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku testowania połączenia.
+     *
+     * Powoduje otworzenie okienka testowania połączenia
+     */
     void on_buttonTest_clicked();
 
 private:
+    /**
+     * @brief Wskaźnik do obiektu interfejsu użytkownika.
+     */
     Ui::menu *ui;
+
+    /**
+     * @brief Wskaźnik do rodzica klasy menu.
+     */
     MainWindow *mainWindowPtr;
 };
 

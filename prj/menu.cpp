@@ -1,0 +1,77 @@
+#include "mainwindow.h"
+#include "test.h"
+#include "menu.h"
+#include "ui_menu.h"
+
+/**
+* \file
+* \brief Definicja metody klasy menu
+*
+* Zawiera definicję metod klasy menu.
+*/
+
+    /**
+     * @brief Konstruktor klasy menu.
+     * @param parent Opcjonalny wskaźnik do rodzica.
+     */
+menu::menu(MainWindow *parent)
+    : QDialog(parent)
+    , ui(new Ui::menu)
+    , mainWindowPtr(parent)
+{
+    ui->setupUi(this);
+}
+
+    /**
+     * @brief Destruktor klasy MainWindow.
+     */
+menu::~menu()
+{
+    delete ui;
+}
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku wznowienia gry.
+     *
+     * Powoduje wznowienie gry oraz zamknięcie okienka menu
+     */
+void menu::on_buttonGoBack_clicked()
+{
+    mainWindowPtr->togglePause();
+    menu::close();
+}
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku wyjścia z gry.
+     *
+     * Powoduje zatrzymanie działania aplikacji oraz zamyka wszystkie okienka
+     */
+void menu::on_buttonExit_clicked()
+{
+    menu::close();
+    mainWindowPtr->closeMainWindow();
+}
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku nowej gry.
+     *
+     * Powoduje zresetowanie gry oraz zamknięcie okienka menu
+     */
+void menu::on_buttonNewGame_clicked()
+{
+    menu::close();
+    //reset gry
+}
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku testowania połączenia.
+     *
+     * Powoduje otworzenie okienka testowania połączenia
+     */
+void menu::on_buttonTest_clicked()
+{
+    test pTest(this);
+
+    pTest.exec();
+}
+

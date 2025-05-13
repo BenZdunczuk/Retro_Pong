@@ -1,0 +1,2 @@
+../Core/Src/Backup/gyroscope.c:5:9:gyroInit	3
+../Core/Src/Backup/gyroscope.c:22:6:gyroGetData	2

@@ -29,8 +29,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-//#include "accelerometer.h"
-//#include "gyroscope.h"
+#include "accelerometer.h"
+#include "gyroscope.h"
 
 /* USER CODE END Includes */
 
@@ -52,11 +52,16 @@
 
 /* USER CODE BEGIN PV */
 
+float filteredGyro[3] = {0};
+float filteredAcc[3] = {0};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+
+int _write(int file, char *ptr, int len);
 
 /* USER CODE END PFP */
 
@@ -101,6 +106,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   extern USBD_HandleTypeDef hUsbDeviceFS;
+  //if(!gyroInit()){Error_Handler();}
+  //if(!accInit()){Error_Handler();}
 
   /* USER CODE END 2 */
 
@@ -114,6 +121,9 @@ int main(void)
 
 	uint8_t message[] = "Hello\r\n";
 	CDC_Transmit_FS(message, strlen((char*)message));
+
+//	gyroGetData(filteredGyro);
+//	accGetData(filteredAcc);
 
 	HAL_Delay(2000);
   }
@@ -195,6 +205,11 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+int _write(int file, char *ptr, int len) {
+    HAL_UART_Transmit(&huart2, (uint8_t*) ptr, len, 100);
+    return len;
+}
+
 /* USER CODE END 4 */
 
 /**
@@ -205,6 +220,8 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_2);
+	HAL_Delay(500);
 
   /* USER CODE END Error_Handler_Debug */
 }

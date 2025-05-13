@@ -1,8 +1,8 @@
 Core/Src/Backup/gyroscope.o: ../Core/Src/Backup/gyroscope.c \
  ../Core/Inc/gyroscope.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/Components/l3gd20/l3gd20.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/Components/l3gd20/../Common/gyro.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
+ C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/l3gd20/l3gd20.h \
+ C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/l3gd20/../Common/gyro.h \
+ C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -38,13 +38,13 @@ Core/Src/Backup/gyroscope.o: ../Core/Src/Backup/gyroscope.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h
+ C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h \
+ C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
+ C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h
 ../Core/Inc/gyroscope.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/Components/l3gd20/l3gd20.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/Components/l3gd20/../Common/gyro.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
+C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/l3gd20/l3gd20.h:
+C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/l3gd20/../Common/gyro.h:
+C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:
@@ -80,6 +80,6 @@ C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discove
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/pong/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h:
+C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h:
+C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
+C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h:

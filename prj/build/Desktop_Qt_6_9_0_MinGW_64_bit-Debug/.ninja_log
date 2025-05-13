@@ -1,0 +1,17 @@
+# ninja log v6
+12	228	7670264966065346	pong_en_US.qm	2f2f6221eb1205a5
+12	228	7670264966065346	C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/pong_en_US.qm	2f2f6221eb1205a5
+24	1315	7670264976004045	pong_autogen/timestamp	15ecf1db6211e6bc
+24	1315	7670264976004045	pong_autogen/mocs_compilation.cpp	15ecf1db6211e6bc
+24	1315	7670264976004045	C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/pong_autogen/timestamp	15ecf1db6211e6bc
+24	1315	7670264976004045	C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/pong_autogen/mocs_compilation.cpp	15ecf1db6211e6bc
+1325	1408	7670264977920108	.qt/rcc/qrc_pong_translations.cpp	27709862a0e883cb
+1325	1408	7670264977920108	C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qt/rcc/qrc_pong_translations.cpp	27709862a0e883cb
+1450	1565	7670264978497612	CMakeFiles/pong.dir/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qt/rcc/qrc_pong_translations.cpp.obj	82a1f4aec57140cb
+1444	5542	7670264978364861	CMakeFiles/pong.dir/chart.cpp.obj	f7113ae2154c9fc0
+1409	5619	7670264978091262	CMakeFiles/pong.dir/pong_autogen/mocs_compilation.cpp.obj	9eea39e26304960f
+1415	5696	7670264978150757	CMakeFiles/pong.dir/main.cpp.obj	79f43535001c591d
+1422	5734	7670264978193986	CMakeFiles/pong.dir/mainwindow.cpp.obj	fd6e2168ffbe255a
+1429	5781	7670264978193986	CMakeFiles/pong.dir/menu.cpp.obj	3145aa37ec140bf9
+1436	5966	7670264978364861	CMakeFiles/pong.dir/test.cpp.obj	a589d89209588147
+5966	6449	7670265023663549	pong.exe	898a92ceae27fda1

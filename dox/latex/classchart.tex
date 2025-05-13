@@ -1,0 +1,92 @@
+\doxysection{chart Class Reference}
+\hypertarget{classchart}{}\label{classchart}\index{chart@{chart}}
+
+
+Klasa chart reprezentuje wykresy używane do wizualizacji danych.  
+
+
+
+
+{\ttfamily \#include $<$chart.\+h$>$}
+
+Inheritance diagram for chart\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classchart}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classchart_a24bdbc0ce3ae2f14beb0e995a931588b}{chart}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr, double set\+Phase=0.\+0)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy chart. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classchart_acdea15232f6e8d03410aecca691ca8f7}{paint\+Event}} (QPaint\+Event \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em Metoda inicjalizująca rysowanie wykresu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa chart reprezentuje wykresy używane do wizualizacji danych. 
+
+Zawiera definicję widgetu rysującego wykres na podstawie danych odebranych z mikrokontrolera. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classchart_a24bdbc0ce3ae2f14beb0e995a931588b}\index{chart@{chart}!chart@{chart}}
+\index{chart@{chart}!chart@{chart}}
+\doxysubsubsection{\texorpdfstring{chart()}{chart()}}
+{\footnotesize\ttfamily \label{classchart_a24bdbc0ce3ae2f14beb0e995a931588b} 
+chart\+::chart (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}, }\item[{double}]{set\+Phase}{ = {\ttfamily 0.0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktor klasy chart. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Opcjonalny wskaźnik do rodzica. \\
+\hline
+{\em set\+Phase} & Przesunięcie fazowe sinusa (tylko w wersji do testowania wyświetlania wykresu)\\
+\hline
+\end{DoxyParams}
+Inicjalizuje QTimer wykorzystywany do przesuwania wykresu, ustawia wartość początkowego przesunięcia fazowego
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Opcjonalny wskaźnik do rodzica. \\
+\hline
+{\em set\+Phase} & Przesunięcie fazowe sinusa (tylko w wersji do testowania wyświetlania wykresu) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classchart_acdea15232f6e8d03410aecca691ca8f7}\index{chart@{chart}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!chart@{chart}}
+\doxysubsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+{\footnotesize\ttfamily \label{classchart_acdea15232f6e8d03410aecca691ca8f7} 
+void chart\+::paint\+Event (\begin{DoxyParamCaption}\item[{QPaint\+Event \texorpdfstring{$\ast$}{*}}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Metoda inicjalizująca rysowanie wykresu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Opcjonalny wskaźnik do rysowania.\\
+\hline
+\end{DoxyParams}
+Określa wymiary wykresu, rysuje osie oraz sam wykres, przesuwa wykres w czasie
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Opcjonalny wskaźnik do rysowania. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\mbox{\hyperlink{chart_8h}{chart.\+h}}\item 
+C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\mbox{\hyperlink{chart_8cpp}{chart.\+cpp}}\end{DoxyCompactItemize}

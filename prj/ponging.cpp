@@ -17,7 +17,8 @@
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
 PongWidget::PongWidget(QWidget *parent)
-    : QWidget(parent), ballDX(4), ballDY(4), moveUp(false), moveDown(false), isPaused(false), score(0)
+    : QWidget(parent), ballDX(4), ballDY(4), moveUp(false), moveDown(false), rotateRight(false), rotateLeft(false),
+    rotationAngle(0), isPaused(false), score(0), posX(0), posY(0)
 {
     setFocusPolicy(Qt::StrongFocus);
 
@@ -29,7 +30,10 @@ PongWidget::PongWidget(QWidget *parent)
 
     // inicjalizacja wymiarów i lokalizacji obiektów do rysowania
     aiPaddle = QRect(20, h/2 - 40, 10, 80);
-    playerPaddle = QRect(w - 30, h/2 - 40, 10, 80);
+    //playerPaddle = QRect(w - 30, h/2 - 40, 10, 80); //770, 260
+    playerPaddle = QRect(-5, -40, 10, 80);
+    posY = 250;
+    posX = 760;
     ball = QRect(w/2 - 10, h/2 - 10, 20, 20);
 
     timer = new QTimer(this);
@@ -54,39 +58,43 @@ void PongWidget::paintEvent(QPaintEvent *event)
     painter.fillRect(rect(), Qt::black);
 
     painter.setBrush(Qt::white);
+
+    painter.save();
+    //playerPaddle.translate(-5,-40);
+    painter.translate(posX,posY);
+    painter.rotate(rotationAngle);
+    painter.translate(playerPaddle.center());
     painter.drawRect(playerPaddle);
+    //playerPaddle.translate(posX,posY);
+    painter.restore();
+
     painter.drawRect(aiPaddle);
     painter.drawEllipse(ball);
 
-    // if (isPaused) {
-    //     painter.setPen(Qt::yellow);
-    //     painter.setFont(QFont("Arial", 24, QFont::Bold));
-    //     painter.drawText(rect(), Qt::AlignCenter, "PAUZA");
-    // }
-
-    // painter.setPen(Qt::green);
-    // painter.setFont(QFont("Courier", 16));
-    // painter.drawText(10, 30, QString("Wynik: %1").arg(getScore()));
 }
 
     /**
-     * @brief Metoda reagująca na kliknięcie przycisku strzałki w górę i w dół
+     * @brief Metoda reagująca na kliknięcie przycisku strzałek na klawiaturze
      * @param event Opcjonalny wskaźnik do rysowania.
      */
 void PongWidget::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Up) moveUp = true;
     if (event->key() == Qt::Key_Down) moveDown = true;
+    if (event->key() == Qt::Key_Right) rotateRight = true;
+    if (event->key() == Qt::Key_Left) rotateLeft = true;
 }
 
     /**
-     * @brief Metoda reagująca na kliknięcie przycisku strzałki w górę i w dół
+     * @brief Metoda reagująca na zwolnienie przycisku strzałek na klawiaturze
      * @param event Opcjonalny wskaźnik do rysowania.
      */
 void PongWidget::keyReleaseEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Up) moveUp = false;
     if (event->key() == Qt::Key_Down) moveDown = false;
+    if (event->key() == Qt::Key_Right) rotateRight = false;
+    if (event->key() == Qt::Key_Left) rotateLeft = false;
 }
 
     /**
@@ -101,10 +109,17 @@ void PongWidget::gameLoop()
     //if (isPaused) return;
 
     /*      gracz       */
-    if (moveUp && playerPaddle.top() > 0)
-        playerPaddle.moveTop(playerPaddle.top() - 6);
-    if (moveDown && playerPaddle.bottom() < height())
-        playerPaddle.moveTop(playerPaddle.top() + 6);
+    if (moveUp && posY > 0)
+        //playerPaddle.moveTop(playerPaddle.top() - 6);
+        posY -= 6;
+    if (moveDown && posY < height())
+        //playerPaddle.moveTop(playerPaddle.top() + 6);
+        posY += 6;
+    if(rotateLeft)
+        --rotationAngle;
+    if(rotateRight)
+        ++rotationAngle;
+
 
     /*      ai      */
     if (aiPaddle.center().y() < ball.center().y() && aiPaddle.bottom() < height())
@@ -118,7 +133,8 @@ void PongWidget::gameLoop()
     if (ball.top() <= 0 || ball.bottom() >= height())
         ballDY = -ballDY;
 
-    if (ball.intersects(playerPaddle) && ballDX > 0)
+    //if (ball.intersects(playerPaddle) && ballDX > 0)
+    if((ball.y() < posY + 40 && ball.y() > posY - 40) && ball.x() == posX)
         ballDX = -ballDX;
     if (ball.intersects(aiPaddle) && ballDX < 0)
         ballDX = -ballDX;

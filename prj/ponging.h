@@ -96,9 +96,12 @@ private:
     int ballDX, ballDY;
 
     /**
-     * @brief Kierunek poruszania się piłeczki
+     * @brief Kierunek poruszania i obracania się piłeczki
      */
-    bool moveUp, moveDown;
+    bool moveUp, moveDown, rotateRight, rotateLeft;
+
+    int rotationAngle;
+    int posX,posY;
 
     /**
      * @brief Zegar gry wykorzystywany do odświeżania animacji

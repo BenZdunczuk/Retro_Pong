@@ -76,8 +76,6 @@
 //     delete pDataBuff;
 // }
 
-// // quint8 a = 'a';
-
 // void connection::sendData(QString &data)
 // {
 //     if (serial.isOpen()) {

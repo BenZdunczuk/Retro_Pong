@@ -1,6 +1,7 @@
 #ifndef PONGING_H
 #define PONGING_H
 
+#include "menu.h"
 #include <QWidget>
 #include <QTimer>
 #include <QKeyEvent>
@@ -38,6 +39,8 @@ public:
      * @brief Metoda typu getter umożliwiająca dostęp do atrybutu score
      */
     int getScore();
+
+    MainWindow *mainWindow;
 
 protected:
     /**
@@ -80,6 +83,10 @@ private:
      */
     QRect ball;
 
+    int rotation(int angle);
+
+    int reflaction(int angleA, int angleB);
+
     /**
      * @brief Flaga informująca o stanie gry (zatrzymana/trwająca)
      */
@@ -100,8 +107,10 @@ private:
      */
     bool moveUp, moveDown, rotateRight, rotateLeft;
 
-    int rotationAngle;
+    int rotationAnglePaddle;
     int posX,posY;
+    int rotationAngleBall;
+    double speed;
 
     /**
      * @brief Zegar gry wykorzystywany do odświeżania animacji

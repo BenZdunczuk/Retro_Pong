@@ -1,5 +1,10 @@
 #include "Ponging.h"
+#include "menu.h"
+#include "mainwindow.h"
 #include <QPainter>
+#include <cmath>
+#include <QEventLoop>
+#include <iostream>
 
 /**
 * \file
@@ -7,6 +12,8 @@
 *
 * Zawiera definicję metod klasy PongWidget.
 */
+
+#define baseSpeed 4
 
 /**
      * @brief Konstruktor klasy menu.
@@ -17,8 +24,8 @@
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
 PongWidget::PongWidget(QWidget *parent)
-    : QWidget(parent), ballDX(4), ballDY(4), moveUp(false), moveDown(false), rotateRight(false), rotateLeft(false),
-    rotationAngle(0), isPaused(false), score(0), posX(0), posY(0)
+    : QWidget(parent), mainWindow(nullptr), ballDX(baseSpeed), ballDY(baseSpeed), moveUp(false), moveDown(false), rotateRight(false),
+    rotateLeft(false),rotationAnglePaddle(0), isPaused(false), score(0), posX(0), posY(0), rotationAngleBall(45), speed(baseSpeed)
 {
     setFocusPolicy(Qt::StrongFocus);
 
@@ -29,10 +36,9 @@ PongWidget::PongWidget(QWidget *parent)
     resize(w, h);
 
     // inicjalizacja wymiarów i lokalizacji obiektów do rysowania
-    aiPaddle = QRect(20, h/2 - 40, 10, 80);
-    //playerPaddle = QRect(w - 30, h/2 - 40, 10, 80); //770, 260
-    playerPaddle = QRect(-5, -40, 10, 80);
-    posY = 250;
+    aiPaddle = QRect(20, h/2 - 40, 10, 60);
+    playerPaddle = QRect(-5, -40, 10, 60);
+    posY = 280;
     posX = 760;
     ball = QRect(w/2 - 10, h/2 - 10, 20, 20);
 
@@ -60,12 +66,12 @@ void PongWidget::paintEvent(QPaintEvent *event)
     painter.setBrush(Qt::white);
 
     painter.save();
-    //playerPaddle.translate(-5,-40);
+    playerPaddle.moveTo(-5,-30);
     painter.translate(posX,posY);
-    painter.rotate(rotationAngle);
+    painter.rotate(rotationAnglePaddle);
     painter.translate(playerPaddle.center());
     painter.drawRect(playerPaddle);
-    //playerPaddle.translate(posX,posY);
+    playerPaddle.moveTo(posX-5,posY-30);
     painter.restore();
 
     painter.drawRect(aiPaddle);
@@ -106,7 +112,13 @@ void PongWidget::keyReleaseEvent(QKeyEvent *event)
      */
 void PongWidget::gameLoop()
 {
-    //if (isPaused) return;
+    QEventLoop loop;
+    connect(mainWindow,&MainWindow::resumed, &loop, &QEventLoop::quit);
+    if(isPaused){
+
+        loop.exec();
+
+    }
 
     /*      gracz       */
     if (moveUp && posY > 0)
@@ -116,10 +128,9 @@ void PongWidget::gameLoop()
         //playerPaddle.moveTop(playerPaddle.top() + 6);
         posY += 6;
     if(rotateLeft)
-        --rotationAngle;
+        --rotationAnglePaddle;
     if(rotateRight)
-        ++rotationAngle;
-
+        ++rotationAnglePaddle;
 
     /*      ai      */
     if (aiPaddle.center().y() < ball.center().y() && aiPaddle.bottom() < height())
@@ -127,17 +138,19 @@ void PongWidget::gameLoop()
     else if (aiPaddle.center().y() > ball.center().y() && aiPaddle.top() > 0)
         aiPaddle.moveTop(aiPaddle.top() - 4);
 
-    /*      odbicia     */
+    /*      ruch piłki      */
     ball.translate(ballDX, ballDY);
 
+    /*      odbicia     */
     if (ball.top() <= 0 || ball.bottom() >= height())
-        ballDY = -ballDY;
+        rotationAngleBall = rotation(reflaction(rotationAngleBall,180));
 
-    //if (ball.intersects(playerPaddle) && ballDX > 0)
-    if((ball.y() < posY + 40 && ball.y() > posY - 40) && ball.x() == posX)
-        ballDX = -ballDX;
+    if (ball.intersects(playerPaddle) && ballDX > 0)
+        rotationAngleBall = rotation(reflaction(rotationAngleBall,rotationAnglePaddle + 90));
+        //ballDX = -ballDX;
     if (ball.intersects(aiPaddle) && ballDX < 0)
-        ballDX = -ballDX;
+        rotationAngleBall = rotation(reflaction(rotationAngleBall,90));
+        //ballDX = -ballDX;
 
     /*      piłeczka wypada poza boisko     */
     if (ball.left() < 0 || ball.right() > width())
@@ -155,9 +168,10 @@ void PongWidget::gameLoop()
      */
 void PongWidget::resetBall()
 {
+    speed = baseSpeed;
     ball.moveTo(width()/2 - 10, height()/2 - 10);
-    ballDX = -ballDX;
-    ballDY = 4;
+    rotationAngleBall = 180-rotationAngleBall;      //zmiana kierunku piłeczki po wypadnięciu z boiska
+    rotation(rotationAngleBall);
 }
 
     /**
@@ -175,4 +189,17 @@ void PongWidget::setPause(bool pause)
 int PongWidget::getScore()
 {
     return score;
+}
+
+int PongWidget::rotation(int angle){
+    angle %= 360;
+    speed *= 1.1;
+    ballDX = speed * 1.41 * cos(3.14*angle/180);
+    ballDY = speed * 1.41 * sin(3.14*angle/180);
+    return angle;
+}
+
+int PongWidget::reflaction(int angleA, int angleB){
+    angleA = 2*angleB - angleA;
+    return angleA;
 }

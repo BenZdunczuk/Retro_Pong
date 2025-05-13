@@ -37,8 +37,10 @@ menu::~menu()
      */
 void menu::on_buttonGoBack_clicked()
 {
+    connect(this,&menu::unPause,mainWindowPtr,&MainWindow::resumedGame);
     mainWindowPtr->togglePause();
     menu::close();
+    emit unPause();
 }
 
     /**

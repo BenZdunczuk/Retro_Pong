@@ -27,9 +27,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    PongWidget *game = new PongWidget(ui->gameWidget);
+    pongGame = new PongWidget(ui->gameWidget);
     QVBoxLayout *layout = new QVBoxLayout(ui->gameWidget);
-    layout->addWidget(game);
+    layout->addWidget(pongGame);
+
+    pongGame->mainWindow = this;
 }
 
     /**
@@ -54,23 +56,22 @@ void MainWindow::closeMainWindow() {
      */
 void MainWindow::on_buttonPause_clicked()
 {
-    menu pMenu(this);
-
     togglePause();
-
+    menu pMenu(this);
     pMenu.exec();
+
 }
 
-    /**
-     * @brief Obsługuje przełączenie stanu przycisku pauzy (toggle).
-     * @param checked True, jeśli przycisk został wciśnięty; False w przeciwnym razie.
-     */
-void MainWindow::on_buttonPause_toggled(bool checked)
-{
-    isPaused = !isPaused;
-    pongGame->setPause(isPaused);
-    ui->buttonPause->setText(isPaused ? "Wznów" : "Pauza");
-}
+//     /**
+//      * @brief Obsługuje przełączenie stanu przycisku pauzy (toggle).
+//      * @param checked True, jeśli przycisk został wciśnięty; False w przeciwnym razie.
+//      */
+// void MainWindow::on_buttonPause_toggled(bool checked)
+// {
+//     isPaused = !isPaused;
+//     pongGame->setPause(isPaused);
+//     ui->buttonPause->setText(isPaused ? "Wznów" : "Pauza");
+// }
 
     /**
      * @brief Przełącza stan gry (pomiędzy stanami: gra włączona i zatrzymana).
@@ -80,5 +81,9 @@ void MainWindow::togglePause()
     isPaused = !isPaused;
     pongGame->setPause(isPaused);
     ui->buttonPause->setText(isPaused ? "Wznów" : "Pauza");
+}
+
+void MainWindow::resumedGame(){
+    emit resumed();
 }
 

@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include "ponging.h"
+#include "menu.h"
 
 /**
 * \file
@@ -61,7 +62,7 @@ private slots:
      * @brief Obsługuje przełączenie stanu przycisku pauzy (toggle).
      * @param checked True, jeśli przycisk został wciśnięty; False w przeciwnym razie.
      */
-    void on_buttonPause_toggled(bool checked);
+    //void on_buttonPause_toggled(bool checked);
 
 private:
     /**
@@ -78,6 +79,13 @@ private:
      * @brief Flaga informująca, czy gra jest obecnie zatrzymana.
      */
     bool isPaused;
+
+public slots:
+    void resumedGame();
+
+
+signals:
+    void resumed();
 };
 
 #endif // MAINWINDOW_H

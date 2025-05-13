@@ -69,6 +69,9 @@ private slots:
      */
     void on_buttonTest_clicked();
 
+signals:
+    void unPause();
+
 private:
     /**
      * @brief Wskaźnik do obiektu interfejsu użytkownika.

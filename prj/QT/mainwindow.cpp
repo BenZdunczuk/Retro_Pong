@@ -2,9 +2,11 @@
 #include "ui_mainwindow.h"
 #include "menu.h"
 #include "ponging.h"
+#include "connection.h"
 #include <QDialog>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QThread>
 
 /**
 * \file
@@ -32,6 +34,19 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(pongGame);
 
     pongGame->mainWindow = this;
+
+    QThread *thread = new QThread;
+    connection *worker = new connection;  // Zmień port
+
+    worker->moveToThread(thread);
+
+    QObject::connect(thread, &QThread::started, worker, &connection::start);
+    QObject::connect(worker, &connection::dataReceived, [](const QByteArray &data) {
+        qDebug() << "Odebrano:" << data;
+    });
+    QObject::connect(qApp, &QCoreApplication::aboutToQuit, worker, &connection::stop);
+
+    thread->start();
 }
 
     /**

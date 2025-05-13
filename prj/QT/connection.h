@@ -1,23 +1,33 @@
-// #ifndef CONNECTION_H
-// #define CONNECTION_H
+#ifndef CONNECTION_H
+#define CONNECTION_H
 
-// #include <QObject>
-// #include <QtSerialPort/QSerialPort>
+#include <QObject>
+#include <QtSerialPort/QSerialPort>
+#include <QDialog>
+#include <QWidget>
+#include <QMainWindow>
 
-// class connection : public QObject
-// {
-//     Q_OBJECT
-// public:
-//     explicit connection(QObject *parent = nullptr);
-//     void sendData(QString &data);
+class connection : public QObject
+{
+    Q_OBJECT
+public:
+    explicit connection(QObject *parent = nullptr);
+    ~connection();
+    void sendData(QString &data);
 
-// private slots:
-//     QByteArray readData();
+public slots:
+    QByteArray readData();
+    void start();
+    void stop();
 
-// private:
-//     QSerialPort serial;
+private slots:
+    void handleReadyRead();
 
-// signals:
-// };
+private:
+    QSerialPort serial;
 
-// #endif // CONNECTION_H
+signals:
+    void dataReceived(const QByteArray &data);
+};
+
+#endif // CONNECTION_H

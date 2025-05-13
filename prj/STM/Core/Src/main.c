@@ -125,7 +125,7 @@ int main(void)
 //	gyroGetData(filteredGyro);
 //	accGetData(filteredAcc);
 
-	HAL_Delay(2000);
+	HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }

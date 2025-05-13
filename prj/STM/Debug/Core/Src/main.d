@@ -39,17 +39,17 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  ../USB_DEVICE/Target/usbd_conf.h ../Core/Inc/gpio.h \
  ../Core/Inc/accelerometer.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/lsm303c/lsm303c.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/accelero.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/magneto.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_compass.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/lsm303c.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/accelero.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/magneto.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_compass.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
  ../Core/Inc/gyroscope.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/l3gd20/l3gd20.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/l3gd20/../Common/gyro.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h \
- C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/l3gd20/l3gd20.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/l3gd20/../Common/gyro.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h \
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -96,14 +96,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../USB_DEVICE/Target/usbd_conf.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/accelerometer.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/lsm303c/lsm303c.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/accelero.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/magneto.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_compass.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/lsm303c.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/accelero.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/magneto.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_compass.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
 ../Core/Inc/gyroscope.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/l3gd20/l3gd20.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/Components/l3gd20/../Common/gyro.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h:
-C:/Users/bzdun/STM32CubeIDE/workspace_1.18.0/Retro_Pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/l3gd20/l3gd20.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/l3gd20/../Common/gyro.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h:
+C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h:

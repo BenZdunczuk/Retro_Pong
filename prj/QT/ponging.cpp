@@ -4,7 +4,6 @@
 #include <QPainter>
 #include <cmath>
 #include <QEventLoop>
-#include <iostream>
 
 /**
 * \file
@@ -175,7 +174,7 @@ void PongWidget::resetBall()
 }
 
     /**
-     * @brief Metoda typu setter umożliwiająca dostęp do atrybutu paused
+     * @brief Metoda typu setter umożliwiająca dostęp do modyfikacji atrybutu paused
      * @param paused Stan gry (zatrzymana/trwająca)
      */
 void PongWidget::setPause(bool pause)
@@ -191,6 +190,11 @@ int PongWidget::getScore()
     return score;
 }
 
+    /**
+     * @brief Metoda obliczająca długości wektorów składowych piłeczek
+     * @param[in] angle Kąt obrotu piłeczki względem osi OX
+     * @param[out] angle Kąt obrotu piłeczki modulo 360, jakby doszło do zatoczenia pełnego koła
+     */
 int PongWidget::rotation(int angle){
     angle %= 360;
     speed *= 1.1;
@@ -199,6 +203,11 @@ int PongWidget::rotation(int angle){
     return angle;
 }
 
+    /**
+     * @brief Metoda typu getter umożliwiająca dostęp do atrybutu score
+     * @param[in] angle Kąt obrotu obiektu względem osi OX
+     * @param[out] angle Kąt obrotu modulo 360, jakby doszło do zatoczenia pełnego koła
+     */
 int PongWidget::reflaction(int angleA, int angleB){
     angleA = 2*angleB - angleA;
     return angleA;

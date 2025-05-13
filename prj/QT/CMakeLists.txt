@@ -22,11 +22,14 @@ qt_add_translations(
     TARGETS pong
     TS_FILES pong_en_US.ts
 )
+find_package(Qt6 REQUIRED COMPONENTS Core SerialPort Widgets)
 
 target_link_libraries(pong
     PRIVATE
         Qt::Core
         Qt::Widgets
+        Qt6::SerialPort
+
 )
 
 include(GNUInstallDirs)

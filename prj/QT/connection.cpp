@@ -1,43 +1,62 @@
-// #include "connection.h"
-// #include <QtSerialPort/QSerialPort>
-// #include <QDebug>
-// #include <cstring>
-// #include <iostream>
-// #include <array>
+#include "connection.h"
+#include <QtSerialPort/QSerialPort>
+#include <QDebug>
+#include <cstring>
+#include <iostream>
 
-// /**
-// * \file
-// * \brief Plik conecction.cpp
-// *
-// * Zawiera definicję protokołu komunikacji
-// */
+/**
+* \file
+* \brief Plik conecction.cpp
+*
+* Zawiera definicję protokołu komunikacji
+*/
 
-// #define portName "COM4"
+#define portName "COM4"
 
-// connection::connection(QObject *parent)
-//     : QObject{parent}
-// {
-//     serial.setPortName(portName);
-//     serial.setBaudRate(QSerialPort::Baud115200);
-//     serial.setDataBits(QSerialPort::Data8);
-//     serial.setParity(QSerialPort::NoParity);
-//     serial.setStopBits(QSerialPort::OneStop);
-//     serial.setFlowControl(QSerialPort::NoFlowControl);
+connection::connection(QObject *parent)
+    : QObject{parent}
+{
+    //start();
+}
 
-//     if (serial.open(QIODevice::ReadWrite)) {
-//         qDebug() << "Połączono";
-//         connect(&serial, &QSerialPort::readyRead, this, &connection::readData);
-//     } else {
-//         qDebug() << "Błąd połączenia" << serial.errorString();
-//     }
-// }
+connection::~connection(){
+    stop();
+}
 
-// QByteArray connection::readData()
-// {
-//     QByteArray recievedData = serial.readAll();
-//     qDebug() << recievedData;
-//     return recievedData;
-// }
+void connection::start(){
+    serial.setPortName(portName);
+    serial.setBaudRate(QSerialPort::Baud115200);
+    serial.setDataBits(QSerialPort::Data8);
+    serial.setParity(QSerialPort::NoParity);
+    serial.setStopBits(QSerialPort::OneStop);
+    serial.setFlowControl(QSerialPort::NoFlowControl);
+
+    if (serial.open(QIODevice::ReadWrite)) {
+        std::cout << "Polaczono" << std::endl;
+    } else {
+        std::cout << "Blad polaczenia" << std::endl;
+    }
+
+    connect(&serial, &QSerialPort::readyRead, this, &connection::handleReadyRead);
+}
+
+QByteArray connection::readData()
+{
+    QByteArray recievedData = serial.readAll();
+    std::cout << "odebrano: " << recievedData.toStdString() << std::endl;
+    return recievedData;
+}
+
+void connection::stop() {
+    if (serial.isOpen()) {
+        serial.close();
+    }
+}
+
+void connection::handleReadyRead(){
+    QByteArray data = serial.readAll();
+    emit dataReceived(data);
+}
 
 
 // quint8 computeCRC8(quint8* pData, int Length, unsigned int Poly, quint8 InitVal)

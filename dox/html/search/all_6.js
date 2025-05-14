@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['gamewidget_0',['gameWidget',['../class_ui___main_window.html#a581f7b533b1ec22f576309432e1b4371',1,'Ui_MainWindow']]],
-  ['getscore_1',['getScore',['../class_pong_widget.html#a4f577e21d8d72e7057c37ffec6859ba0',1,'PongWidget']]],
-  ['gridlayout_2',['gridLayout',['../class_ui__test.html#abb8a688a82879f029b6149ef87c5fcfd',1,'Ui_test']]],
-  ['gridlayout_5f2_3',['gridLayout_2',['../class_ui__test.html#a83a3dca3c714c834b8dea736d4c92a25',1,'Ui_test']]],
-  ['gridlayout_5f3_4',['gridLayout_3',['../class_ui__test.html#a4f64e6fca08ab51d89919c8cf6eaf3fc',1,'Ui_test']]]
+  ['readdata_0',['readData',['../classconnection.html#aa05bb31c4e31fc14c6523753fe1bf287',1,'connection']]],
+  ['resetgame_1',['resetGame',['../class_pong_widget.html#a5b79b6e1d776d074b4b4f48306076787',1,'PongWidget']]],
+  ['restart_2',['restart',['../classmenu.html#a0031cba18b5268bad6b0cbbec7d5d8d5',1,'menu']]],
+  ['restarted_3',['restarted',['../class_main_window.html#a3d57a932399861f94fee7987284beb60',1,'MainWindow']]],
+  ['restartedgame_4',['restartedGame',['../class_main_window.html#a36e6c006461c0b02e98d80d02bf4bdbf',1,'MainWindow']]],
+  ['resumed_5',['resumed',['../class_main_window.html#ae5577ebf34458585e4496dedf20b25b9',1,'MainWindow']]],
+  ['resumedgame_6',['resumedGame',['../class_main_window.html#a2157f61f760f65fa99903540855d1d89',1,'MainWindow']]]
 ];

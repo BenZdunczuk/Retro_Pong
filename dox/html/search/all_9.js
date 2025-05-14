@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['keypressevent_0',['keyPressEvent',['../class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073',1,'PongWidget']]],
-  ['keyreleaseevent_1',['keyReleaseEvent',['../class_pong_widget.html#a6d33df4864fe204649d309f997ea0422',1,'PongWidget']]]
+  ['ui_5fmainwindow_0',['Ui_MainWindow',['../class_ui___main_window.html',1,'']]],
+  ['ui_5fmenu_1',['Ui_menu',['../class_ui__menu.html',1,'']]],
+  ['ui_5ftest_2',['Ui_test',['../class_ui__test.html',1,'']]],
+  ['unpause_3',['unPause',['../classmenu.html#a15df0f3dc7e338b7239bf7f08ce3332d',1,'menu']]]
 ];

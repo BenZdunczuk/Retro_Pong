@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getscore_0',['getScore',['../class_pong_widget.html#a4f577e21d8d72e7057c37ffec6859ba0',1,'PongWidget']]]
+  ['datareceived_0',['dataReceived',['../classconnection.html#ad3d17d18612b74a1270055c11e76c5d9',1,'connection']]]
 ];

@@ -15,16 +15,33 @@ Inheritance diagram for Main\+Window\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_main_window}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_a2157f61f760f65fa99903540855d1d89}{resumed\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Slot wznawiający grę \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a36e6c006461c0b02e98d80d02bf4bdbf}{restarted\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Slot resetujący grę \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_ae5577ebf34458585e4496dedf20b25b9}{resumed}} ()
+\begin{DoxyCompactList}\small\item\em Sygnał wznawiający grę \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a3d57a932399861f94fee7987284beb60}{restarted}} ()
+\begin{DoxyCompactList}\small\item\em Sygnał resetujący grę \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
 \begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_main_window}{Main\+Window}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\texorpdfstring{$\sim$}{\string~}\+Main\+Window}} ()
+\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Main\+Window} ()
 \begin{DoxyCompactList}\small\item\em Destruktor klasy \doxylink{class_main_window}{Main\+Window}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_main_window_a3aec74759b0038a8242fd5d19e1a493c}{close\+Main\+Window}} ()
+\Hypertarget{class_main_window_a3aec74759b0038a8242fd5d19e1a493c}\label{class_main_window_a3aec74759b0038a8242fd5d19e1a493c} 
+void {\bfseries close\+Main\+Window} ()
 \begin{DoxyCompactList}\small\item\em Metoda zamykająca główne okno aplikacji. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_main_window_a669e8df21465603fe4713abbe8779ea1}{toggle\+Pause}} ()
+\Hypertarget{class_main_window_a669e8df21465603fe4713abbe8779ea1}\label{class_main_window_a669e8df21465603fe4713abbe8779ea1} 
+void {\bfseries toggle\+Pause} ()
 \begin{DoxyCompactList}\small\item\em Przełącza stan gry (pomiędzy stanami\+: gra włączona i zatrzymana). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -56,42 +73,55 @@ Inicjalizuje okno graficzne oraz widget z grą Pong
 {\em parent} & Opcjonalny wskaźnik do rodzica. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\index{MainWindow@{MainWindow}!````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}}
-\index{````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}!MainWindow@{MainWindow}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MainWindow()}{\string~MainWindow()}}
-{\footnotesize\ttfamily \label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7} 
-Main\+Window\+::\texorpdfstring{$\sim$}{\string~}\+Main\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Destruktor klasy \doxylink{class_main_window}{Main\+Window}. 
-
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_main_window_a3aec74759b0038a8242fd5d19e1a493c}\index{MainWindow@{MainWindow}!closeMainWindow@{closeMainWindow}}
-\index{closeMainWindow@{closeMainWindow}!MainWindow@{MainWindow}}
-\doxysubsubsection{\texorpdfstring{closeMainWindow()}{closeMainWindow()}}
-{\footnotesize\ttfamily \label{class_main_window_a3aec74759b0038a8242fd5d19e1a493c} 
-void Main\+Window\+::close\+Main\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\Hypertarget{class_main_window_a3d57a932399861f94fee7987284beb60}\index{MainWindow@{MainWindow}!restarted@{restarted}}
+\index{restarted@{restarted}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{restarted}{restarted}}
+{\footnotesize\ttfamily \label{class_main_window_a3d57a932399861f94fee7987284beb60} 
+void Main\+Window\+::restarted (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
 
 
 
-Metoda zamykająca główne okno aplikacji. 
+Sygnał resetujący grę 
 
-\Hypertarget{class_main_window_a669e8df21465603fe4713abbe8779ea1}\index{MainWindow@{MainWindow}!togglePause@{togglePause}}
-\index{togglePause@{togglePause}!MainWindow@{MainWindow}}
-\doxysubsubsection{\texorpdfstring{togglePause()}{togglePause()}}
-{\footnotesize\ttfamily \label{class_main_window_a669e8df21465603fe4713abbe8779ea1} 
-void Main\+Window\+::toggle\+Pause (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Przełącza stan gry (pomiędzy stanami\+: gra włączona i zatrzymana). 
+Zostaje wysyłany w slocie \doxylink{class_main_window_a36e6c006461c0b02e98d80d02bf4bdbf}{restarted\+Game()} i odbierany przez klasę widgetu gry Pong \Hypertarget{class_main_window_a36e6c006461c0b02e98d80d02bf4bdbf}\index{MainWindow@{MainWindow}!restartedGame@{restartedGame}}
+\index{restartedGame@{restartedGame}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{restartedGame}{restartedGame}}
+{\footnotesize\ttfamily \label{class_main_window_a36e6c006461c0b02e98d80d02bf4bdbf} 
+void Main\+Window\+::restarted\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 
+
+Slot resetujący grę 
+
+Slot restartujący grę
+
+Odbiera sygnał z klasy menu i wysyła sygnał do klasy widgetu gry Pong \Hypertarget{class_main_window_ae5577ebf34458585e4496dedf20b25b9}\index{MainWindow@{MainWindow}!resumed@{resumed}}
+\index{resumed@{resumed}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{resumed}{resumed}}
+{\footnotesize\ttfamily \label{class_main_window_ae5577ebf34458585e4496dedf20b25b9} 
+void Main\+Window\+::resumed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Sygnał wznawiający grę 
+
+Zostaje wysyłany w slocie \doxylink{class_main_window_a2157f61f760f65fa99903540855d1d89}{resumed\+Game()} i odbierany przez klasę widgetu gry Pong \Hypertarget{class_main_window_a2157f61f760f65fa99903540855d1d89}\index{MainWindow@{MainWindow}!resumedGame@{resumedGame}}
+\index{resumedGame@{resumedGame}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{resumedGame}{resumedGame}}
+{\footnotesize\ttfamily \label{class_main_window_a2157f61f760f65fa99903540855d1d89} 
+void Main\+Window\+::resumed\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot wznawiający grę 
+
+Odbiera sygnał z klasy menu i wysyła sygnał do klasy widgetu gry Pong 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
-C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\+QT/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\+QT/build/\+Desktop\+\_\+\+Qt\+\_\+6\+\_\+9\+\_\+0\+\_\+\+Min\+GW\+\_\+64\+\_\+bit-\/\+Release/pong\+\_\+autogen/\+EWIEGA46\+WW/moc\+\_\+mainwindow.\+cpp\item 
+C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\+QT/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

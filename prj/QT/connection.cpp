@@ -6,23 +6,36 @@
 
 /**
 * \file
-* \brief Plik conecction.cpp
+* \brief Plik connection.cpp
 *
 * Zawiera definicję protokołu komunikacji
 */
 
 #define portName "COM4"
 
+    /**
+     * @brief Konstruktor klasy connection
+     *
+     * @param[in] Opcjonalny wskaźnik do rodzica
+     */
 connection::connection(QObject *parent)
     : QObject{parent}
 {
     //start();
 }
 
+    /**
+     * @brief Destruktor klasy connection
+     */
 connection::~connection(){
     stop();
 }
 
+    /**
+     * @brief Slot inicjalizujący połączenie po USB
+     *
+     * @param[out] serial Zmienna reprezentująca skonfigurowane połączenie
+     */
 void connection::start(){
     serial.setPortName(portName);
     serial.setBaudRate(QSerialPort::Baud115200);
@@ -40,6 +53,11 @@ void connection::start(){
     connect(&serial, &QSerialPort::readyRead, this, &connection::handleReadyRead);
 }
 
+    /**
+     * @brief Metoda odbierająca dane z mikrokontrolera
+     *
+     * @return recievedData Dane odebrane z mikrokontrolera
+     */
 QByteArray connection::readData()
 {
     QByteArray recievedData = serial.readAll();
@@ -47,12 +65,20 @@ QByteArray connection::readData()
     return recievedData;
 }
 
+    /**
+     * @brief Slot kończący połączenie po USB
+     *
+     * @param[out] serial Zmienna reprezentująca zamknięte połączenie
+     */
 void connection::stop() {
     if (serial.isOpen()) {
         serial.close();
     }
 }
 
+    /**
+     * @brief Slot odbierający dane w momencie gotowości do odbierania danych
+     */
 void connection::handleReadyRead(){
     QByteArray data = serial.readAll();
     emit dataReceived(data);

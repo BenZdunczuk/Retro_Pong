@@ -61,8 +61,11 @@ void menu::on_buttonExit_clicked()
      */
 void menu::on_buttonNewGame_clicked()
 {
+    connect(this,&menu::restart,mainWindowPtr,&MainWindow::restartedGame);
+    mainWindowPtr->togglePause();
     menu::close();
-    //reset gry
+    //emit unPause();
+    emit restart();
 }
 
     /**
@@ -73,7 +76,6 @@ void menu::on_buttonNewGame_clicked()
 void menu::on_buttonTest_clicked()
 {
     test pTest(this);
-
     pTest.exec();
 }
 

@@ -77,17 +77,6 @@ void MainWindow::on_buttonPause_clicked()
 
 }
 
-//     /**
-//      * @brief Obsługuje przełączenie stanu przycisku pauzy (toggle).
-//      * @param checked True, jeśli przycisk został wciśnięty; False w przeciwnym razie.
-//      */
-// void MainWindow::on_buttonPause_toggled(bool checked)
-// {
-//     isPaused = !isPaused;
-//     pongGame->setPause(isPaused);
-//     ui->buttonPause->setText(isPaused ? "Wznów" : "Pauza");
-// }
-
     /**
      * @brief Przełącza stan gry (pomiędzy stanami: gra włączona i zatrzymana).
      */
@@ -98,7 +87,20 @@ void MainWindow::togglePause()
     ui->buttonPause->setText(isPaused ? "Wznów" : "Pauza");
 }
 
+    /**
+     * @brief Slot wznawiający grę
+     *
+     * Odbiera sygnał z klasy menu i wysyła sygnał do klasy widgetu gry Pong
+     */
 void MainWindow::resumedGame(){
     emit resumed();
 }
 
+/**
+     * @brief Slot restartujący grę
+     *
+     * Odbiera sygnał z klasy menu i wysyła sygnał do klasy widgetu gry Pong
+     */
+void MainWindow::restartedGame(){
+    emit restarted();
+}

@@ -92,6 +92,7 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classmenu-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">menu Class Reference</div></div>
@@ -109,13 +110,23 @@ Inheritance diagram for menu:</div>
   <img src="classmenu.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
+Signals</h2></td></tr>
+<tr class="memitem:a15df0f3dc7e338b7239bf7f08ce3332d" id="r_a15df0f3dc7e338b7239bf7f08ce3332d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15df0f3dc7e338b7239bf7f08ce3332d">unPause</a> ()</td></tr>
+<tr class="memdesc:a15df0f3dc7e338b7239bf7f08ce3332d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sygnał wznawiający działanie gry.  <br /></td></tr>
+<tr class="separator:a15df0f3dc7e338b7239bf7f08ce3332d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0031cba18b5268bad6b0cbbec7d5d8d5" id="r_a0031cba18b5268bad6b0cbbec7d5d8d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0031cba18b5268bad6b0cbbec7d5d8d5">restart</a> ()</td></tr>
+<tr class="memdesc:a0031cba18b5268bad6b0cbbec7d5d8d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sygnał restartujący działanie gry.  <br /></td></tr>
+<tr class="separator:a0031cba18b5268bad6b0cbbec7d5d8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af41648f6cd3841be0426e8cfffbaa9fa" id="r_af41648f6cd3841be0426e8cfffbaa9fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af41648f6cd3841be0426e8cfffbaa9fa">menu</a> (<a class="el" href="class_main_window.html">MainWindow</a> *mainWindow=nullptr)</td></tr>
 <tr class="memdesc:af41648f6cd3841be0426e8cfffbaa9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy menu.  <br /></td></tr>
 <tr class="separator:af41648f6cd3841be0426e8cfffbaa9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5efbd22f23289b42ed68d2a9bb431f35" id="r_a5efbd22f23289b42ed68d2a9bb431f35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5efbd22f23289b42ed68d2a9bb431f35">~menu</a> ()</td></tr>
-<tr class="memdesc:a5efbd22f23289b42ed68d2a9bb431f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktor klasy <a class="el" href="class_main_window.html" title="Klasa MainWindow reprezentuje główne okno aplikacji Pong.">MainWindow</a>.  <br /></td></tr>
+<tr class="memitem:a5efbd22f23289b42ed68d2a9bb431f35" id="r_a5efbd22f23289b42ed68d2a9bb431f35"><td class="memItemLeft" align="right" valign="top"><a id="a5efbd22f23289b42ed68d2a9bb431f35" name="a5efbd22f23289b42ed68d2a9bb431f35"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~menu</b> ()</td></tr>
+<tr class="memdesc:a5efbd22f23289b42ed68d2a9bb431f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktor klasy <a class="el" href="class_main_window.html" title="Klasa MainWindow reprezentuje główne okno aplikacji Pong.">MainWindow</a>. <br /></td></tr>
 <tr class="separator:a5efbd22f23289b42ed68d2a9bb431f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -155,28 +166,67 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5efbd22f23289b42ed68d2a9bb431f35" name="a5efbd22f23289b42ed68d2a9bb431f35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5efbd22f23289b42ed68d2a9bb431f35">&#9670;&#160;</a></span>~menu()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0031cba18b5268bad6b0cbbec7d5d8d5" name="a0031cba18b5268bad6b0cbbec7d5d8d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0031cba18b5268bad6b0cbbec7d5d8d5">&#9670;&#160;</a></span>restart</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">menu::~menu </td>
+          <td class="memname">void menu::restart </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Destruktor klasy <a class="el" href="class_main_window.html" title="Klasa MainWindow reprezentuje główne okno aplikacji Pong.">MainWindow</a>. </p>
+<p>Sygnał restartujący działanie gry. </p>
+<p>Zostaje wysyłany w momencie kliknięcia przycisku nowej gry </p>
+
+</div>
+</div>
+<a id="a15df0f3dc7e338b7239bf7f08ce3332d" name="a15df0f3dc7e338b7239bf7f08ce3332d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15df0f3dc7e338b7239bf7f08ce3332d">&#9670;&#160;</a></span>unPause</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void menu::unPause </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sygnał wznawiający działanie gry. </p>
+<p>Zostaje wysyłany w momencie kliknięcia przycisku wznowienia gry </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/<a class="el" href="menu_8h_source.html">menu.h</a></li>
-<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/<a class="el" href="menu_8cpp.html">menu.cpp</a></li>
+<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/<a class="el" href="menu_8h_source.html">menu.h</a></li>
+<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/pong_autogen/EWIEGA46WW/<a class="el" href="moc__menu_8cpp_source.html">moc_menu.cpp</a></li>
+<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/<a class="el" href="menu_8cpp.html">menu.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Pong: C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/connection.h Source File</title>
+<title>Pong: C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/connection.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,7 +90,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4aa64b0872d36146e049722e293482e3.html">prj</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4aa64b0872d36146e049722e293482e3.html">prj</a></li><li class="navelem"><a class="el" href="dir_5dc710130a32bec35fec8f9fa4d46d39.html">QT</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -98,29 +98,53 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">connection.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="connection_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// #ifndef CONNECTION_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// #define CONNECTION_H</span></div>
+<a href="connection_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CONNECTION_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CONNECTION_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// #include &lt;QObject&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// #include &lt;QtSerialPort/QSerialPort&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// class connection : public QObject</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// {</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//     Q_OBJECT</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// public:</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//     explicit connection(QObject *parent = nullptr);</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//     void sendData(QString &amp;data);</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// private slots:</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//     QByteArray readData();</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// private:</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">//     QSerialPort serial;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// signals:</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// };</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// #endif // CONNECTION_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QtSerialPort/QSerialPort&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QDialog&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classconnection.html">   22</a></span><span class="keyword">class </span><a class="code hl_function" href="classconnection.html#a5d5d79c3d6e8bbfb4087a10dc6bf1fde">connection</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    Q_OBJECT</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classconnection.html#a5d5d79c3d6e8bbfb4087a10dc6bf1fde">connection</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_function" href="classconnection.html#a974638af9e9e1e5659dee7c9fab326ed">~connection</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classconnection.html#ad024ac53af5e1294c6b4e58b25dbf6d5">   39</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classconnection.html#ad024ac53af5e1294c6b4e58b25dbf6d5">sendData</a>(QString &amp;data);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span> slots:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    QByteArray <a class="code hl_slot" href="classconnection.html#aa05bb31c4e31fc14c6523753fe1bf287">readData</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="classconnection.html#af82300c109d2a17c46ac0d81d1cb1165">start</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="classconnection.html#ac33a31370ddb0f1dd780e3a39dbda8ab">stop</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> handleReadyRead();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    QSerialPort serial;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>signals:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classconnection.html#ad3d17d18612b74a1270055c11e76c5d9">dataReceived</a>(<span class="keyword">const</span> QByteArray &amp;data);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif </span><span class="comment">// CONNECTION_H</span></div>
+<div class="ttc" id="aclassconnection_html_a5d5d79c3d6e8bbfb4087a10dc6bf1fde"><div class="ttname"><a href="classconnection.html#a5d5d79c3d6e8bbfb4087a10dc6bf1fde">connection::connection</a></div><div class="ttdeci">connection(QObject *parent=nullptr)</div><div class="ttdoc">Konstruktor klasy connection.</div><div class="ttdef"><b>Definition</b> connection.cpp:21</div></div>
+<div class="ttc" id="aclassconnection_html_a974638af9e9e1e5659dee7c9fab326ed"><div class="ttname"><a href="classconnection.html#a974638af9e9e1e5659dee7c9fab326ed">connection::~connection</a></div><div class="ttdeci">~connection()</div><div class="ttdoc">Destruktor klasy connection.</div><div class="ttdef"><b>Definition</b> connection.cpp:30</div></div>
+<div class="ttc" id="aclassconnection_html_aa05bb31c4e31fc14c6523753fe1bf287"><div class="ttname"><a href="classconnection.html#aa05bb31c4e31fc14c6523753fe1bf287">connection::readData</a></div><div class="ttdeci">QByteArray readData()</div><div class="ttdoc">Metoda odbierająca dane z mikrokontrolera.</div><div class="ttdef"><b>Definition</b> connection.cpp:61</div></div>
+<div class="ttc" id="aclassconnection_html_ac33a31370ddb0f1dd780e3a39dbda8ab"><div class="ttname"><a href="classconnection.html#ac33a31370ddb0f1dd780e3a39dbda8ab">connection::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Slot kończący połączenie po USB.</div><div class="ttdef"><b>Definition</b> connection.cpp:73</div></div>
+<div class="ttc" id="aclassconnection_html_ad024ac53af5e1294c6b4e58b25dbf6d5"><div class="ttname"><a href="classconnection.html#ad024ac53af5e1294c6b4e58b25dbf6d5">connection::sendData</a></div><div class="ttdeci">void sendData(QString &amp;data)</div><div class="ttdoc">Metoda wysyłająca dane do mikrokontrolera.</div></div>
+<div class="ttc" id="aclassconnection_html_ad3d17d18612b74a1270055c11e76c5d9"><div class="ttname"><a href="classconnection.html#ad3d17d18612b74a1270055c11e76c5d9">connection::dataReceived</a></div><div class="ttdeci">void dataReceived(const QByteArray &amp;data)</div><div class="ttdoc">Sygnał wysyłany w momencie odebrania danych, przechowujący odebrane dane.</div><div class="ttdef"><b>Definition</b> moc_connection.cpp:134</div></div>
+<div class="ttc" id="aclassconnection_html_af82300c109d2a17c46ac0d81d1cb1165"><div class="ttname"><a href="classconnection.html#af82300c109d2a17c46ac0d81d1cb1165">connection::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Slot inicjalizujący połączenie po USB.</div><div class="ttdef"><b>Definition</b> connection.cpp:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

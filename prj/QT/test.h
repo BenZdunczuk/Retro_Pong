@@ -34,17 +34,11 @@ public:
 
     /**
      * @brief Konstruktor klasy test.
-     *
-     * Inicjalizuje interfejs użytkownika oraz ustawia widżety i układy.
-     *
-     * @param parent Wskaźnik do obiektu rodzica.
      */
     explicit test(QWidget *parent = nullptr);
 
     /**
      * @brief Destruktor klasy test.
-     *
-     * Odpowiada za zwolnienie pamięci alokowanej.
      */
     ~test();
 

@@ -58,12 +58,6 @@ private slots:
      */
     void on_buttonPause_clicked();
 
-    /**
-     * @brief Obsługuje przełączenie stanu przycisku pauzy (toggle).
-     * @param checked True, jeśli przycisk został wciśnięty; False w przeciwnym razie.
-     */
-    //void on_buttonPause_toggled(bool checked);
-
 private:
     /**
      * @brief Wskaźnik do obiektu interfejsu użytkownika.
@@ -81,11 +75,30 @@ private:
     bool isPaused;
 
 public slots:
+    /**
+     * @brief Slot wznawiający grę
+     */
     void resumedGame();
 
+    /**
+     * @brief Slot resetujący grę
+     */
+    void restartedGame();
 
 signals:
+    /**
+     * @brief Sygnał wznawiający grę
+     *
+     * Zostaje wysyłany w slocie resumedGame() i odbierany przez klasę widgetu gry Pong
+     */
     void resumed();
+
+    /**
+     * @brief Sygnał resetujący grę
+     *
+     * Zostaje wysyłany w slocie restartedGame() i odbierany przez klasę widgetu gry Pong
+     */
+    void restarted();
 };
 
 #endif // MAINWINDOW_H

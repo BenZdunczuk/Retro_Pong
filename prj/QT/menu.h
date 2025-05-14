@@ -31,7 +31,6 @@ class menu : public QDialog
 public:
     /**
      * @brief Konstruktor klasy menu.
-     * @param parent Opcjonalny wskaźnik do rodzica.
      */
     explicit menu(MainWindow *mainWindow = nullptr);
 
@@ -50,27 +49,33 @@ private slots:
 
     /**
      * @brief Metoda obsługująca kliknięcie przycisku wyjścia z gry.
-     *
-     * Powoduje zatrzymanie działania aplikacji
      */
     void on_buttonExit_clicked();
 
     /**
      * @brief Metoda obsługująca kliknięcie przycisku nowej gry.
-     *
-     * Powoduje zresetowanie gry oraz zamknięcie okienka menu
      */
     void on_buttonNewGame_clicked();
 
     /**
      * @brief Metoda obsługująca kliknięcie przycisku testowania połączenia.
-     *
-     * Powoduje otworzenie okienka testowania połączenia
      */
     void on_buttonTest_clicked();
 
 signals:
+    /**
+     * @brief Sygnał wznawiający działanie gry
+     *
+     * Zostaje wysyłany w momencie kliknięcia przycisku wznowienia gry
+     */
     void unPause();
+
+    /**
+     * @brief Sygnał restartujący działanie gry
+     *
+     * Zostaje wysyłany w momencie kliknięcia przycisku nowej gry
+     */
+    void restart();
 
 private:
     /**

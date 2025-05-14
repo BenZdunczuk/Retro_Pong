@@ -35,11 +35,6 @@ public:
      */
     void setPause(bool paused);
 
-    /**
-     * @brief Metoda typu getter umożliwiająca dostęp do atrybutu score
-     */
-    int getScore();
-
     MainWindow *mainWindow;
 
 protected:
@@ -83,8 +78,14 @@ private:
      */
     QRect ball;
 
+    /**
+     * @brief Metoda obliczająca długości wektorów składowych piłeczek
+     */
     int rotation(int angle);
 
+    /**
+     * @brief Metoda typu getter umożliwiająca dostęp do atrybutu score
+     */
     int reflaction(int angleA, int angleB);
 
     /**
@@ -93,9 +94,9 @@ private:
     bool isPaused;
 
     /**
-     * @brief Atrybut przechowujący aktualny wynik w grze
+     * @brief Atrybut przechowujący aktualny wynik obu graczy w grze
      */
-    int score;
+    int scoreAI,scorePlayer;
 
     /**
      * @brief Współrzędne piłęczki
@@ -107,9 +108,15 @@ private:
      */
     bool moveUp, moveDown, rotateRight, rotateLeft;
 
-    int rotationAnglePaddle;
-    int posX,posY;
+    /**
+     * @brief Kąt obrotu oraz pozycja paletki
+     */
+    int rotationAnglePaddle,posX,posY;
     int rotationAngleBall;
+
+    /**
+     * @brief Prędkość poruszania się piłęczki
+     */
     double speed;
 
     /**
@@ -121,6 +128,12 @@ private:
      * @brief Metoda resetująca pozycję piłeczki
      */
     void resetBall();
+
+public slots:
+    /**
+     * @brief Metoda resetująca aktualną grę
+     */
+    void resetGame();
 };
 
 #endif // PONGING_H

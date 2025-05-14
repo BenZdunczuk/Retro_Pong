@@ -13,7 +13,7 @@
 */
 
 /**
- * @brief Konstruktor klasy test (testowanie połączenia).
+ * @brief Konstruktor klasy test.
  *
  * Tworzy obiekt dialogowy, inicjalizuje interfejs użytkownika do testowania połączenia i dodaje dwa wykresy typu `chart`
  * do obu używanych czujników z mikrokontrolera (acc - akcelerator, gyro-żyroskop).
@@ -41,7 +41,7 @@ test::test(QWidget *parent)
 /**
  * @brief Destruktor klasy test.
  *
- * Zwalnia pamięć zaalokowaną.
+ * Odpowiada za zwolnienie pamięci alokowanej oraz zamyka okienko.
  */
 test::~test()
 {

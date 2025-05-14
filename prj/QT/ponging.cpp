@@ -4,6 +4,8 @@
 #include <QPainter>
 #include <cmath>
 #include <QEventLoop>
+#include <random>
+#include <iostream>
 
 /**
 * \file
@@ -14,8 +16,8 @@
 
 #define baseSpeed 4
 
-/**
-     * @brief Konstruktor klasy menu.
+    /**
+     * @brief Konstruktor klasy PongWidget.
      *
      * Określa wymiary widgetu gry, inicjalizuje obiekty paletek oraz piłeczki,
      * inicjalizuje QTimer używany to aktualizowania rysowania gry
@@ -24,7 +26,7 @@
      */
 PongWidget::PongWidget(QWidget *parent)
     : QWidget(parent), mainWindow(nullptr), ballDX(baseSpeed), ballDY(baseSpeed), moveUp(false), moveDown(false), rotateRight(false),
-    rotateLeft(false),rotationAnglePaddle(0), isPaused(false), score(0), posX(0), posY(0), rotationAngleBall(45), speed(baseSpeed)
+    rotateLeft(false),rotationAnglePaddle(0), isPaused(false), scoreAI(0), scorePlayer(0), posX(0), posY(0), rotationAngleBall(45), speed(baseSpeed)
 {
     setFocusPolicy(Qt::StrongFocus);
 
@@ -76,6 +78,11 @@ void PongWidget::paintEvent(QPaintEvent *event)
     painter.drawRect(aiPaddle);
     painter.drawEllipse(ball);
 
+    painter.setPen(Qt::red);
+    painter.setFont(QFont("Courier", 16));
+    painter.drawText(10, 30, QString("Wynik: %1").arg(scoreAI));
+    painter.drawText(660, 30, QString("Wynik: %1").arg(scorePlayer));
+
 }
 
     /**
@@ -111,20 +118,19 @@ void PongWidget::keyReleaseEvent(QKeyEvent *event)
      */
 void PongWidget::gameLoop()
 {
-    QEventLoop loop;
-    connect(mainWindow,&MainWindow::resumed, &loop, &QEventLoop::quit);
+    QEventLoop pausedLoop;
+    connect(mainWindow,&MainWindow::resumed, &pausedLoop, &QEventLoop::quit);
+    connect(mainWindow,&MainWindow::restarted, &pausedLoop, &QEventLoop::quit);
     if(isPaused){
-
-        loop.exec();
-
+        pausedLoop.exec();
     }
+
+    connect(mainWindow,&MainWindow::restarted, this, &PongWidget::resetGame);
 
     /*      gracz       */
     if (moveUp && posY > 0)
-        //playerPaddle.moveTop(playerPaddle.top() - 6);
         posY -= 6;
     if (moveDown && posY < height())
-        //playerPaddle.moveTop(playerPaddle.top() + 6);
         posY += 6;
     if(rotateLeft)
         --rotationAnglePaddle;
@@ -146,15 +152,21 @@ void PongWidget::gameLoop()
 
     if (ball.intersects(playerPaddle) && ballDX > 0)
         rotationAngleBall = rotation(reflaction(rotationAngleBall,rotationAnglePaddle + 90));
-        //ballDX = -ballDX;
     if (ball.intersects(aiPaddle) && ballDX < 0)
         rotationAngleBall = rotation(reflaction(rotationAngleBall,90));
-        //ballDX = -ballDX;
 
     /*      piłeczka wypada poza boisko     */
-    if (ball.left() < 0 || ball.right() > width())
-        //score++;
+    if (ball.left() < 0){   //wypada ze strony AI
+        ++scorePlayer;
         resetBall();
+    }
+
+    if (ball.right() > width()){   //wypada ze strony gracza
+        ++scoreAI;
+        resetBall();
+    }
+
+    //std::cout << scorePlayer << std::endl;
 
     update();
 }
@@ -169,26 +181,30 @@ void PongWidget::resetBall()
 {
     speed = baseSpeed;
     ball.moveTo(width()/2 - 10, height()/2 - 10);
-    rotationAngleBall = 180-rotationAngleBall;      //zmiana kierunku piłeczki po wypadnięciu z boiska
+    rotationAngleBall = 45*rotationAngleBall/abs(rotationAngleBall);    //zmiana kierunku piłeczki po wypadnięciu z boiska
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dist(0, 2);         //randomizacja kierunku piłeczki
+    rotationAngleBall += 90*dist(gen);
     rotation(rotationAngleBall);
 }
 
     /**
      * @brief Metoda typu setter umożliwiająca dostęp do modyfikacji atrybutu paused
-     * @param paused Stan gry (zatrzymana/trwająca)
+     * @param[in] paused Stan gry (zatrzymana/trwająca)
      */
 void PongWidget::setPause(bool pause)
 {
     isPaused = pause;
 }
 
-    /**
-     * @brief Metoda typu getter umożliwiająca dostęp do atrybutu score
-     */
-int PongWidget::getScore()
-{
-    return score;
-}
+//     /**
+//      * @brief Metoda typu getter umożliwiająca dostęp do atrybutu score
+//      */
+// int PongWidget::getScoreAI()
+// {
+//     return score;
+// }
 
     /**
      * @brief Metoda obliczająca długości wektorów składowych piłeczek
@@ -196,8 +212,8 @@ int PongWidget::getScore()
      * @param[out] angle Kąt obrotu piłeczki modulo 360, jakby doszło do zatoczenia pełnego koła
      */
 int PongWidget::rotation(int angle){
-    angle %= 360;
-    speed *= 1.1;
+    //angle %= 360;
+    speed *= 1.05;      //przyśpieszenie gry
     ballDX = speed * 1.41 * cos(3.14*angle/180);
     ballDY = speed * 1.41 * sin(3.14*angle/180);
     return angle;
@@ -211,4 +227,13 @@ int PongWidget::rotation(int angle){
 int PongWidget::reflaction(int angleA, int angleB){
     angleA = 2*angleB - angleA;
     return angleA;
+}
+
+    /**
+     * @brief Metoda resetująca aktualną grę
+     */
+void PongWidget::resetGame(){
+    scoreAI = 0;
+    scorePlayer = 0;
+    resetBall();
 }

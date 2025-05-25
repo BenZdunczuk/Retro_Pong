@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include "ponging.h"
 #include "menu.h"
+#include "connection.h"
 
 /**
 * \file
@@ -51,6 +52,10 @@ public:
      * @brief Przełącza stan gry (pomiędzy stanami: gra włączona i zatrzymana).
      */
     void togglePause();
+
+
+    connection* connectMain;
+
 
 private slots:
     /**

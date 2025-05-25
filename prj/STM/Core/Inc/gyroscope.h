@@ -9,16 +9,9 @@ extern "C" {
 #include "stm32l476g_discovery.h"
 #include "stm32l476g_discovery_gyroscope.h"
 
-uint8_t gyroInit();
-void gyroGetData(float gyroDataFiltered[3]);
+uint8_t GyroInit();
+void GyroGetData(float gyroDataFiltered[3]);
 //void gyroFilterData()
-
-
-
-
-
-
-
 
 #ifdef __cplusplus
 }

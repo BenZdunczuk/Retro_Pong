@@ -105,9 +105,11 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
-  extern USBD_HandleTypeDef hUsbDeviceFS;
-  //if(!gyroInit()){Error_Handler();}
-  //if(!accInit()){Error_Handler();}
+  printf(" - - Start Programu - - ");
+
+//  extern USBD_HandleTypeDef hUsbDeviceFS;
+  if(GyroInit()){Error_Handler();}
+  if(AccInit()){Error_Handler();}
 
   /* USER CODE END 2 */
 
@@ -118,12 +120,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+//	uint8_t message[] = "Hello\r\n";
+//	CDC_Transmit_FS(message, strlen((char*)message));
 
-	uint8_t message[] = "Hello\r\n";
-	CDC_Transmit_FS(message, strlen((char*)message));
-
-//	gyroGetData(filteredGyro);
-//	accGetData(filteredAcc);
+	GyroGetData(filteredGyro);
+	AccGetData(filteredAcc);
 
 	HAL_Delay(1000);
   }
@@ -206,7 +207,8 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 int _write(int file, char *ptr, int len) {
-    HAL_UART_Transmit(&huart2, (uint8_t*) ptr, len, 100);
+//    HAL_UART_Transmit(&huart2, (uint8_t*) ptr, len, 100);
+	CDC_Transmit_FS((uint8_t*)ptr,len);
     return len;
 }
 
@@ -222,6 +224,7 @@ void Error_Handler(void)
   /* User can add his own implementation to report the HAL error return state */
 	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_2);
 	HAL_Delay(500);
+	printf("ERR\r\n");
 
   /* USER CODE END Error_Handler_Debug */
 }

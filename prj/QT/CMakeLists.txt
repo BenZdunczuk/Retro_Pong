@@ -16,6 +16,7 @@ qt_add_executable(pong
     chart.h chart.cpp
     ponging.h ponging.cpp
     connection.h connection.cpp
+
 )
 
 qt_add_translations(

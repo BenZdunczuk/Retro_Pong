@@ -33,16 +33,21 @@ public:
      */
     ~connection();
 
+    // /**
+    //  * @brief Metoda wysyłająca dane do mikrokontrolera
+    //  */
+    // void sendData(QString &data);
+
     /**
-     * @brief Metoda wysyłająca dane do mikrokontrolera
+     * @brief Metoda typu getter umożliwiająca dostęp do atrybutu isConnected;
      */
-    void sendData(QString &data);
+    bool getConnectionStatus();
 
 public slots:
-    /**
-     * @brief Metoda odbierająca dane z mikrokontrolera
-     */
-    QByteArray readData();
+    // /**
+    //  * @brief Metoda odbierająca dane z mikrokontrolera
+    //  */
+    // QByteArray readData();
 
     /**
      * @brief Slot inicjalizujący połączenie po USB
@@ -53,6 +58,8 @@ public slots:
      * @brief Slot kończący połączenie po USB
      */
     void stop();
+
+    void processData(const QByteArray data);
 
 private slots:
     /**
@@ -66,11 +73,18 @@ private:
      */
     QSerialPort serial;
 
+    /**
+     * @brief Zmienna boolowska reprezentująca status połączenia (0 - brak połączenia, 1 - połączenie aktywne)
+     */
+    bool isConnected;
+
 signals:
     /**
      * @brief Sygnał wysyłany w momencie odebrania danych, przechowujący odebrane dane
      */
     void dataReceived(const QByteArray &data);
+
+    void dataProcessed(int sensorType,QStringList dataProcessed);
 };
 
 #endif // CONNECTION_H

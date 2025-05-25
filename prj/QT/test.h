@@ -1,6 +1,9 @@
 #ifndef TEST_H
 #define TEST_H
 
+#include "connection.h"
+#include "ui_test.h"
+
 #include <QObject>
 #include <QWidget>
 #include <QDialog>
@@ -35,14 +38,19 @@ public:
     /**
      * @brief Konstruktor klasy test.
      */
-    explicit test(QWidget *parent = nullptr);
+    explicit test(QWidget *parent = nullptr,connection *connect = nullptr);
 
     /**
      * @brief Destruktor klasy test.
      */
     ~test();
 
+    connection* connectTest;
+
+
+
 private slots:
+    bool displayData(bool sensor, QStringList data);
 
 private:
     /**

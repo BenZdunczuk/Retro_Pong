@@ -14,10 +14,8 @@
      * @brief Konstruktor klasy menu.
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
-menu::menu(MainWindow *parent)
-    : QDialog(parent)
-    , ui(new Ui::menu)
-    , mainWindowPtr(parent)
+menu::menu(MainWindow *parent, connection* connect)
+    : QDialog(parent), ui(new Ui::menu), mainWindowPtr(parent), connectMenu(connect)
 {
     ui->setupUi(this);
 }
@@ -64,7 +62,6 @@ void menu::on_buttonNewGame_clicked()
     connect(this,&menu::restart,mainWindowPtr,&MainWindow::restartedGame);
     mainWindowPtr->togglePause();
     menu::close();
-    //emit unPause();
     emit restart();
 }
 
@@ -75,7 +72,7 @@ void menu::on_buttonNewGame_clicked()
      */
 void menu::on_buttonTest_clicked()
 {
-    test pTest(this);
+    test pTest(this,connectMenu);
     pTest.exec();
 }
 

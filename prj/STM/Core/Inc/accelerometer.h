@@ -9,8 +9,8 @@ extern "C" {
 #include "stm32l476g_discovery_compass.h"
 #include <stdio.h>
 
-uint8_t accInit();
-void accGetData(float accDataFiltered[3]);
+uint8_t AccInit();
+void AccGetData(float accDataFiltered[3]);
 
 #ifdef __cplusplus
 }

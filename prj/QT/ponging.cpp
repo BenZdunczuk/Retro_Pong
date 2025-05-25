@@ -5,7 +5,7 @@
 #include <cmath>
 #include <QEventLoop>
 #include <random>
-#include <iostream>
+// #include <iostream>
 
 /**
 * \file
@@ -78,7 +78,7 @@ void PongWidget::paintEvent(QPaintEvent *event)
     painter.drawRect(aiPaddle);
     painter.drawEllipse(ball);
 
-    painter.setPen(Qt::red);
+    painter.setPen(Qt::white);
     painter.setFont(QFont("Courier", 16));
     painter.drawText(10, 30, QString("Wynik: %1").arg(scoreAI));
     painter.drawText(660, 30, QString("Wynik: %1").arg(scorePlayer));
@@ -197,14 +197,6 @@ void PongWidget::setPause(bool pause)
 {
     isPaused = pause;
 }
-
-//     /**
-//      * @brief Metoda typu getter umożliwiająca dostęp do atrybutu score
-//      */
-// int PongWidget::getScoreAI()
-// {
-//     return score;
-// }
 
     /**
      * @brief Metoda obliczająca długości wektorów składowych piłeczek

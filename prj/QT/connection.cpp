@@ -19,7 +19,7 @@
      * @param[in] Opcjonalny wskaźnik do rodzica
      */
 connection::connection(QObject *parent)
-    : QObject{parent}
+    : QObject{parent}, isConnected(false)
 {
     //start();
 }
@@ -46,23 +46,12 @@ void connection::start(){
 
     if (serial.open(QIODevice::ReadWrite)) {
         std::cout << "Polaczono" << std::endl;
+        connect(&serial, &QSerialPort::readyRead, this, &connection::handleReadyRead);
+        isConnected = true;
     } else {
         std::cout << "Blad polaczenia" << std::endl;
+        isConnected = false;
     }
-
-    connect(&serial, &QSerialPort::readyRead, this, &connection::handleReadyRead);
-}
-
-    /**
-     * @brief Metoda odbierająca dane z mikrokontrolera
-     *
-     * @return recievedData Dane odebrane z mikrokontrolera
-     */
-QByteArray connection::readData()
-{
-    QByteArray recievedData = serial.readAll();
-    std::cout << "odebrano: " << recievedData.toStdString() << std::endl;
-    return recievedData;
 }
 
     /**
@@ -77,11 +66,53 @@ void connection::stop() {
 }
 
     /**
+     * @brief Metoda typu getter umożliwiająca dostęp do atrybutu isConnected;
+     *
+     * @return isConnected Zmienna boolowska reprezentująca status połączenia (0 - brak połączenia, 1 - połączenie aktywne)
+     */
+bool connection::getConnectionStatus(){
+    return isConnected;
+}
+
+    /**
      * @brief Slot odbierający dane w momencie gotowości do odbierania danych
      */
 void connection::handleReadyRead(){
     QByteArray data = serial.readAll();
     emit dataReceived(data);
+}
+
+void connection::processData(const QByteArray dataRaw){
+    QString gyroData[3], accData[3];
+
+    QString data = QString::fromUtf8(dataRaw);
+    QStringList dataSplit = data.split('\n');
+
+    for(int i=0;i<dataSplit.size();++i){
+        QStringList segment = dataSplit[i].split(';');
+
+        if (segment.size() == 4) {
+            if(segment[0] == 'G'){
+                gyroData[0] = segment[1];
+                gyroData[1] = segment[2];
+                gyroData[2] = segment[3];
+                QStringList gyro;
+                for (int i = 0; i < 3; ++i) {
+                    gyro << gyroData[i];
+                }
+                emit dataProcessed(0,gyro);
+            } else if(segment[0] == 'A'){
+                accData[0] = segment[1];
+                accData[1] = segment[2];
+                accData[2] = segment[3];
+                QStringList acc;
+                for (int i = 0; i < 3; ++i) {
+                    acc << accData[i];
+                }
+                emit dataProcessed(1,acc);
+            }
+        }
+    }
 }
 
 
@@ -131,4 +162,14 @@ void connection::handleReadyRead(){
 //     }
 // }
 
-
+//     /**
+//      * @brief Metoda odbierająca dane z mikrokontrolera
+//      *
+//      * @return recievedData Dane odebrane z mikrokontrolera
+//      */
+// QByteArray connection::readData()
+// {
+//     QByteArray recievedData = serial.readAll();
+//     std::cout << "odebrano: " << recievedData.toStdString() << std::endl;
+//     return recievedData;
+// }

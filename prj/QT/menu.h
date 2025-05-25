@@ -5,6 +5,8 @@
 #include <QWidget>
 #include <QMainWindow>
 
+#include "connection.h"
+
 /**
 * \file
 * \brief Definicja metody klasy menu
@@ -32,12 +34,14 @@ public:
     /**
      * @brief Konstruktor klasy menu.
      */
-    explicit menu(MainWindow *mainWindow = nullptr);
+    explicit menu(MainWindow *mainWindow = nullptr,connection* connect = nullptr);
 
     /**
      * @brief Destruktor klasy MainWindow.
      */
     ~menu();
+
+    connection* connectMenu;
 
 private slots:
     /**

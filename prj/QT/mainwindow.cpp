@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "menu.h"
 #include "ponging.h"
-#include "connection.h"
 #include <QDialog>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -35,16 +34,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     pongGame->mainWindow = this;
 
+    //połączenie z czujnikami
+
     QThread *thread = new QThread;
-    connection *worker = new connection;  // Zmień port
+    connectMain = new connection;
 
-    worker->moveToThread(thread);
+    connectMain->moveToThread(thread);
 
-    QObject::connect(thread, &QThread::started, worker, &connection::start);
-    QObject::connect(worker, &connection::dataReceived, [](const QByteArray &data) {
-        qDebug() << "Odebrano:" << data;
+    QObject::connect(thread, &QThread::started, connectMain, &connection::start);
+    QObject::connect(connectMain, &connection::dataReceived, [this](const QByteArray &data) { //zmieniono [] na [this]
+        qDebug() << "Odebrano:" << data.toStdString();
+        connectMain->processData(data);
     });
-    QObject::connect(qApp, &QCoreApplication::aboutToQuit, worker, &connection::stop);
+    QObject::connect(qApp, &QCoreApplication::aboutToQuit, connectMain, &connection::stop);
 
     thread->start();
 }
@@ -72,7 +74,7 @@ void MainWindow::closeMainWindow() {
 void MainWindow::on_buttonPause_clicked()
 {
     togglePause();
-    menu pMenu(this);
+    menu pMenu(this, connectMain);
     pMenu.exec();
 
 }

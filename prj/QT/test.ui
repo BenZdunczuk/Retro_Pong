@@ -76,7 +76,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="gyroX">
       <property name="readOnly">
        <bool>true</bool>
       </property>
@@ -90,14 +90,14 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLineEdit" name="lineEdit_6">
+     <widget class="QLineEdit" name="gyroZ">
       <property name="readOnly">
        <bool>true</bool>
       </property>
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit_5">
+     <widget class="QLineEdit" name="gyroY">
       <property name="readOnly">
        <bool>true</bool>
       </property>
@@ -158,7 +158,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="2" column="1">
-     <widget class="QLineEdit" name="lineEdit_9">
+     <widget class="QLineEdit" name="accZ">
       <property name="readOnly">
        <bool>true</bool>
       </property>
@@ -172,7 +172,7 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit_10">
+     <widget class="QLineEdit" name="accY">
       <property name="readOnly">
        <bool>true</bool>
       </property>
@@ -186,7 +186,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="lineEdit_8">
+     <widget class="QLineEdit" name="accX">
       <property name="readOnly">
        <bool>true</bool>
       </property>
@@ -219,7 +219,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="lineEdit_7">
+     <widget class="QLineEdit" name="connectionStatus">
       <property name="text">
        <string>offline</string>
       </property>

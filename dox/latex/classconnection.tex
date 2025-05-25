@@ -1,0 +1,119 @@
+\doxysection{connection Class Reference}
+\hypertarget{classconnection}{}\label{classconnection}\index{connection@{connection}}
+
+
+Klasa connection reprezentuje połączenie pomiędzy aplikacją w QT a mikrokontrolerem STM.  
+
+
+
+
+{\ttfamily \#include $<$connection.\+h$>$}
+
+Inheritance diagram for connection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classconnection}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+QByte\+Array \mbox{\hyperlink{classconnection_aa05bb31c4e31fc14c6523753fe1bf287}{read\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Metoda odbierająca dane z mikrokontrolera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classconnection_af82300c109d2a17c46ac0d81d1cb1165}{start}} ()
+\begin{DoxyCompactList}\small\item\em Slot inicjalizujący połączenie po USB. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classconnection_ac33a31370ddb0f1dd780e3a39dbda8ab}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Slot kończący połączenie po USB. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classconnection_ad3d17d18612b74a1270055c11e76c5d9}\label{classconnection_ad3d17d18612b74a1270055c11e76c5d9} 
+void {\bfseries data\+Received} (const QByte\+Array \&data)
+\begin{DoxyCompactList}\small\item\em Sygnał wysyłany w momencie odebrania danych, przechowujący odebrane dane. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classconnection_a5d5d79c3d6e8bbfb4087a10dc6bf1fde}{connection}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy connection. \end{DoxyCompactList}\item 
+\Hypertarget{classconnection_a974638af9e9e1e5659dee7c9fab326ed}\label{classconnection_a974638af9e9e1e5659dee7c9fab326ed} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}connection} ()
+\begin{DoxyCompactList}\small\item\em Destruktor klasy connection. \end{DoxyCompactList}\item 
+\Hypertarget{classconnection_ad024ac53af5e1294c6b4e58b25dbf6d5}\label{classconnection_ad024ac53af5e1294c6b4e58b25dbf6d5} 
+void {\bfseries send\+Data} (QString \&data)
+\begin{DoxyCompactList}\small\item\em Metoda wysyłająca dane do mikrokontrolera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa connection reprezentuje połączenie pomiędzy aplikacją w QT a mikrokontrolerem STM. 
+
+Zawiera interfejs USB do dwustronnej komunikacji 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classconnection_a5d5d79c3d6e8bbfb4087a10dc6bf1fde}\index{connection@{connection}!connection@{connection}}
+\index{connection@{connection}!connection@{connection}}
+\doxysubsubsection{\texorpdfstring{connection()}{connection()}}
+{\footnotesize\ttfamily \label{classconnection_a5d5d79c3d6e8bbfb4087a10dc6bf1fde} 
+connection\+::connection (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktor klasy connection. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Opcjonalny} & wskaźnik do rodzica \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classconnection_aa05bb31c4e31fc14c6523753fe1bf287}\index{connection@{connection}!readData@{readData}}
+\index{readData@{readData}!connection@{connection}}
+\doxysubsubsection{\texorpdfstring{readData}{readData}}
+{\footnotesize\ttfamily \label{classconnection_aa05bb31c4e31fc14c6523753fe1bf287} 
+QByte\+Array connection\+::read\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Metoda odbierająca dane z mikrokontrolera. 
+
+\begin{DoxyReturn}{Returns}
+recieved\+Data Dane odebrane z mikrokontrolera 
+\end{DoxyReturn}
+\Hypertarget{classconnection_af82300c109d2a17c46ac0d81d1cb1165}\index{connection@{connection}!start@{start}}
+\index{start@{start}!connection@{connection}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily \label{classconnection_af82300c109d2a17c46ac0d81d1cb1165} 
+void connection\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot inicjalizujący połączenie po USB. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em serial} & Zmienna reprezentująca skonfigurowane połączenie \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classconnection_ac33a31370ddb0f1dd780e3a39dbda8ab}\index{connection@{connection}!stop@{stop}}
+\index{stop@{stop}!connection@{connection}}
+\doxysubsubsection{\texorpdfstring{stop}{stop}}
+{\footnotesize\ttfamily \label{classconnection_ac33a31370ddb0f1dd780e3a39dbda8ab} 
+void connection\+::stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot kończący połączenie po USB. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em serial} & Zmienna reprezentująca zamknięte połączenie \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\+QT/\mbox{\hyperlink{connection_8h}{connection.\+h}}\item 
+C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\+QT/build/\+Desktop\+\_\+\+Qt\+\_\+6\+\_\+9\+\_\+0\+\_\+\+Min\+GW\+\_\+64\+\_\+bit-\/\+Release/pong\+\_\+autogen/\+EWIEGA46\+WW/moc\+\_\+connection.\+cpp\item 
+C\+:/\+Users/bzdun/\+One\+Drive/\+Dokumenter/\+Qt/pong/prj/\+QT/\mbox{\hyperlink{connection_8cpp}{connection.\+cpp}}\end{DoxyCompactItemize}

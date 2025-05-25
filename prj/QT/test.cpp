@@ -1,9 +1,11 @@
 #include "test.h"
-#include "ui_test.h"
 #include "chart.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QThread>
+#include <QDebug>
+#include <iostream>
 
 /**
 * \file
@@ -20,9 +22,8 @@
  *
  * @param parent Wskaźnik do rodzica.
  */
-test::test(QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::test)
+test::test(QWidget *parent,connection* connect)
+    : QDialog(parent), ui(new Ui::test), connectTest(connect)
 {
     // chart *wykres = new chart(ui->chartWidget);
     // wykres->show();
@@ -36,6 +37,14 @@ test::test(QWidget *parent)
     chart *wykres2 = new chart(ui->chartGyro,10);
     QVBoxLayout *layout2 = new QVBoxLayout(ui->chartGyro);
     layout2->addWidget(wykres2);
+
+    if(connectTest->getConnectionStatus()){
+        ui->connectionStatus->setText("online");
+    }else{
+        ui->connectionStatus->setText("offline");
+    }
+
+    QObject::connect(connectTest,&connection::dataProcessed,this,&test::displayData);
 }
 
 /**
@@ -46,4 +55,21 @@ test::test(QWidget *parent)
 test::~test()
 {
     delete ui;
+}
+
+bool test::displayData(bool sensor, QStringList data){
+    if(sensor){
+        ui->accX->setText(data[0]);
+        ui->accY->setText(data[1]);
+        ui->accZ->setText(data[2]);
+        qDebug() << "accX: " << data[0];
+        return 0;
+    }
+    else if(!sensor){
+        ui->gyroX->setText(data[0]);
+        ui->gyroY->setText(data[1]);
+        ui->gyroZ->setText(data[2]);
+        return 0;
+    }
+    return 1;
 }

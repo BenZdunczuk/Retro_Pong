@@ -2,6 +2,7 @@
 #define PONGING_H
 
 #include "menu.h"
+#include "connection.h"
 #include <QWidget>
 #include <QTimer>
 #include <QKeyEvent>
@@ -27,7 +28,7 @@ public:
      * @brief Konstruktor klasy menu.
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
-    explicit PongWidget(QWidget *parent = nullptr);
+    explicit PongWidget(QWidget *parent = nullptr,connection *connect = nullptr);
 
     /**
      * @brief Metoda typu setter umożliwiająca dostęp do atrybutu paused
@@ -35,7 +36,15 @@ public:
      */
     void setPause(bool paused);
 
+    /**
+     * @brief Zmienna przechowująca wskaźnik do obiektu okna głównego
+     */
     MainWindow *mainWindow;
+
+    /**
+     * @brief Zmienna przechowująca wskaźnik do obiektu połączenia
+     */
+    connection *connectPong;
 
 protected:
     /**
@@ -61,6 +70,11 @@ private slots:
      * @brief Metoda obsługująca grę, wykonywana w pętli
      */
     void gameLoop();
+
+    /**
+     * @brief Metoda interpretująca odczyty sensorów i przekładająca je na sterowanie w grze
+     */
+    void calculateMovement(bool sensor,QStringList data);
 
 private:
     /**
@@ -112,6 +126,10 @@ private:
      * @brief Kąt obrotu oraz pozycja paletki
      */
     int rotationAnglePaddle,posX,posY;
+
+    /**
+     * @brief Kąt obrotu piłeczki
+     */
     int rotationAngleBall;
 
     /**

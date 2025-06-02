@@ -33,21 +33,12 @@ public:
      */
     ~connection();
 
-    // /**
-    //  * @brief Metoda wysyłająca dane do mikrokontrolera
-    //  */
-    // void sendData(QString &data);
-
     /**
      * @brief Metoda typu getter umożliwiająca dostęp do atrybutu isConnected;
      */
     bool getConnectionStatus();
 
 public slots:
-    // /**
-    //  * @brief Metoda odbierająca dane z mikrokontrolera
-    //  */
-    // QByteArray readData();
 
     /**
      * @brief Slot inicjalizujący połączenie po USB
@@ -59,7 +50,20 @@ public slots:
      */
     void stop();
 
+    /**
+     * @brief Metoda obrabiająca surowe dane
+     */
     void processData(const QByteArray data);
+
+    /**
+     * @brief Metoda obliczająca sumę kontrolną wiadomości przychodzących z mikrokontrolera
+     */
+    quint8 computeCRC8(const QByteArray& data);
+
+    /**
+     * @brief Metoda porównująca sumę kontrolną uzyskaną z transmisji z obliczoną
+     */
+    bool verifyCRC8(const QByteArray& receivedDataWithCRC);
 
 private slots:
     /**
@@ -81,9 +85,17 @@ private:
 signals:
     /**
      * @brief Sygnał wysyłany w momencie odebrania danych, przechowujący odebrane dane
+     *
+     * @param data surowe dane z czujników w postaci tablicy bajtów
      */
     void dataReceived(const QByteArray &data);
 
+    /**
+     * @brief Sygnał wysyłany w po obrobieniu danych, przechowujący informacje o typie czujnika oraz dane z podziałem na osie
+     *
+     * @param sensorType typ czujnika, 0 - żyroskop, 1 - akcelerometr
+     * @param dataProcessed przetworzone dane w postaci listy stringów (mogą być łatwo przetworzone na wartości numeryczne)
+     */
     void dataProcessed(int sensorType,QStringList dataProcessed);
 };
 

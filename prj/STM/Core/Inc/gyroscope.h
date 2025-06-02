@@ -9,8 +9,23 @@ extern "C" {
 #include "stm32l476g_discovery.h"
 #include "stm32l476g_discovery_gyroscope.h"
 
+/**
+* \file
+* \brief Plik nagłówkowy funkcji obsługujących działanie żyroskopu
+*
+*/
+
+	/**
+     * @brief Funkcja inicjalizująca działanie żyroskopu
+     */
 uint8_t GyroInit();
+
+	/**
+     * @brief Funkcja pobierająca i wyświetlająca dane z żyroskopu
+     */
 void GyroGetData(float gyroDataFiltered[3]);
+
+
 //void gyroFilterData()
 
 #ifdef __cplusplus

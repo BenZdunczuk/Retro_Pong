@@ -16,6 +16,7 @@ qt_add_executable(pong
     chart.h chart.cpp
     ponging.h ponging.cpp
     connection.h connection.cpp
+    qcustomplot.h qcustomplot.cpp
 
 )
 
@@ -23,13 +24,14 @@ qt_add_translations(
     TARGETS pong
     TS_FILES pong_en_US.ts
 )
-find_package(Qt6 REQUIRED COMPONENTS Core SerialPort Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core SerialPort PrintSupport Widgets)
 
 target_link_libraries(pong
     PRIVATE
         Qt::Core
         Qt::Widgets
         Qt6::SerialPort
+        Qt6::PrintSupport
 
 )
 

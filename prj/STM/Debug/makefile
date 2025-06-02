@@ -18,7 +18,6 @@ RM := rm -rf
 -include Drivers/BSP/Components/lsm303c/subdir.mk
 -include Drivers/BSP/Components/l3gd20/subdir.mk
 -include Core/Startup/subdir.mk
--include Core/Src/Backup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 

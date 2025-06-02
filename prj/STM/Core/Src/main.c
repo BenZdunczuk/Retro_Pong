@@ -29,6 +29,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdint.h>
+#include <stdio.h>
 #include "accelerometer.h"
 #include "gyroscope.h"
 
@@ -53,7 +55,8 @@
 /* USER CODE BEGIN PV */
 
 float filteredGyro[3] = {0};
-float filteredAcc[3] = {0};
+int16_t filteredAcc[3] = {0};
+int16_t offset[3];
 
 /* USER CODE END PV */
 
@@ -62,6 +65,7 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
 int _write(int file, char *ptr, int len);
+uint8_t computeCRC8(const uint8_t* data, size_t length);
 
 /* USER CODE END PFP */
 
@@ -109,7 +113,9 @@ int main(void)
 
 //  extern USBD_HandleTypeDef hUsbDeviceFS;
   if(GyroInit()){Error_Handler();}
-  if(AccInit()){Error_Handler();}
+  if(accInit()){Error_Handler();}
+
+  accel_calibrate(offset, 100);
 
   /* USER CODE END 2 */
 
@@ -123,10 +129,11 @@ int main(void)
 //	uint8_t message[] = "Hello\r\n";
 //	CDC_Transmit_FS(message, strlen((char*)message));
 
-	GyroGetData(filteredGyro);
+//	GyroGetData(filteredGyro);
+//	HAL_Delay(500);
 	AccGetData(filteredAcc);
-
-	HAL_Delay(1000);
+	printf("A;%7d;%7d;%7d\n",filteredAcc[0],filteredAcc[1],filteredAcc[2]);
+	HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
@@ -206,11 +213,47 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+uint8_t computeCRC8(const uint8_t* data, size_t length) {
+    uint8_t crc = 0x00;
+    uint8_t poly = 0x07;
+
+    for(size_t i = 0; i < length; ++i){
+        crc ^= data[i];
+        for(int bit = 0; bit < 8; ++bit){
+            if(crc & 0x80){
+                crc = ((crc << 1) ^ poly) & 0xFF;
+            }else{
+                crc = (crc << 1) & 0xFF;
+            }
+        }
+    }
+
+    return crc;
+}
+
 int _write(int file, char *ptr, int len) {
-//    HAL_UART_Transmit(&huart2, (uint8_t*) ptr, len, 100);
-	CDC_Transmit_FS((uint8_t*)ptr,len);
+    uint8_t buffer[512];
+
+    if(len + 1 > sizeof(buffer)){
+        return -1;
+    }
+
+    for(int i = 0; i < len; ++i){
+        buffer[i] = (uint8_t)ptr[i];
+    }
+
+    buffer[len] = computeCRC8(buffer, len);
+
+    CDC_Transmit_FS(buffer, len + 1);
+
     return len;
 }
+
+//int _write(int file, char *ptr, int len) {
+////    HAL_UART_Transmit(&huart2, (uint8_t*) ptr, len, 100);
+//	CDC_Transmit_FS((uint8_t*)ptr,len);
+//    return len;
+//}
 
 /* USER CODE END 4 */
 

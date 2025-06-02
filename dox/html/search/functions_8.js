@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unpause_0',['unPause',['../classmenu.html#a15df0f3dc7e338b7239bf7f08ce3332d',1,'menu']]]
+  ['onnewdata_0',['onNewData',['../classchart.html#a75ddcad051335b78bdb3706d30458c0c',1,'chart']]]
 ];

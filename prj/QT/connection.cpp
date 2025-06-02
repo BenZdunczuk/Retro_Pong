@@ -6,7 +6,7 @@
 
 /**
 * \file
-* \brief Plik connection.cpp
+* \brief Definicja metody klasy connection
 *
 * Zawiera definicję protokołu komunikacji
 */
@@ -82,6 +82,13 @@ void connection::handleReadyRead(){
     emit dataReceived(data);
 }
 
+    /**
+     * @brief Metoda obrabiająca surowe dane
+     *
+     * Metoda obrabia surowe dane w postaci tablicy bajtów i zwraca dane w postaci liczbowej w rozróżnieniu na osie X,Y i Z.
+     *
+     * @param[in] dataRaw dane odebrane bezpośrednio z czujnika
+     */
 void connection::processData(const QByteArray dataRaw){
     QString gyroData[3], accData[3];
 
@@ -116,60 +123,42 @@ void connection::processData(const QByteArray dataRaw){
 }
 
 
-// quint8 computeCRC8(quint8* pData, int Length, unsigned int Poly, quint8 InitVal)
-// {
-//     quint8 ResCRC = InitVal;
+    /**
+     * @brief Metoda obliczająca sumę kontrolną wiadomości przychodzących z mikrokontrolera
+     *
+     * @param[in] data część transmisji z mikrokontrolera, którą stanowią dane z czujników
+     * @return resCRC zakodowana suma kontrolna
+     *
+     * Wykorzystuje algorytm CRC8, w którym używany wielomian to x^8 + x^2 + x + 1
+     */
+quint8 connection::computeCRC8(const QByteArray& data){
+    quint8 resCRC = 0x00;
+    quint8 poly = 0x07;
 
-//     while (--Length >= 0) {
-//         ResCRC ^= *pData++;
-//         for (short int i=0; i < 8; ++i)
-//             ResCRC = ResCRC & 0x80 ? (ResCRC << 1) ^ Poly : ResCRC << 1;
-//     }
-//     return ResCRC & 0xFF;
-// }
+    for (int i = 0; i < data.size(); ++i) {
+        resCRC ^= static_cast<quint8>(data[i]);
+        for (int bit = 0; bit < 8; ++bit) {
+            if (resCRC & 0x80)
+                resCRC = ((resCRC << 1) ^ poly) & 0xFF;
+            else
+                resCRC = (resCRC << 1) & 0xFF;
+        }
+    }
+    return resCRC;
+}
 
-// void TestCRC8(const char* pData, unsigned int Poly, unsigned short int InitVal)
-// {
-//     const unsigned int Len   = strlen(pData);
-//     unsigned char *pDataBuff = new unsigned char[Len+1];
+    /**
+     * @brief Metoda porównująca sumę kontrolną uzyskaną z transmisji z obliczoną
+     *
+     * @param[in] receivedDataWithCRC cała wiadomość odebrana z mikrokontrolera
+     * @return true jeśli obliczone CRC są identyczne, false jeśli występuje błąd w transmisji
+     *
+     * Wykorzystuje algorytm CRC8, w którym używany wielomian to x^8 + x^2 + x + 1
+     */
+bool connection::verifyCRC8(const QByteArray& receivedDataWithCRC){
+    if(receivedDataWithCRC.size() < 2){return false;} //jeśli nie ma części z sumą kontrolną
 
-//     memcpy(pDataBuff,pData,Len);
+    QByteArray data = receivedDataWithCRC.left(receivedDataWithCRC.size() - 1); //oderwanie z wiadomości części z sumą kontrolną
 
-//     unsigned short int CRC8;
-
-//     CRC8 = ComputeCRC8(pDataBuff,Len,Poly,InitVal);
-
-//     cout << endl
-//          << "-- Test CRC8 ------" << endl
-//          << " Wynik obliczenia -> CRC8 = " << hex << CRC8 << endl;
-
-
-//     pDataBuff[Len] = CRC8;
-//     CRC8 = ComputeCRC8(pDataBuff,Len+1,Poly,InitVal);
-
-//     cout << "  Po dodaniu CRC8 -> CRC8 = " << CRC8 << endl << endl;
-
-//     delete pDataBuff;
-// }
-
-// void connection::sendData(QString &data)
-// {
-//     if (serial.isOpen()) {
-//         QByteArray base = data.toUtf8();
-//         quint8 crc = computeCRC8(base,1,1,1);
-//         QString full = QString("%1*%2\n").arg(QString(base)).arg(crc, 2, 16, QLatin1Char('0')).toUpper();
-//         serial.write(full.toUtf8());
-//     }
-// }
-
-//     /**
-//      * @brief Metoda odbierająca dane z mikrokontrolera
-//      *
-//      * @return recievedData Dane odebrane z mikrokontrolera
-//      */
-// QByteArray connection::readData()
-// {
-//     QByteArray recievedData = serial.readAll();
-//     std::cout << "odebrano: " << recievedData.toStdString() << std::endl;
-//     return recievedData;
-// }
+    return (computeCRC8(data) == static_cast<quint8>(receivedDataWithCRC.back()));
+}

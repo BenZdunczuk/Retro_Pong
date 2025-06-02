@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hex_0',['HEX',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2_c_make_files_23_830_85_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX:&#160;CMakeCXXCompilerId.cpp'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2_c_make_files_23_830_85_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX:&#160;CMakeCXXCompilerId.cpp']]]
+  ['msi_5fvalue_0',['MSI_VALUE',['../stm32l4xx__hal__conf_8h.html#a90e2a73d7fe4a7425c6e31fef5ce7263',1,'stm32l4xx_hal_conf.h']]]
 ];

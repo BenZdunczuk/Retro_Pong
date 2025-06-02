@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -62,11 +64,23 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('classconnection.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,8 +102,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
@@ -113,40 +125,48 @@ Inheritance diagram for connection:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-slots" name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:aa05bb31c4e31fc14c6523753fe1bf287" id="r_aa05bb31c4e31fc14c6523753fe1bf287"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa05bb31c4e31fc14c6523753fe1bf287">readData</a> ()</td></tr>
-<tr class="memdesc:aa05bb31c4e31fc14c6523753fe1bf287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda odbierająca dane z mikrokontrolera.  <br /></td></tr>
-<tr class="separator:aa05bb31c4e31fc14c6523753fe1bf287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af82300c109d2a17c46ac0d81d1cb1165" id="r_af82300c109d2a17c46ac0d81d1cb1165"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af82300c109d2a17c46ac0d81d1cb1165">start</a> ()</td></tr>
 <tr class="memdesc:af82300c109d2a17c46ac0d81d1cb1165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot inicjalizujący połączenie po USB.  <br /></td></tr>
 <tr class="separator:af82300c109d2a17c46ac0d81d1cb1165"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac33a31370ddb0f1dd780e3a39dbda8ab" id="r_ac33a31370ddb0f1dd780e3a39dbda8ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac33a31370ddb0f1dd780e3a39dbda8ab">stop</a> ()</td></tr>
 <tr class="memdesc:ac33a31370ddb0f1dd780e3a39dbda8ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot kończący połączenie po USB.  <br /></td></tr>
 <tr class="separator:ac33a31370ddb0f1dd780e3a39dbda8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c7a69ca7cf3b747dcb16ae403f2869f" id="r_a0c7a69ca7cf3b747dcb16ae403f2869f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c7a69ca7cf3b747dcb16ae403f2869f">processData</a> (const QByteArray data)</td></tr>
+<tr class="memdesc:a0c7a69ca7cf3b747dcb16ae403f2869f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda obrabiająca surowe dane.  <br /></td></tr>
+<tr class="separator:a0c7a69ca7cf3b747dcb16ae403f2869f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ddb7dbd757cf77e7e673e7f1ab70ff7" id="r_a4ddb7dbd757cf77e7e673e7f1ab70ff7"><td class="memItemLeft" align="right" valign="top">quint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ddb7dbd757cf77e7e673e7f1ab70ff7">computeCRC8</a> (const QByteArray &amp;data)</td></tr>
+<tr class="memdesc:a4ddb7dbd757cf77e7e673e7f1ab70ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda obliczająca sumę kontrolną wiadomości przychodzących z mikrokontrolera.  <br /></td></tr>
+<tr class="separator:a4ddb7dbd757cf77e7e673e7f1ab70ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a135607005c0c5fd080073e6c4bd6fbb3" id="r_a135607005c0c5fd080073e6c4bd6fbb3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a135607005c0c5fd080073e6c4bd6fbb3">verifyCRC8</a> (const QByteArray &amp;receivedDataWithCRC)</td></tr>
+<tr class="memdesc:a135607005c0c5fd080073e6c4bd6fbb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda porównująca sumę kontrolną uzyskaną z transmisji z obliczoną  <br /></td></tr>
+<tr class="separator:a135607005c0c5fd080073e6c4bd6fbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:ad3d17d18612b74a1270055c11e76c5d9" id="r_ad3d17d18612b74a1270055c11e76c5d9"><td class="memItemLeft" align="right" valign="top"><a id="ad3d17d18612b74a1270055c11e76c5d9" name="ad3d17d18612b74a1270055c11e76c5d9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>dataReceived</b> (const QByteArray &amp;data)</td></tr>
-<tr class="memdesc:ad3d17d18612b74a1270055c11e76c5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sygnał wysyłany w momencie odebrania danych, przechowujący odebrane dane. <br /></td></tr>
+<tr class="memitem:ad3d17d18612b74a1270055c11e76c5d9" id="r_ad3d17d18612b74a1270055c11e76c5d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3d17d18612b74a1270055c11e76c5d9">dataReceived</a> (const QByteArray &amp;data)</td></tr>
+<tr class="memdesc:ad3d17d18612b74a1270055c11e76c5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sygnał wysyłany w momencie odebrania danych, przechowujący odebrane dane.  <br /></td></tr>
 <tr class="separator:ad3d17d18612b74a1270055c11e76c5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61c6e2e2b7381bf275741d7e74631fb" id="r_ab61c6e2e2b7381bf275741d7e74631fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab61c6e2e2b7381bf275741d7e74631fb">dataProcessed</a> (int sensorType, QStringList dataProcessed)</td></tr>
+<tr class="memdesc:ab61c6e2e2b7381bf275741d7e74631fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sygnał wysyłany w po obrobieniu danych, przechowujący informacje o typie czujnika oraz dane z podziałem na osie.  <br /></td></tr>
+<tr class="separator:ab61c6e2e2b7381bf275741d7e74631fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d5d79c3d6e8bbfb4087a10dc6bf1fde" id="r_a5d5d79c3d6e8bbfb4087a10dc6bf1fde"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d5d79c3d6e8bbfb4087a10dc6bf1fde">connection</a> (QObject *parent=nullptr)</td></tr>
 <tr class="memdesc:a5d5d79c3d6e8bbfb4087a10dc6bf1fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy connection.  <br /></td></tr>
 <tr class="separator:a5d5d79c3d6e8bbfb4087a10dc6bf1fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a974638af9e9e1e5659dee7c9fab326ed" id="r_a974638af9e9e1e5659dee7c9fab326ed"><td class="memItemLeft" align="right" valign="top"><a id="a974638af9e9e1e5659dee7c9fab326ed" name="a974638af9e9e1e5659dee7c9fab326ed"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~connection</b> ()</td></tr>
-<tr class="memdesc:a974638af9e9e1e5659dee7c9fab326ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktor klasy connection. <br /></td></tr>
+<tr class="memitem:a974638af9e9e1e5659dee7c9fab326ed" id="r_a974638af9e9e1e5659dee7c9fab326ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a974638af9e9e1e5659dee7c9fab326ed">~connection</a> ()</td></tr>
+<tr class="memdesc:a974638af9e9e1e5659dee7c9fab326ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktor klasy connection.  <br /></td></tr>
 <tr class="separator:a974638af9e9e1e5659dee7c9fab326ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad024ac53af5e1294c6b4e58b25dbf6d5" id="r_ad024ac53af5e1294c6b4e58b25dbf6d5"><td class="memItemLeft" align="right" valign="top"><a id="ad024ac53af5e1294c6b4e58b25dbf6d5" name="ad024ac53af5e1294c6b4e58b25dbf6d5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sendData</b> (QString &amp;data)</td></tr>
-<tr class="memdesc:ad024ac53af5e1294c6b4e58b25dbf6d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda wysyłająca dane do mikrokontrolera. <br /></td></tr>
-<tr class="separator:ad024ac53af5e1294c6b4e58b25dbf6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec7de89a2979235d3e8e706756c4ca3" id="r_a8ec7de89a2979235d3e8e706756c4ca3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ec7de89a2979235d3e8e706756c4ca3">getConnectionStatus</a> ()</td></tr>
+<tr class="memdesc:a8ec7de89a2979235d3e8e706756c4ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda typu getter umożliwiająca dostęp do atrybutu isConnected;.  <br /></td></tr>
+<tr class="separator:a8ec7de89a2979235d3e8e706756c4ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Klasa connection reprezentuje połączenie pomiędzy aplikacją w QT a mikrokontrolerem STM. </p>
 <p>Zawiera interfejs USB do dwustronnej komunikacji </p>
+
+<p class="definition">Definition at line <a class="el" href="connection_8h_source.html#l00022">22</a> of file <a class="el" href="connection_8h_source.html">connection.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5d5d79c3d6e8bbfb4087a10dc6bf1fde" name="a5d5d79c3d6e8bbfb4087a10dc6bf1fde"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5d5d79c3d6e8bbfb4087a10dc6bf1fde">&#9670;&#160;</a></span>connection()</h2>
@@ -179,11 +199,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendData</b> (QString
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="connection_8cpp_source.html#l00021">21</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a974638af9e9e1e5659dee7c9fab326ed" name="a974638af9e9e1e5659dee7c9fab326ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a974638af9e9e1e5659dee7c9fab326ed">&#9670;&#160;</a></span>~connection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">connection::~connection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destruktor klasy connection. </p>
+
+<p class="definition">Definition at line <a class="el" href="connection_8cpp_source.html#l00030">30</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa05bb31c4e31fc14c6523753fe1bf287" name="aa05bb31c4e31fc14c6523753fe1bf287"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa05bb31c4e31fc14c6523753fe1bf287">&#9670;&#160;</a></span>readData</h2>
+<a id="a4ddb7dbd757cf77e7e673e7f1ab70ff7" name="a4ddb7dbd757cf77e7e673e7f1ab70ff7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ddb7dbd757cf77e7e673e7f1ab70ff7">&#9670;&#160;</a></span>computeCRC8</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,9 +235,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendData</b> (QString
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QByteArray connection::readData </td>
+          <td class="memname">quint8 connection::computeCRC8 </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const QByteArray &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -205,8 +248,146 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendData</b> (QString
 </table>
 </div><div class="memdoc">
 
-<p>Metoda odbierająca dane z mikrokontrolera. </p>
-<dl class="section return"><dt>Returns</dt><dd>recievedData Dane odebrane z mikrokontrolera </dd></dl>
+<p>Metoda obliczająca sumę kontrolną wiadomości przychodzących z mikrokontrolera. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>część transmisji z mikrokontrolera, którą stanowią dane z czujników </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>resCRC zakodowana suma kontrolna</dd></dl>
+<p>Wykorzystuje algorytm CRC8, w którym używany wielomian to x^8 + x^2 + x + 1 </p>
+
+<p class="definition">Definition at line <a class="el" href="connection_8cpp_source.html#l00134">134</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab61c6e2e2b7381bf275741d7e74631fb" name="ab61c6e2e2b7381bf275741d7e74631fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab61c6e2e2b7381bf275741d7e74631fb">&#9670;&#160;</a></span>dataProcessed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void connection::dataProcessed </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sensorType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QStringList</td>          <td class="paramname"><span class="paramname"><em>dataProcessed</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sygnał wysyłany w po obrobieniu danych, przechowujący informacje o typie czujnika oraz dane z podziałem na osie. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensorType</td><td>typ czujnika, 0 - żyroskop, 1 - akcelerometr </td></tr>
+    <tr><td class="paramname">dataProcessed</td><td>przetworzone dane w postaci listy stringów (mogą być łatwo przetworzone na wartości numeryczne) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad3d17d18612b74a1270055c11e76c5d9" name="ad3d17d18612b74a1270055c11e76c5d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3d17d18612b74a1270055c11e76c5d9">&#9670;&#160;</a></span>dataReceived</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void connection::dataReceived </td>
+          <td>(</td>
+          <td class="paramtype">const QByteArray &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sygnał wysyłany w momencie odebrania danych, przechowujący odebrane dane. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>surowe dane z czujników w postaci tablicy bajtów </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ec7de89a2979235d3e8e706756c4ca3" name="a8ec7de89a2979235d3e8e706756c4ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ec7de89a2979235d3e8e706756c4ca3">&#9670;&#160;</a></span>getConnectionStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool connection::getConnectionStatus </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Metoda typu getter umożliwiająca dostęp do atrybutu isConnected;. </p>
+<dl class="section return"><dt>Returns</dt><dd>isConnected Zmienna boolowska reprezentująca status połączenia (0 - brak połączenia, 1 - połączenie aktywne) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="connection_8cpp_source.html#l00073">73</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0c7a69ca7cf3b747dcb16ae403f2869f" name="a0c7a69ca7cf3b747dcb16ae403f2869f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c7a69ca7cf3b747dcb16ae403f2869f">&#9670;&#160;</a></span>processData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void connection::processData </td>
+          <td>(</td>
+          <td class="paramtype">const QByteArray</td>          <td class="paramname"><span class="paramname"><em>dataRaw</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Metoda obrabiająca surowe dane. </p>
+<p>Metoda obrabia surowe dane w postaci tablicy bajtów i zwraca dane w postaci liczbowej w rozróżnieniu na osie X,Y i Z.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataRaw</td><td>dane odebrane bezpośrednio z czujnika </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="connection_8cpp_source.html#l00092">92</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
 
 </div>
 </div>
@@ -241,6 +422,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendData</b> (QString
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="connection_8cpp_source.html#l00039">39</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ac33a31370ddb0f1dd780e3a39dbda8ab" name="ac33a31370ddb0f1dd780e3a39dbda8ab"></a>
@@ -274,18 +457,59 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendData</b> (QString
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="connection_8cpp_source.html#l00062">62</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a135607005c0c5fd080073e6c4bd6fbb3" name="a135607005c0c5fd080073e6c4bd6fbb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a135607005c0c5fd080073e6c4bd6fbb3">&#9670;&#160;</a></span>verifyCRC8</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool connection::verifyCRC8 </td>
+          <td>(</td>
+          <td class="paramtype">const QByteArray &amp;</td>          <td class="paramname"><span class="paramname"><em>receivedDataWithCRC</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Metoda porównująca sumę kontrolną uzyskaną z transmisji z obliczoną </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">receivedDataWithCRC</td><td>cała wiadomość odebrana z mikrokontrolera </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true jeśli obliczone CRC są identyczne, false jeśli występuje błąd w transmisji</dd></dl>
+<p>Wykorzystuje algorytm CRC8, w którym używany wielomian to x^8 + x^2 + x + 1 </p>
+
+<p class="definition">Definition at line <a class="el" href="connection_8cpp_source.html#l00158">158</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/<a class="el" href="connection_8h_source.html">connection.h</a></li>
-<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/pong_autogen/EWIEGA46WW/<a class="el" href="moc__connection_8cpp_source.html">moc_connection.cpp</a></li>
-<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/<a class="el" href="connection_8cpp.html">connection.cpp</a></li>
+<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/<a class="el" href="connection_8cpp_source.html">connection.cpp</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classconnection.html">connection</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
 </body>
 </html>

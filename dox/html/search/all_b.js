@@ -1,27 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2_c_make_files_23_830_85_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2_c_make_files_23_830_85_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['mainwindow_2',['MainWindow',['../class_main_window.html',1,'MainWindow'],['../class_ui_1_1_main_window.html',1,'Ui::MainWindow'],['../class_main_window.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow::MainWindow()']]],
-  ['mainwindow_2ecpp_3',['mainwindow.cpp',['../mainwindow_8cpp.html',1,'']]],
-  ['mainwindow_2eh_4',['mainwindow.h',['../mainwindow_8h.html',1,'']]],
-  ['menu_5',['menu',['../classmenu.html',1,'menu'],['../class_ui_1_1menu.html',1,'Ui::menu'],['../classmenu.html#af41648f6cd3841be0426e8cfffbaa9fa',1,'menu::menu()']]],
-  ['menu_2ecpp_6',['menu.cpp',['../menu_8cpp.html',1,'']]],
-  ['menu_2eh_7',['menu.h',['../menu_8h.html',1,'']]],
-  ['menubar_8',['menubar',['../class_ui___main_window.html#a734b1d3bb71c1b8e1ea01b7fa4344fce',1,'Ui_MainWindow']]],
-  ['mingw_5fhas_5fsecure_5fapi_9',['MINGW_HAS_SECURE_API',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2moc__predefs_8h.html#a7652218632d79c675cce0c49732ee345',1,'MINGW_HAS_SECURE_API:&#160;moc_predefs.h'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2moc__predefs_8h.html#a7652218632d79c675cce0c49732ee345',1,'MINGW_HAS_SECURE_API:&#160;moc_predefs.h']]],
-  ['moc_5fchart_2ecpp_10',['moc_chart.cpp',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__chart_8cpp.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__chart_8cpp.html',1,'(Global Namespace)']]],
-  ['moc_5fchart_2ecpp_2ed_11',['moc_chart.cpp.d',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__chart_8cpp_8d.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__chart_8cpp_8d.html',1,'(Global Namespace)']]],
-  ['moc_5fconnection_2ecpp_12',['moc_connection.cpp',['../moc__connection_8cpp.html',1,'']]],
-  ['moc_5fconnection_2ecpp_2ed_13',['moc_connection.cpp.d',['../moc__connection_8cpp_8d.html',1,'']]],
-  ['moc_5fmainwindow_2ecpp_14',['moc_mainwindow.cpp',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__mainwindow_8cpp.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__mainwindow_8cpp.html',1,'(Global Namespace)']]],
-  ['moc_5fmainwindow_2ecpp_2ed_15',['moc_mainwindow.cpp.d',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__mainwindow_8cpp_8d.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__mainwindow_8cpp_8d.html',1,'(Global Namespace)']]],
-  ['moc_5fmenu_2ecpp_16',['moc_menu.cpp',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__menu_8cpp.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__menu_8cpp.html',1,'(Global Namespace)']]],
-  ['moc_5fmenu_2ecpp_2ed_17',['moc_menu.cpp.d',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__menu_8cpp_8d.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__menu_8cpp_8d.html',1,'(Global Namespace)']]],
-  ['moc_5fponging_2ecpp_18',['moc_ponging.cpp',['../moc__ponging_8cpp.html',1,'']]],
-  ['moc_5fponging_2ecpp_2ed_19',['moc_ponging.cpp.d',['../moc__ponging_8cpp_8d.html',1,'']]],
-  ['moc_5fpredefs_2eh_20',['moc_predefs.h',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2moc__predefs_8h.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2moc__predefs_8h.html',1,'(Global Namespace)']]],
-  ['moc_5ftest_2ecpp_21',['moc_test.cpp',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__test_8cpp.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__test_8cpp.html',1,'(Global Namespace)']]],
-  ['moc_5ftest_2ecpp_2ed_22',['moc_test.cpp.d',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__test_8cpp_8d.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2_e_w_i_e_g_a46_w_w_2moc__test_8cpp_8d.html',1,'(Global Namespace)']]],
-  ['mocs_5fcompilation_2ecpp_23',['mocs_compilation.cpp',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2mocs__compilation_8cpp.html',1,'(Global Namespace)'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2mocs__compilation_8cpp.html',1,'(Global Namespace)']]]
+  ['offset_0',['offset',['../main_8c.html#a634637d3de546ac24b6912b9871b6cfc',1,'main.c']]],
+  ['onnewdata_1',['onNewData',['../classchart.html#a75ddcad051335b78bdb3706d30458c0c',1,'chart']]]
 ];

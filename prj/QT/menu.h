@@ -41,6 +41,9 @@ public:
      */
     ~menu();
 
+    /**
+     * @brief Zmienna przechowująca wskaźnik do obiektu połączenia
+     */
     connection* connectMenu;
 
 private slots:

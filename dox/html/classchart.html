@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -62,11 +64,23 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('classchart.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,12 +102,10 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classchart-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">chart Class Reference</div></div>
 </div><!--header-->
@@ -110,71 +122,55 @@ Inheritance diagram for chart:</div>
   <img src="classchart.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-slots" name="pub-slots"></a>
+Public Slots</h2></td></tr>
+<tr class="memitem:a75ddcad051335b78bdb3706d30458c0c" id="r_a75ddcad051335b78bdb3706d30458c0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75ddcad051335b78bdb3706d30458c0c">onNewData</a> (bool sensor, QStringList data)</td></tr>
+<tr class="memdesc:a75ddcad051335b78bdb3706d30458c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot dodający nowe dane do wykresu.  <br /></td></tr>
+<tr class="separator:a75ddcad051335b78bdb3706d30458c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a24bdbc0ce3ae2f14beb0e995a931588b" id="r_a24bdbc0ce3ae2f14beb0e995a931588b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24bdbc0ce3ae2f14beb0e995a931588b">chart</a> (QWidget *parent=nullptr, double setPhase=0.0)</td></tr>
-<tr class="memdesc:a24bdbc0ce3ae2f14beb0e995a931588b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy chart.  <br /></td></tr>
-<tr class="separator:a24bdbc0ce3ae2f14beb0e995a931588b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:acdea15232f6e8d03410aecca691ca8f7" id="r_acdea15232f6e8d03410aecca691ca8f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdea15232f6e8d03410aecca691ca8f7">paintEvent</a> (QPaintEvent *event) override</td></tr>
-<tr class="memdesc:acdea15232f6e8d03410aecca691ca8f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda inicjalizująca rysowanie wykresu.  <br /></td></tr>
-<tr class="separator:acdea15232f6e8d03410aecca691ca8f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad05cba1ac51663d642c582f0f5d79dd6" id="r_ad05cba1ac51663d642c582f0f5d79dd6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad05cba1ac51663d642c582f0f5d79dd6">chart</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:ad05cba1ac51663d642c582f0f5d79dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy chart.  <br /></td></tr>
+<tr class="separator:ad05cba1ac51663d642c582f0f5d79dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Klasa chart reprezentuje wykresy używane do wizualizacji danych. </p>
 <p>Zawiera definicję widgetu rysującego wykres na podstawie danych odebranych z mikrokontrolera. </p>
+
+<p class="definition">Definition at line <a class="el" href="chart_8h_source.html#l00020">20</a> of file <a class="el" href="chart_8h_source.html">chart.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a24bdbc0ce3ae2f14beb0e995a931588b" name="a24bdbc0ce3ae2f14beb0e995a931588b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24bdbc0ce3ae2f14beb0e995a931588b">&#9670;&#160;</a></span>chart()</h2>
+<a id="ad05cba1ac51663d642c582f0f5d79dd6" name="ad05cba1ac51663d642c582f0f5d79dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad05cba1ac51663d642c582f0f5d79dd6">&#9670;&#160;</a></span>chart()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">chart::chart </td>
           <td>(</td>
-          <td class="paramtype">QWidget *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">QWidget *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>setPhase</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.0</span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Konstruktor klasy chart. </p>
+<p>Inicjalizuje widget wykresu danych z sensorów, wraz z trzema danymi pomiarowymi dla osi X,Y i Z</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent</td><td>Opcjonalny wskaźnik do rodzica. </td></tr>
-    <tr><td class="paramname">setPhase</td><td>Przesunięcie fazowe sinusa (tylko w wersji do testowania wyświetlania wykresu)</td></tr>
   </table>
   </dd>
 </dl>
-<p>Inicjalizuje QTimer wykorzystywany do przesuwania wykresu, ustawia wartość początkowego przesunięcia fazowego</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">parent</td><td>Opcjonalny wskaźnik do rodzica. </td></tr>
-    <tr><td class="paramname">setPhase</td><td>Przesunięcie fazowe sinusa (tylko w wersji do testowania wyświetlania wykresu) </td></tr>
-  </table>
-  </dd>
-</dl>
+
+<p class="definition">Definition at line <a class="el" href="chart_8cpp_source.html#l00020">20</a> of file <a class="el" href="chart_8cpp_source.html">chart.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="acdea15232f6e8d03410aecca691ca8f7" name="acdea15232f6e8d03410aecca691ca8f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdea15232f6e8d03410aecca691ca8f7">&#9670;&#160;</a></span>paintEvent()</h2>
+<a id="a75ddcad051335b78bdb3706d30458c0c" name="a75ddcad051335b78bdb3706d30458c0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ddcad051335b78bdb3706d30458c0c">&#9670;&#160;</a></span>onNewData</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,45 +179,48 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void chart::paintEvent </td>
+          <td class="memname">void chart::onNewData </td>
           <td>(</td>
-          <td class="paramtype">QPaintEvent *</td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">QStringList</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel slot">slot</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Metoda inicjalizująca rysowanie wykresu. </p>
+<p>Slot dodający nowe dane do wykresu. </p>
+<p>Inicjalizuje widget wykresu danych z sensorów, wraz z trzema danymi pomiarowymi dla osi X,Y i Z, reaguje na sygnał z danymi z klasy connection.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td>Opcjonalny wskaźnik do rysowania.</td></tr>
+    <tr><td class="paramname">parent</td><td>Opcjonalny wskaźnik do rodzica. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Określa wymiary wykresu, rysuje osie oraz sam wykres, przesuwa wykres w czasie</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">event</td><td>Opcjonalny wskaźnik do rysowania. </td></tr>
-  </table>
-  </dd>
-</dl>
+
+<p class="definition">Definition at line <a class="el" href="chart_8cpp_source.html#l00048">48</a> of file <a class="el" href="chart_8cpp_source.html">chart.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/<a class="el" href="chart_8h_source.html">chart.h</a></li>
-<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/<a class="el" href="chart_8cpp.html">chart.cpp</a></li>
+<li>C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/QT/<a class="el" href="chart_8cpp_source.html">chart.cpp</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classchart.html">chart</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
 </body>
 </html>

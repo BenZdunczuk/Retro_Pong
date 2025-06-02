@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['keypressevent_0',['keyPressEvent',['../class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073',1,'PongWidget']]],
-  ['keyreleaseevent_1',['keyReleaseEvent',['../class_pong_widget.html#a6d33df4864fe204649d309f997ea0422',1,'PongWidget']]]
+  ['chart_0',['chart',['../classchart.html#ad05cba1ac51663d642c582f0f5d79dd6',1,'chart']]],
+  ['closemainwindow_1',['closeMainWindow',['../class_main_window.html#a3aec74759b0038a8242fd5d19e1a493c',1,'MainWindow']]],
+  ['computecrc8_2',['computeCRC8',['../classconnection.html#a4ddb7dbd757cf77e7e673e7f1ab70ff7',1,'connection::computeCRC8()'],['../main_8c.html#ab95396508b4e11e160135bf3f911d61a',1,'computeCRC8():&#160;main.c']]],
+  ['connection_3',['connection',['../classconnection.html#a5d5d79c3d6e8bbfb4087a10dc6bf1fde',1,'connection']]]
 ];

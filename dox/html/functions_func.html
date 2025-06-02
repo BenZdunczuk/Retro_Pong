@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -63,12 +65,22 @@ $(function() { codefold.init(0); });
 /* @license-end */
 </script>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('functions_func.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -91,41 +103,97 @@ $(function(){ initResizable(false); });
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented functions with links to the class documentation for each member:</div><ul>
-<li>chart()&#160;:&#160;<a class="el" href="classchart.html#a24bdbc0ce3ae2f14beb0e995a931588b">chart</a></li>
+<div class="textblock">Here is a list of all functions with links to the classes they belong to:</div>
+
+<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>chart()&#160;:&#160;<a class="el" href="classchart.html#ad05cba1ac51663d642c582f0f5d79dd6">chart</a></li>
 <li>closeMainWindow()&#160;:&#160;<a class="el" href="class_main_window.html#a3aec74759b0038a8242fd5d19e1a493c">MainWindow</a></li>
+<li>computeCRC8()&#160;:&#160;<a class="el" href="classconnection.html#a4ddb7dbd757cf77e7e673e7f1ab70ff7">connection</a></li>
 <li>connection()&#160;:&#160;<a class="el" href="classconnection.html#a5d5d79c3d6e8bbfb4087a10dc6bf1fde">connection</a></li>
+</ul>
+
+
+<h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
+<li>dataProcessed()&#160;:&#160;<a class="el" href="classconnection.html#ab61c6e2e2b7381bf275741d7e74631fb">connection</a></li>
 <li>dataReceived()&#160;:&#160;<a class="el" href="classconnection.html#ad3d17d18612b74a1270055c11e76c5d9">connection</a></li>
+</ul>
+
+
+<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>getConnectionStatus()&#160;:&#160;<a class="el" href="classconnection.html#a8ec7de89a2979235d3e8e706756c4ca3">connection</a></li>
+</ul>
+
+
+<h3><a id="index_k" name="index_k"></a>- k -</h3><ul>
 <li>keyPressEvent()&#160;:&#160;<a class="el" href="class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073">PongWidget</a></li>
 <li>keyReleaseEvent()&#160;:&#160;<a class="el" href="class_pong_widget.html#a6d33df4864fe204649d309f997ea0422">PongWidget</a></li>
+</ul>
+
+
+<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
 <li>MainWindow()&#160;:&#160;<a class="el" href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a></li>
-<li>menu()&#160;:&#160;<a class="el" href="classmenu.html#af41648f6cd3841be0426e8cfffbaa9fa">menu</a></li>
-<li>paintEvent()&#160;:&#160;<a class="el" href="classchart.html#acdea15232f6e8d03410aecca691ca8f7">chart</a>, <a class="el" href="class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61">PongWidget</a></li>
-<li>PongWidget()&#160;:&#160;<a class="el" href="class_pong_widget.html#a37b606c1325a4dbf2ae307b88ef2aafe">PongWidget</a></li>
-<li>readData()&#160;:&#160;<a class="el" href="classconnection.html#aa05bb31c4e31fc14c6523753fe1bf287">connection</a></li>
+<li>menu()&#160;:&#160;<a class="el" href="classmenu.html#a117509b0b565b5f9a691d617ce1f1fad">menu</a></li>
+</ul>
+
+
+<h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<li>onNewData()&#160;:&#160;<a class="el" href="classchart.html#a75ddcad051335b78bdb3706d30458c0c">chart</a></li>
+</ul>
+
+
+<h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
+<li>paintEvent()&#160;:&#160;<a class="el" href="class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61">PongWidget</a></li>
+<li>PongWidget()&#160;:&#160;<a class="el" href="class_pong_widget.html#a6769fbfec9eb9fd6da50ea62a58e17e3">PongWidget</a></li>
+<li>processData()&#160;:&#160;<a class="el" href="classconnection.html#a0c7a69ca7cf3b747dcb16ae403f2869f">connection</a></li>
+</ul>
+
+
+<h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
 <li>resetGame()&#160;:&#160;<a class="el" href="class_pong_widget.html#a5b79b6e1d776d074b4b4f48306076787">PongWidget</a></li>
 <li>restart()&#160;:&#160;<a class="el" href="classmenu.html#a0031cba18b5268bad6b0cbbec7d5d8d5">menu</a></li>
 <li>restarted()&#160;:&#160;<a class="el" href="class_main_window.html#a3d57a932399861f94fee7987284beb60">MainWindow</a></li>
 <li>restartedGame()&#160;:&#160;<a class="el" href="class_main_window.html#a36e6c006461c0b02e98d80d02bf4bdbf">MainWindow</a></li>
 <li>resumed()&#160;:&#160;<a class="el" href="class_main_window.html#ae5577ebf34458585e4496dedf20b25b9">MainWindow</a></li>
 <li>resumedGame()&#160;:&#160;<a class="el" href="class_main_window.html#a2157f61f760f65fa99903540855d1d89">MainWindow</a></li>
-<li>sendData()&#160;:&#160;<a class="el" href="classconnection.html#ad024ac53af5e1294c6b4e58b25dbf6d5">connection</a></li>
+</ul>
+
+
+<h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>setPause()&#160;:&#160;<a class="el" href="class_pong_widget.html#a487ca2f1c46d1122e0c8905b629bc9cf">PongWidget</a></li>
 <li>start()&#160;:&#160;<a class="el" href="classconnection.html#af82300c109d2a17c46ac0d81d1cb1165">connection</a></li>
 <li>stop()&#160;:&#160;<a class="el" href="classconnection.html#ac33a31370ddb0f1dd780e3a39dbda8ab">connection</a></li>
-<li>test()&#160;:&#160;<a class="el" href="classtest.html#abb4b05621a2fd58a29589dc433efc6d3">test</a></li>
+</ul>
+
+
+<h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<li>test()&#160;:&#160;<a class="el" href="classtest.html#aee13dd1a3e87517069145358b9120024">test</a></li>
 <li>togglePause()&#160;:&#160;<a class="el" href="class_main_window.html#a669e8df21465603fe4713abbe8779ea1">MainWindow</a></li>
+</ul>
+
+
+<h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
 <li>unPause()&#160;:&#160;<a class="el" href="classmenu.html#a15df0f3dc7e338b7239bf7f08ce3332d">menu</a></li>
+</ul>
+
+
+<h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>verifyCRC8()&#160;:&#160;<a class="el" href="classconnection.html#a135607005c0c5fd080073e6c4bd6fbb3">connection</a></li>
+</ul>
+
+
+<h3><a id="index__7E" name="index__7E"></a>- ~ -</h3><ul>
 <li>~connection()&#160;:&#160;<a class="el" href="classconnection.html#a974638af9e9e1e5659dee7c9fab326ed">connection</a></li>
 <li>~MainWindow()&#160;:&#160;<a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow</a></li>
 <li>~menu()&#160;:&#160;<a class="el" href="classmenu.html#a5efbd22f23289b42ed68d2a9bb431f35">menu</a></li>
 <li>~test()&#160;:&#160;<a class="el" href="classtest.html#ad117cf4e90c87c17bb9b030d23810ec8">test</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
 </body>
 </html>

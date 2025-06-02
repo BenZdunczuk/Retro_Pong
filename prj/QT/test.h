@@ -50,7 +50,10 @@ public:
 
 
 private slots:
-    bool displayData(bool sensor, QStringList data);
+    /**
+     * @brief Slot wyświetlający dane numeryczne z sensorów w okienku test
+     */
+    void displayData(bool sensor, QStringList data);
 
 private:
     /**

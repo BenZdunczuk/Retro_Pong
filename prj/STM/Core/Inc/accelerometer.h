@@ -8,9 +8,33 @@ extern "C" {
 #include "stm32l476g_discovery.h"
 #include "stm32l476g_discovery_compass.h"
 #include <stdio.h>
+#include "main.h"
 
-uint8_t AccInit();
-void AccGetData(float accDataFiltered[3]);
+/**
+* \file
+* \brief Plik nagłówkowy funkcji obsługujących działanie akcelerometru
+*
+*/
+
+	/**
+     * @brief Funkcja inicjalizująca działania akcelerometru
+     */
+uint8_t accInit(void);
+
+	/**
+     * @brief Funkcja kalibrująca działanie akcelerometru
+     */
+void accel_calibrate(int16_t offset_cb[3], uint16_t samples);
+
+	/**
+     * @brief Funkcja filtrująca dane z akcelerometru
+     */
+int16_t accel_lpf_int(int16_t in, int16_t *prev, uint8_t alpha);
+
+	/**
+     * @brief Funkcja zwracająca dane z akcelerometru
+     */
+void AccGetData(int16_t out[3]);
 
 #ifdef __cplusplus
 }

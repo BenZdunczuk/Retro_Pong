@@ -2,6 +2,8 @@
 
 #define LPF_ALPHA 0.1f
 
+
+
 uint8_t GyroInit(){
 	uint8_t idGyro = L3GD20_ReadID();
 	if(idGyro != I_AM_L3GD20){

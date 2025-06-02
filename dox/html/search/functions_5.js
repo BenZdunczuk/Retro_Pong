@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['readdata_0',['readData',['../classconnection.html#aa05bb31c4e31fc14c6523753fe1bf287',1,'connection']]],
-  ['resetgame_1',['resetGame',['../class_pong_widget.html#a5b79b6e1d776d074b4b4f48306076787',1,'PongWidget']]],
-  ['restart_2',['restart',['../classmenu.html#a0031cba18b5268bad6b0cbbec7d5d8d5',1,'menu']]],
-  ['restarted_3',['restarted',['../class_main_window.html#a3d57a932399861f94fee7987284beb60',1,'MainWindow']]],
-  ['restartedgame_4',['restartedGame',['../class_main_window.html#a36e6c006461c0b02e98d80d02bf4bdbf',1,'MainWindow']]],
-  ['resumed_5',['resumed',['../class_main_window.html#ae5577ebf34458585e4496dedf20b25b9',1,'MainWindow']]],
-  ['resumedgame_6',['resumedGame',['../class_main_window.html#a2157f61f760f65fa99903540855d1d89',1,'MainWindow']]]
+  ['getconnectionstatus_0',['getConnectionStatus',['../classconnection.html#a8ec7de89a2979235d3e8e706756c4ca3',1,'connection']]],
+  ['gyrogetdata_1',['GyroGetData',['../gyroscope_8h.html#a98b020dc9181586888cbbd374c2fc3eb',1,'GyroGetData(float gyroDataFiltered[3]):&#160;gyroscope.c'],['../gyroscope_8c.html#a98b020dc9181586888cbbd374c2fc3eb',1,'GyroGetData(float gyroDataFiltered[3]):&#160;gyroscope.c']]],
+  ['gyroinit_2',['GyroInit',['../gyroscope_8h.html#a17a6912fdd7e4f050cbf7507bfa6e0ad',1,'GyroInit():&#160;gyroscope.c'],['../gyroscope_8c.html#a17a6912fdd7e4f050cbf7507bfa6e0ad',1,'GyroInit():&#160;gyroscope.c']]]
 ];

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['_7econnection_0',['~connection',['../classconnection.html#a974638af9e9e1e5659dee7c9fab326ed',1,'connection']]],
-  ['_7emainwindow_1',['~MainWindow',['../class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7',1,'MainWindow']]],
-  ['_7emenu_2',['~menu',['../classmenu.html#a5efbd22f23289b42ed68d2a9bb431f35',1,'menu']]],
-  ['_7etest_3',['~test',['../classtest.html#ad117cf4e90c87c17bb9b030d23810ec8',1,'test']]]
+  ['paintevent_0',['paintEvent',['../class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61',1,'PongWidget']]],
+  ['pongwidget_1',['PongWidget',['../class_pong_widget.html#a6769fbfec9eb9fd6da50ea62a58e17e3',1,'PongWidget']]],
+  ['processdata_2',['processData',['../classconnection.html#a0c7a69ca7cf3b747dcb16ae403f2869f',1,'connection']]]
 ];

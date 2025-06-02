@@ -53,7 +53,9 @@ public:
      */
     void togglePause();
 
-
+    /**
+     * @brief Zmienna przechowująca wskaźnik do obiektu połączenia
+     */
     connection* connectMain;
 
 

@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -63,12 +65,22 @@ $(function() { codefold.init(0); });
 /* @license-end */
 </script>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('functions_vars.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -91,89 +103,20 @@ $(function(){ initResizable(false); });
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all variables with links to the classes they belong to:</div>
-
-<h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
-<li>buttonExit&#160;:&#160;<a class="el" href="class_ui__menu.html#ada5926b9efe18656ef7713dbd7f68fcd">Ui_menu</a></li>
-<li>buttonGoBack&#160;:&#160;<a class="el" href="class_ui__menu.html#a60df1065013167b2e867ec2ba333431b">Ui_menu</a></li>
-<li>buttonNewGame&#160;:&#160;<a class="el" href="class_ui__menu.html#aaa17b1b3533b3fd784c7725fa14d85ba">Ui_menu</a></li>
-<li>buttonPause&#160;:&#160;<a class="el" href="class_ui___main_window.html#ae3fa671f78687b240a6435af5fb6bc49">Ui_MainWindow</a></li>
-<li>buttonTest&#160;:&#160;<a class="el" href="class_ui__menu.html#a5907b0c7c2eb3fa743d875eef7b21d2e">Ui_menu</a></li>
-</ul>
-
-
-<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>centralwidget&#160;:&#160;<a class="el" href="class_ui___main_window.html#a39420100bfee3ba57f137af5a3b0f8e9">Ui_MainWindow</a></li>
-<li>chartAcc&#160;:&#160;<a class="el" href="class_ui__test.html#a49ad1d5d33e03d9dc5d2171e30fd7409">Ui_test</a></li>
-<li>chartGyro&#160;:&#160;<a class="el" href="class_ui__test.html#afc26f38ef85174dd3cd60418857bfd07">Ui_test</a></li>
-<li>chartWidget&#160;:&#160;<a class="el" href="class_ui__test.html#a16f3a45e4dee7fdefe28a61de7947bc0">Ui_test</a></li>
-</ul>
-
-
-<h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
-<li>formLayout&#160;:&#160;<a class="el" href="class_ui__test.html#a5ddbcea5ec1b3bd82712beaee468ac18">Ui_test</a></li>
-<li>formLayout_5&#160;:&#160;<a class="el" href="class_ui__test.html#a3de2ca17c7fd3a68e9c99eeeae6d969d">Ui_test</a></li>
-</ul>
-
-
-<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
-<li>gameWidget&#160;:&#160;<a class="el" href="class_ui___main_window.html#a581f7b533b1ec22f576309432e1b4371">Ui_MainWindow</a></li>
-<li>gridLayout&#160;:&#160;<a class="el" href="class_ui__test.html#abb8a688a82879f029b6149ef87c5fcfd">Ui_test</a></li>
-<li>gridLayout_2&#160;:&#160;<a class="el" href="class_ui__test.html#a83a3dca3c714c834b8dea736d4c92a25">Ui_test</a></li>
-<li>gridLayout_3&#160;:&#160;<a class="el" href="class_ui__test.html#a4f64e6fca08ab51d89919c8cf6eaf3fc">Ui_test</a></li>
-</ul>
-
-
-<h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>label&#160;:&#160;<a class="el" href="class_ui__test.html#ad3fc41c4900c1ae6d3187091e1d7c903">Ui_test</a></li>
-<li>label_10&#160;:&#160;<a class="el" href="class_ui__test.html#a7862c25ebf7689ba85d9b5362ddd3846">Ui_test</a></li>
-<li>label_11&#160;:&#160;<a class="el" href="class_ui__test.html#a6678325ab6561e398922061a1e83a939">Ui_test</a></li>
-<li>label_12&#160;:&#160;<a class="el" href="class_ui__test.html#aefa1cb1549be1bf4bce622ba04deb90a">Ui_test</a></li>
-<li>label_13&#160;:&#160;<a class="el" href="class_ui__test.html#ac950f49b3e76ddb96b4c3a82620d3b34">Ui_test</a></li>
-<li>label_14&#160;:&#160;<a class="el" href="class_ui__test.html#a75b5115fd3d2b63047c003020e8a8c93">Ui_test</a></li>
-<li>label_15&#160;:&#160;<a class="el" href="class_ui__test.html#a1ef66c6ac16351df776b438888050995">Ui_test</a></li>
-<li>label_2&#160;:&#160;<a class="el" href="class_ui__test.html#afa9f72fc42488ba00ba8e99bd51aa1fe">Ui_test</a></li>
-<li>label_8&#160;:&#160;<a class="el" href="class_ui__test.html#a5f4cfba75510538094ae63b7c2f0c058">Ui_test</a></li>
-<li>label_9&#160;:&#160;<a class="el" href="class_ui__test.html#aea3c4dd632f5f0e1d25063454f6261e0">Ui_test</a></li>
-<li>labelMenu&#160;:&#160;<a class="el" href="class_ui__menu.html#a0120037721f8d1ea79d53a6a939a78df">Ui_menu</a></li>
-<li>labelPrompt&#160;:&#160;<a class="el" href="class_ui__menu.html#af8513e82302bb33e69aa6010745e3a60">Ui_menu</a></li>
-<li>layoutWidget&#160;:&#160;<a class="el" href="class_ui__test.html#a2e220c221aa24362165d9c6647c7b867">Ui_test</a></li>
-<li>layoutWidget1&#160;:&#160;<a class="el" href="class_ui__test.html#a838bb83702a92e3413eb1924ec66fee3">Ui_test</a></li>
-<li>layoutWidget2&#160;:&#160;<a class="el" href="class_ui__test.html#ada47bea54110c79429cc00e453cdd91a">Ui_test</a></li>
-<li>lineEdit_10&#160;:&#160;<a class="el" href="class_ui__test.html#aafbd7c8ba71d098844ec4be2724c335c">Ui_test</a></li>
-<li>lineEdit_4&#160;:&#160;<a class="el" href="class_ui__test.html#a3963e6e580ca82168819276480c0fca0">Ui_test</a></li>
-<li>lineEdit_5&#160;:&#160;<a class="el" href="class_ui__test.html#a476b9b336e16d6ce835696b15ff559bc">Ui_test</a></li>
-<li>lineEdit_6&#160;:&#160;<a class="el" href="class_ui__test.html#a97b19572d71aa5f32a332b6a30a3cd9d">Ui_test</a></li>
-<li>lineEdit_7&#160;:&#160;<a class="el" href="class_ui__test.html#af480b2738c5efd5dce300c37d3ae7ddc">Ui_test</a></li>
-<li>lineEdit_8&#160;:&#160;<a class="el" href="class_ui__test.html#a0e4805ff0f36ede572e878df810b0750">Ui_test</a></li>
-<li>lineEdit_9&#160;:&#160;<a class="el" href="class_ui__test.html#ada409d86f71a7201643f1552603e4c15">Ui_test</a></li>
-</ul>
-
-
-<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>menubar&#160;:&#160;<a class="el" href="class_ui___main_window.html#a734b1d3bb71c1b8e1ea01b7fa4344fce">Ui_MainWindow</a></li>
-</ul>
-
-
-<h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>statusbar&#160;:&#160;<a class="el" href="class_ui___main_window.html#a07519bbb9a350befd6feb4e84ef299fd">Ui_MainWindow</a></li>
-</ul>
-
-
-<h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
-<li>verticalLayout&#160;:&#160;<a class="el" href="class_ui__menu.html#a00fa9a8923f3b6a2a0119defe80738db">Ui_menu</a></li>
-<li>verticalSpacer&#160;:&#160;<a class="el" href="class_ui__menu.html#a82ed32b28b03e865de29dc3d5b07232c">Ui_menu</a></li>
-</ul>
-
-
-<h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
-<li>widget&#160;:&#160;<a class="el" href="class_ui__menu.html#ae8e020395252a260b8b88165c14bd4e6">Ui_menu</a>, <a class="el" href="class_ui__test.html#a24f8bc0f0630c22852f765b1bd0bf7ae">Ui_test</a></li>
+<div class="textblock">Here is a list of all variables with links to the classes they belong to:</div><ul>
+<li>connectMain&#160;:&#160;<a class="el" href="class_main_window.html#a7d845e9c10612a61fb1641293a80e7e5">MainWindow</a></li>
+<li>connectMenu&#160;:&#160;<a class="el" href="classmenu.html#a055c971d7af27e340e67253f3e0ffa0e">menu</a></li>
+<li>connectPong&#160;:&#160;<a class="el" href="class_pong_widget.html#a61e9a6faa89af0c9eba06cd6afd19896">PongWidget</a></li>
+<li>connectTest&#160;:&#160;<a class="el" href="classtest.html#adea1f80caf73674754232646a568abbb">test</a></li>
+<li>mainWindow&#160;:&#160;<a class="el" href="class_pong_widget.html#a3d0fb5ab1d0ab29de64cc750f5c99f19">PongWidget</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
 </body>
 </html>

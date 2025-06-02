@@ -28,23 +28,29 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    pongGame = new PongWidget(ui->gameWidget);
+    connectMain = new connection;
+
+    pongGame = new PongWidget(ui->gameWidget,connectMain);
     QVBoxLayout *layout = new QVBoxLayout(ui->gameWidget);
     layout->addWidget(pongGame);
 
     pongGame->mainWindow = this;
 
-    //połączenie z czujnikami
-
+        //połączenie z czujnikami
     QThread *thread = new QThread;
-    connectMain = new connection;
 
     connectMain->moveToThread(thread);
 
     QObject::connect(thread, &QThread::started, connectMain, &connection::start);
-    QObject::connect(connectMain, &connection::dataReceived, [this](const QByteArray &data) { //zmieniono [] na [this]
-        qDebug() << "Odebrano:" << data.toStdString();
-        connectMain->processData(data);
+    QObject::connect(connectMain, &connection::dataReceived, [this](const QByteArray &dataRaw) {
+        if(connectMain->verifyCRC8(dataRaw)){
+            QByteArray data = dataRaw;
+            data.chop(1);
+            qDebug() << "Odebrano:" << data.toStdString();
+            connectMain->processData(data);
+        } else {
+            qDebug() << "zle crc";
+        }
     });
     QObject::connect(qApp, &QCoreApplication::aboutToQuit, connectMain, &connection::stop);
 

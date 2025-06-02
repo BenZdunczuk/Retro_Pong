@@ -24,11 +24,14 @@
      *
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
-PongWidget::PongWidget(QWidget *parent)
-    : QWidget(parent), mainWindow(nullptr), ballDX(baseSpeed), ballDY(baseSpeed), moveUp(false), moveDown(false), rotateRight(false),
+PongWidget::PongWidget(QWidget *parent, connection *connect)
+    : QWidget(parent),mainWindow(nullptr), connectPong(connect), ballDX(baseSpeed), ballDY(baseSpeed), moveUp(false), moveDown(false), rotateRight(false),
     rotateLeft(false),rotationAnglePaddle(0), isPaused(false), scoreAI(0), scorePlayer(0), posX(0), posY(0), rotationAngleBall(45), speed(baseSpeed)
 {
     setFocusPolicy(Qt::StrongFocus);
+
+    QObject::connect(connectPong,&connection::dataProcessed,this,&PongWidget::calculateMovement);
+
 
     // width oraz height - wymiary gry
     int w = 800;
@@ -44,7 +47,7 @@ PongWidget::PongWidget(QWidget *parent)
     ball = QRect(w/2 - 10, h/2 - 10, 20, 20);
 
     timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &PongWidget::gameLoop);
+    QObject::connect(timer, &QTimer::timeout, this, &PongWidget::gameLoop);
     int t = 16;         // okres odświeżania w ms - odpowiada 60hz
     timer->start(t);
 }
@@ -82,31 +85,28 @@ void PongWidget::paintEvent(QPaintEvent *event)
     painter.setFont(QFont("Courier", 16));
     painter.drawText(10, 30, QString("Wynik: %1").arg(scoreAI));
     painter.drawText(660, 30, QString("Wynik: %1").arg(scorePlayer));
-
 }
 
     /**
      * @brief Metoda reagująca na kliknięcie przycisku strzałek na klawiaturze
      * @param event Opcjonalny wskaźnik do rysowania.
      */
-void PongWidget::keyPressEvent(QKeyEvent *event)
-{
-    if (event->key() == Qt::Key_Up) moveUp = true;
-    if (event->key() == Qt::Key_Down) moveDown = true;
-    if (event->key() == Qt::Key_Right) rotateRight = true;
-    if (event->key() == Qt::Key_Left) rotateLeft = true;
+void PongWidget::keyPressEvent(QKeyEvent *event){
+    // if (event->key() == Qt::Key_Up) moveUp = true;
+    // if (event->key() == Qt::Key_Down) moveDown = true;
+    // if (event->key() == Qt::Key_Right) rotateRight = true;
+    // if (event->key() == Qt::Key_Left) rotateLeft = true;
 }
 
     /**
      * @brief Metoda reagująca na zwolnienie przycisku strzałek na klawiaturze
      * @param event Opcjonalny wskaźnik do rysowania.
      */
-void PongWidget::keyReleaseEvent(QKeyEvent *event)
-{
-    if (event->key() == Qt::Key_Up) moveUp = false;
-    if (event->key() == Qt::Key_Down) moveDown = false;
-    if (event->key() == Qt::Key_Right) rotateRight = false;
-    if (event->key() == Qt::Key_Left) rotateLeft = false;
+void PongWidget::keyReleaseEvent(QKeyEvent *event){
+    // if (event->key() == Qt::Key_Up) moveUp = false;
+    // if (event->key() == Qt::Key_Down) moveDown = false;
+    // if (event->key() == Qt::Key_Right) rotateRight = false;
+    // if (event->key() == Qt::Key_Left) rotateLeft = false;
 }
 
     /**
@@ -116,8 +116,7 @@ void PongWidget::keyReleaseEvent(QKeyEvent *event)
      * oraz obsługuje fizykę gry
      *
      */
-void PongWidget::gameLoop()
-{
+void PongWidget::gameLoop(){
     QEventLoop pausedLoop;
     connect(mainWindow,&MainWindow::resumed, &pausedLoop, &QEventLoop::quit);
     connect(mainWindow,&MainWindow::restarted, &pausedLoop, &QEventLoop::quit);
@@ -125,7 +124,7 @@ void PongWidget::gameLoop()
         pausedLoop.exec();
     }
 
-    connect(mainWindow,&MainWindow::restarted, this, &PongWidget::resetGame);
+    connect(mainWindow,&MainWindow::restarted,this,&PongWidget::resetGame);
 
     /*      gracz       */
     if (moveUp && posY > 0)
@@ -166,8 +165,6 @@ void PongWidget::gameLoop()
         resetBall();
     }
 
-    //std::cout << scorePlayer << std::endl;
-
     update();
 }
 
@@ -204,7 +201,6 @@ void PongWidget::setPause(bool pause)
      * @param[out] angle Kąt obrotu piłeczki modulo 360, jakby doszło do zatoczenia pełnego koła
      */
 int PongWidget::rotation(int angle){
-    //angle %= 360;
     speed *= 1.05;      //przyśpieszenie gry
     ballDX = speed * 1.41 * cos(3.14*angle/180);
     ballDY = speed * 1.41 * sin(3.14*angle/180);
@@ -228,4 +224,29 @@ void PongWidget::resetGame(){
     scoreAI = 0;
     scorePlayer = 0;
     resetBall();
+}
+
+    /**
+     * @brief Metoda interpretująca odczyty sensorów i przekładająca je na sterowanie w grze
+     *
+     * Reaguje na sygnał z danymi z czujników, wysyłany z okna głównego z klasy connection
+     *
+     *@param[in] sensor zmienna określająca typ czujnika (0 - żyroskop, 1 - akcelerometr)
+     *@param[in] data przetworzone dane odczytane z czujników w formacie typu string
+     *@param[out] moveDown zmienna boolowska określająca czy ruch paletki w dół ma następować czy nie
+     *@param[out] moveUp zmienna boolowska określająca czy ruch paletki w górę ma następować czy nie
+     */
+void PongWidget::calculateMovement(bool sensor, QStringList data){
+    int threshold = 1000;       //próg dla wartości sensora, po których jest odczytywany ruch
+
+    if(sensor){
+        if(data[0].toInt() > threshold){
+            moveUp = true;
+        } else if(data[0].toInt() < -threshold){
+            moveDown = true;
+        } else {
+            moveUp = false;
+            moveDown = false;
+        }
+    }
 }

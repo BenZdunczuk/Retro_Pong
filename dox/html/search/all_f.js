@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['setpause_0',['setPause',['../class_pong_widget.html#a487ca2f1c46d1122e0c8905b629bc9cf',1,'PongWidget']]],
-  ['setupui_1',['setupUi',['../class_ui___main_window.html#acf4a0872c4c77d8f43a2ec66ed849b58',1,'Ui_MainWindow::setupUi()'],['../class_ui__menu.html#a08652c136e5cb535f3e3a9ad5a4386c6',1,'Ui_menu::setupUi()'],['../class_ui__test.html#ab10b0d790fea169d0e025722c00bfad5',1,'Ui_test::setupUi()'],['../class_ui___main_window.html#acf4a0872c4c77d8f43a2ec66ed849b58',1,'Ui_MainWindow::setupUi()'],['../class_ui__menu.html#a08652c136e5cb535f3e3a9ad5a4386c6',1,'Ui_menu::setupUi()'],['../class_ui__test.html#ab10b0d790fea169d0e025722c00bfad5',1,'Ui_test::setupUi()']]],
-  ['sizeof_5fdptr_2',['SIZEOF_DPTR',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2moc__predefs_8h.html#addad5b57ed33bc5c79361574d9e03c06',1,'SIZEOF_DPTR:&#160;moc_predefs.h'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2moc__predefs_8h.html#addad5b57ed33bc5c79361574d9e03c06',1,'SIZEOF_DPTR:&#160;moc_predefs.h']]],
-  ['statusbar_3',['statusbar',['../class_ui___main_window.html#a07519bbb9a350befd6feb4e84ef299fd',1,'Ui_MainWindow']]],
-  ['stringify_4',['STRINGIFY',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2_c_make_files_23_830_85_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCXXCompilerId.cpp'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2_c_make_files_23_830_85_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCXXCompilerId.cpp']]],
-  ['stringify_5fhelper_5',['STRINGIFY_HELPER',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2_c_make_files_23_830_85_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCXXCompilerId.cpp'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2_c_make_files_23_830_85_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCXXCompilerId.cpp']]]
+  ['test_0',['test',['../classtest.html',1,'test'],['../classtest.html#aee13dd1a3e87517069145358b9120024',1,'test::test()']]],
+  ['test_2ecpp_1',['test.cpp',['../test_8cpp.html',1,'']]],
+  ['test_2eh_2',['test.h',['../test_8h.html',1,'']]],
+  ['togglepause_3',['togglePause',['../class_main_window.html#a669e8df21465603fe4713abbe8779ea1',1,'MainWindow']]]
 ];

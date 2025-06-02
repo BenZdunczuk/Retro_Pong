@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['ui_5fmainwindow_0',['Ui_MainWindow',['../class_ui___main_window.html',1,'']]],
-  ['ui_5fmenu_1',['Ui_menu',['../class_ui__menu.html',1,'']]],
-  ['ui_5ftest_2',['Ui_test',['../class_ui__test.html',1,'']]],
-  ['unpause_3',['unPause',['../classmenu.html#a15df0f3dc7e338b7239bf7f08ce3332d',1,'menu']]]
+  ['lpf_5falpha_0',['LPF_ALPHA',['../gyroscope_8c.html#aa437379d41f262b51ee469170386d82a',1,'gyroscope.c']]],
+  ['lpf_5falpha_5fi_1',['LPF_ALPHA_I',['../accelerometer_8c.html#a2eab56ade7642392a5cf1c2ffaf187d1',1,'accelerometer.c']]]
 ];

@@ -1,7 +1,21 @@
 var searchData=
 [
-  ['widget_0',['widget',['../class_ui__menu.html#ae8e020395252a260b8b88165c14bd4e6',1,'Ui_menu::widget'],['../class_ui__test.html#a24f8bc0f0630c22852f765b1bd0bf7ae',1,'Ui_test::widget']]],
-  ['win32_1',['WIN32',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2moc__predefs_8h.html#a6402e8b8594280624585b8fd643bfb65',1,'WIN32:&#160;moc_predefs.h'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2moc__predefs_8h.html#a6402e8b8594280624585b8fd643bfb65',1,'WIN32:&#160;moc_predefs.h']]],
-  ['win64_2',['WIN64',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2moc__predefs_8h.html#a951ed972d2606d55ee009c69fe06672a',1,'WIN64:&#160;moc_predefs.h'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2moc__predefs_8h.html#a951ed972d2606d55ee009c69fe06672a',1,'WIN64:&#160;moc_predefs.h']]],
-  ['winnt_3',['WINNT',['../_desktop___qt__6__9__0___min_g_w__64__bit-_debug_2pong__autogen_2moc__predefs_8h.html#a3e2be49a2ed02cf3eaf2b8ff2ff76afd',1,'WINNT:&#160;moc_predefs.h'],['../_desktop___qt__6__9__0___min_g_w__64__bit-_release_2pong__autogen_2moc__predefs_8h.html#a3e2be49a2ed02cf3eaf2b8ff2ff76afd',1,'WINNT:&#160;moc_predefs.h']]]
+  ['paintevent_0',['paintEvent',['../class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61',1,'PongWidget']]],
+  ['pendsv_5fhandler_1',['PendSV_Handler',['../stm32l4xx__it_8h.html#a6303e1f258cbdc1f970ce579cc015623',1,'PendSV_Handler(void):&#160;stm32l4xx_it.c'],['../stm32l4xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623',1,'PendSV_Handler(void):&#160;stm32l4xx_it.c']]],
+  ['pll_5fm_201_2',['PLL_M                                  | 1',['../system__stm32l4xx_8c.html#autotoc_md7',1,'']]],
+  ['pll_5fn_208_3',['PLL_N                                  | 8',['../system__stm32l4xx_8c.html#autotoc_md8',1,'']]],
+  ['pll_5fp_207_4',['PLL_P                                  | 7',['../system__stm32l4xx_8c.html#autotoc_md9',1,'']]],
+  ['pll_5fq_202_5',['PLL_Q                                  | 2',['../system__stm32l4xx_8c.html#autotoc_md10',1,'']]],
+  ['pll_5fr_202_6',['PLL_R                                  | 2',['../system__stm32l4xx_8c.html#autotoc_md11',1,'']]],
+  ['pllsai1_5fp_20na_7',['PLLSAI1_P                              | NA',['../system__stm32l4xx_8c.html#autotoc_md12',1,'']]],
+  ['pllsai1_5fq_20na_8',['PLLSAI1_Q                              | NA',['../system__stm32l4xx_8c.html#autotoc_md13',1,'']]],
+  ['pllsai1_5fr_20na_9',['PLLSAI1_R                              | NA',['../system__stm32l4xx_8c.html#autotoc_md14',1,'']]],
+  ['pllsai2_5fp_20na_10',['PLLSAI2_P                              | NA',['../system__stm32l4xx_8c.html#autotoc_md15',1,'']]],
+  ['pllsai2_5fq_20na_11',['PLLSAI2_Q                              | NA',['../system__stm32l4xx_8c.html#autotoc_md16',1,'']]],
+  ['pllsai2_5fr_20na_12',['PLLSAI2_R                              | NA',['../system__stm32l4xx_8c.html#autotoc_md17',1,'']]],
+  ['ponging_2ecpp_13',['ponging.cpp',['../ponging_8cpp.html',1,'']]],
+  ['ponging_2eh_14',['ponging.h',['../ponging_8h.html',1,'']]],
+  ['pongwidget_15',['PongWidget',['../class_pong_widget.html',1,'PongWidget'],['../class_pong_widget.html#a6769fbfec9eb9fd6da50ea62a58e17e3',1,'PongWidget::PongWidget()']]],
+  ['prescaler_201_16',['Prescaler 1',['../system__stm32l4xx_8c.html#autotoc_md4',1,'AHB Prescaler                          | 1'],['../system__stm32l4xx_8c.html#autotoc_md5',1,'APB1 Prescaler                         | 1'],['../system__stm32l4xx_8c.html#autotoc_md6',1,'APB2 Prescaler                         | 1']]],
+  ['processdata_17',['processData',['../classconnection.html#a0c7a69ca7cf3b747dcb16ae403f2869f',1,'connection']]]
 ];

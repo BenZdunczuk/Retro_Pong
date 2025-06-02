@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ponging_2ecpp_0',['ponging.cpp',['../ponging_8cpp.html',1,'']]],
-  ['ponging_2eh_1',['ponging.h',['../ponging_8h.html',1,'']]]
+  ['gyroscope_2ec_0',['gyroscope.c',['../gyroscope_8c.html',1,'']]],
+  ['gyroscope_2eh_1',['gyroscope.h',['../gyroscope_8h.html',1,'']]]
 ];

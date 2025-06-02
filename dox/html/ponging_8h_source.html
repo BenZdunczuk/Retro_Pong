@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -62,11 +64,23 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('ponging_8h_source.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,12 +102,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_4aa64b0872d36146e049722e293482e3.html">prj</a></li><li class="navelem"><a class="el" href="dir_5dc710130a32bec35fec8f9fa4d46d39.html">QT</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">ponging.h</div></div>
 </div><!--header-->
@@ -102,80 +110,93 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PONGING_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="menu_8h.html">menu.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QTimer&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;QKeyEvent&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_pong_widget.html">   21</a></span><span class="keyword">class </span><a class="code hl_function" href="class_pong_widget.html#a37b606c1325a4dbf2ae307b88ef2aafe">PongWidget</a> : <span class="keyword">public</span> QWidget</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    Q_OBJECT</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_pong_widget.html#a37b606c1325a4dbf2ae307b88ef2aafe">PongWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pong_widget.html#a487ca2f1c46d1122e0c8905b629bc9cf">setPause</a>(<span class="keywordtype">bool</span> paused);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="class_main_window.html">MainWindow</a> *mainWindow;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61">paintEvent</a>(QPaintEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073">keyPressEvent</a>(QKeyEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pong_widget.html#a6d33df4864fe204649d309f997ea0422">keyReleaseEvent</a>(QKeyEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span> slots:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> gameLoop();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    QRect playerPaddle;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    QRect aiPaddle;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    QRect ball;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">int</span> rotation(<span class="keywordtype">int</span> angle);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">int</span> reflaction(<span class="keywordtype">int</span> angleA, <span class="keywordtype">int</span> angleB);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> isPaused;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">int</span> scoreAI,scorePlayer;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">int</span> ballDX, ballDY;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">bool</span> moveUp, moveDown, rotateRight, rotateLeft;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">int</span> rotationAnglePaddle,posX,posY;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">int</span> rotationAngleBall;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">double</span> speed;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    QTimer *timer;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">void</span> resetBall();</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keyword">public</span> slots:</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_pong_widget.html#a5b79b6e1d776d074b4b4f48306076787">resetGame</a>();</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>};</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="connection_8h.html">connection.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QKeyEvent&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_pong_widget.html">   22</a></span><span class="keyword">class </span><a class="code hl_function" href="class_pong_widget.html#a6769fbfec9eb9fd6da50ea62a58e17e3">PongWidget</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    Q_OBJECT</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_pong_widget.html#a6769fbfec9eb9fd6da50ea62a58e17e3">PongWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>,<a class="code hl_class" href="classconnection.html">connection</a> *connect = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pong_widget.html#a487ca2f1c46d1122e0c8905b629bc9cf">setPause</a>(<span class="keywordtype">bool</span> paused);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_pong_widget.html#a3d0fb5ab1d0ab29de64cc750f5c99f19">   42</a></span>    <a class="code hl_class" href="class_main_window.html">MainWindow</a> *<a class="code hl_variable" href="class_pong_widget.html#a3d0fb5ab1d0ab29de64cc750f5c99f19">mainWindow</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_pong_widget.html#a61e9a6faa89af0c9eba06cd6afd19896">   47</a></span>    <a class="code hl_class" href="classconnection.html">connection</a> *<a class="code hl_variable" href="class_pong_widget.html#a61e9a6faa89af0c9eba06cd6afd19896">connectPong</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61">paintEvent</a>(QPaintEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073">keyPressEvent</a>(QKeyEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pong_widget.html#a6d33df4864fe204649d309f997ea0422">keyReleaseEvent</a>(QKeyEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> gameLoop();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> calculateMovement(<span class="keywordtype">bool</span> sensor,QStringList data);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    QRect playerPaddle;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    QRect aiPaddle;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    QRect ball;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">int</span> rotation(<span class="keywordtype">int</span> angle);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">int</span> reflaction(<span class="keywordtype">int</span> angleA, <span class="keywordtype">int</span> angleB);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">bool</span> isPaused;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">int</span> scoreAI,scorePlayer;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">int</span> ballDX, ballDY;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">bool</span> moveUp, moveDown, rotateRight, rotateLeft;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">int</span> rotationAnglePaddle,posX,posY;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">int</span> rotationAngleBall;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">double</span> speed;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    QTimer *timer;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> resetBall();</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">public</span> slots:</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_pong_widget.html#a5b79b6e1d776d074b4b4f48306076787">resetGame</a>();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>};</div>
 </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#endif </span><span class="comment">// PONGING_H</span></div>
-<div class="ttc" id="aclass_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Klasa MainWindow reprezentuje główne okno aplikacji Pong.</div><div class="ttdef"><b>Definition</b> mainwindow.h:30</div></div>
-<div class="ttc" id="aclass_pong_widget_html_a37b606c1325a4dbf2ae307b88ef2aafe"><div class="ttname"><a href="class_pong_widget.html#a37b606c1325a4dbf2ae307b88ef2aafe">PongWidget::PongWidget</a></div><div class="ttdeci">PongWidget(QWidget *parent=nullptr)</div><div class="ttdoc">Konstruktor klasy menu.</div><div class="ttdef"><b>Definition</b> ponging.cpp:27</div></div>
-<div class="ttc" id="aclass_pong_widget_html_a487ca2f1c46d1122e0c8905b629bc9cf"><div class="ttname"><a href="class_pong_widget.html#a487ca2f1c46d1122e0c8905b629bc9cf">PongWidget::setPause</a></div><div class="ttdeci">void setPause(bool paused)</div><div class="ttdoc">Metoda typu setter umożliwiająca dostęp do atrybutu paused.</div><div class="ttdef"><b>Definition</b> ponging.cpp:196</div></div>
-<div class="ttc" id="aclass_pong_widget_html_a5b79b6e1d776d074b4b4f48306076787"><div class="ttname"><a href="class_pong_widget.html#a5b79b6e1d776d074b4b4f48306076787">PongWidget::resetGame</a></div><div class="ttdeci">void resetGame()</div><div class="ttdoc">Metoda resetująca aktualną grę</div><div class="ttdef"><b>Definition</b> ponging.cpp:227</div></div>
-<div class="ttc" id="aclass_pong_widget_html_a6d33df4864fe204649d309f997ea0422"><div class="ttname"><a href="class_pong_widget.html#a6d33df4864fe204649d309f997ea0422">PongWidget::keyReleaseEvent</a></div><div class="ttdeci">void keyReleaseEvent(QKeyEvent *event) override</div><div class="ttdoc">Metoda reagująca na kliknięcie przycisku strzałki w górę i w dół</div><div class="ttdef"><b>Definition</b> ponging.cpp:104</div></div>
-<div class="ttc" id="aclass_pong_widget_html_a76052e4fa6504a1d6d42c9f0a4adbd61"><div class="ttname"><a href="class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61">PongWidget::paintEvent</a></div><div class="ttdeci">void paintEvent(QPaintEvent *event) override</div><div class="ttdoc">Metoda inicjalizująca rysowanie wykresu.</div><div class="ttdef"><b>Definition</b> ponging.cpp:59</div></div>
-<div class="ttc" id="aclass_pong_widget_html_a7c4f97b186f82c8df1b65068d6a79073"><div class="ttname"><a href="class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073">PongWidget::keyPressEvent</a></div><div class="ttdeci">void keyPressEvent(QKeyEvent *event) override</div><div class="ttdoc">Metoda reagująca na kliknięcie przycisku strzałki w górę i w dół</div><div class="ttdef"><b>Definition</b> ponging.cpp:92</div></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#endif </span><span class="comment">// PONGING_H</span></div>
+<div class="ttc" id="aclass_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Klasa MainWindow reprezentuje główne okno aplikacji Pong.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00030">mainwindow.h:31</a></div></div>
+<div class="ttc" id="aclass_pong_widget_html_a3d0fb5ab1d0ab29de64cc750f5c99f19"><div class="ttname"><a href="class_pong_widget.html#a3d0fb5ab1d0ab29de64cc750f5c99f19">PongWidget::mainWindow</a></div><div class="ttdeci">MainWindow * mainWindow</div><div class="ttdoc">Zmienna przechowująca wskaźnik do obiektu okna głównego.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">ponging.h:42</a></div></div>
+<div class="ttc" id="aclass_pong_widget_html_a487ca2f1c46d1122e0c8905b629bc9cf"><div class="ttname"><a href="class_pong_widget.html#a487ca2f1c46d1122e0c8905b629bc9cf">PongWidget::setPause</a></div><div class="ttdeci">void setPause(bool paused)</div><div class="ttdoc">Metoda typu setter umożliwiająca dostęp do atrybutu paused.</div><div class="ttdef"><b>Definition</b> <a href="ponging_8cpp_source.html#l00193">ponging.cpp:193</a></div></div>
+<div class="ttc" id="aclass_pong_widget_html_a5b79b6e1d776d074b4b4f48306076787"><div class="ttname"><a href="class_pong_widget.html#a5b79b6e1d776d074b4b4f48306076787">PongWidget::resetGame</a></div><div class="ttdeci">void resetGame()</div><div class="ttdoc">Metoda resetująca aktualną grę</div><div class="ttdef"><b>Definition</b> <a href="ponging_8cpp_source.html#l00223">ponging.cpp:223</a></div></div>
+<div class="ttc" id="aclass_pong_widget_html_a61e9a6faa89af0c9eba06cd6afd19896"><div class="ttname"><a href="class_pong_widget.html#a61e9a6faa89af0c9eba06cd6afd19896">PongWidget::connectPong</a></div><div class="ttdeci">connection * connectPong</div><div class="ttdoc">Zmienna przechowująca wskaźnik do obiektu połączenia.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">ponging.h:47</a></div></div>
+<div class="ttc" id="aclass_pong_widget_html_a6769fbfec9eb9fd6da50ea62a58e17e3"><div class="ttname"><a href="class_pong_widget.html#a6769fbfec9eb9fd6da50ea62a58e17e3">PongWidget::PongWidget</a></div><div class="ttdeci">PongWidget(QWidget *parent=nullptr, connection *connect=nullptr)</div><div class="ttdoc">Konstruktor klasy menu.</div><div class="ttdef"><b>Definition</b> <a href="ponging_8cpp_source.html#l00027">ponging.cpp:27</a></div></div>
+<div class="ttc" id="aclass_pong_widget_html_a6d33df4864fe204649d309f997ea0422"><div class="ttname"><a href="class_pong_widget.html#a6d33df4864fe204649d309f997ea0422">PongWidget::keyReleaseEvent</a></div><div class="ttdeci">void keyReleaseEvent(QKeyEvent *event) override</div><div class="ttdoc">Metoda reagująca na kliknięcie przycisku strzałki w górę i w dół</div><div class="ttdef"><b>Definition</b> <a href="ponging_8cpp_source.html#l00105">ponging.cpp:105</a></div></div>
+<div class="ttc" id="aclass_pong_widget_html_a76052e4fa6504a1d6d42c9f0a4adbd61"><div class="ttname"><a href="class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61">PongWidget::paintEvent</a></div><div class="ttdeci">void paintEvent(QPaintEvent *event) override</div><div class="ttdoc">Metoda inicjalizująca rysowanie wykresu.</div><div class="ttdef"><b>Definition</b> <a href="ponging_8cpp_source.html#l00062">ponging.cpp:62</a></div></div>
+<div class="ttc" id="aclass_pong_widget_html_a7c4f97b186f82c8df1b65068d6a79073"><div class="ttname"><a href="class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073">PongWidget::keyPressEvent</a></div><div class="ttdeci">void keyPressEvent(QKeyEvent *event) override</div><div class="ttdoc">Metoda reagująca na kliknięcie przycisku strzałki w górę i w dół</div><div class="ttdef"><b>Definition</b> <a href="ponging_8cpp_source.html#l00094">ponging.cpp:94</a></div></div>
+<div class="ttc" id="aclassconnection_html"><div class="ttname"><a href="classconnection.html">connection</a></div><div class="ttdoc">Klasa connection reprezentuje połączenie pomiędzy aplikacją w QT a mikrokontrolerem STM.</div><div class="ttdef"><b>Definition</b> <a href="connection_8h_source.html#l00022">connection.h:23</a></div></div>
+<div class="ttc" id="aconnection_8h_html"><div class="ttname"><a href="connection_8h.html">connection.h</a></div><div class="ttdoc">Definicja metody klasy connection.</div></div>
 <div class="ttc" id="amenu_8h_html"><div class="ttname"><a href="menu_8h.html">menu.h</a></div><div class="ttdoc">Definicja metody klasy menu.</div></div>
 </div><!-- fragment --></div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4aa64b0872d36146e049722e293482e3.html">prj</a></li><li class="navelem"><a class="el" href="dir_5dc710130a32bec35fec8f9fa4d46d39.html">QT</a></li><li class="navelem"><a class="el" href="ponging_8h.html">ponging.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
 </body>
 </html>

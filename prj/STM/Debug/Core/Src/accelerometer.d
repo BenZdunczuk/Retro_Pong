@@ -40,7 +40,8 @@ Core/Src/accelerometer.o: ../Core/Src/accelerometer.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_compass.h \
- C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
+ ../Core/Inc/main.h
 ../Core/Inc/accelerometer.h:
 C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/lsm303c.h:
 C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/accelero.h:
@@ -83,3 +84,4 @@ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discov
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
 C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_compass.h:
 C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
+../Core/Inc/main.h:

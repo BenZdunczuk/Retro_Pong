@@ -2,12 +2,14 @@
 #define CHART_H
 
 #include <QWidget>
+#include <qdatetime.h>
+#include "qcustomplot.h"
 
 /**
 * \file
-* \brief Definicja metody klasy chart
+* \brief Definicja klasy chart
 *
-* Zawiera definicję metod klasy chart.
+* Zawiera definicję klasy chart.
 */
 
 /**
@@ -15,38 +17,31 @@
  *
  * Zawiera definicję widgetu rysującego wykres na podstawie danych odebranych z mikrokontrolera.
  */
-class chart : public QWidget
-{
+class chart : public QWidget {
     Q_OBJECT
 
 public:
     /**
-     * @brief Konstruktor klasy chart.
-     * @param parent Opcjonalny wskaźnik do rodzica.
-     * @param setPhase Przesunięcie fazowe sinusa (tylko w wersji do testowania wyświetlania wykresu)
+     * @brief Konstruktor klasy chart
      */
-    explicit chart(QWidget *parent = nullptr,double setPhase = 0.0);
+    chart(QWidget *parent = nullptr);
 
-protected:
+public slots:
     /**
-     * @brief Metoda inicjalizująca rysowanie wykresu
-     * @param event Opcjonalny wskaźnik do rysowania.
+     * @brief Slot dodający nowe dane do wykresu
      */
-    void paintEvent(QPaintEvent *event) override;
-
-private slots:
-    /**
-     * @brief Slot odpoweidzialny za przesuwanie wykresu w czasie
-     */
-    void onTimeout();
+    void onNewData(bool sensor, QStringList data);
 
 private:
     /**
-     * @brief Zmienna określająca przesunięcie fazowe
+     * @brief Zmienna przechowująca wskażnik do wykresu
      */
-    double phase;
+    QCustomPlot *plot;
 
-signals:
+    /**
+     * @brief Zmienna przechowująca czas rozpoczęcia pokazywania danych
+     */
+    QDateTime startTime;
 };
 
 #endif // CHART_H

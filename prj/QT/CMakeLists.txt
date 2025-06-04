@@ -32,7 +32,6 @@ target_link_libraries(pong
         Qt::Widgets
         Qt6::SerialPort
         Qt6::PrintSupport
-
 )
 
 include(GNUInstallDirs)

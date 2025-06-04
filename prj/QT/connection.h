@@ -93,10 +93,9 @@ signals:
     /**
      * @brief Sygnał wysyłany w po obrobieniu danych, przechowujący informacje o typie czujnika oraz dane z podziałem na osie
      *
-     * @param sensorType typ czujnika, 0 - żyroskop, 1 - akcelerometr
      * @param dataProcessed przetworzone dane w postaci listy stringów (mogą być łatwo przetworzone na wartości numeryczne)
      */
-    void dataProcessed(int sensorType,QStringList dataProcessed);
+    void dataProcessed(QStringList dataProcessed);
 };
 
 #endif // CONNECTION_H

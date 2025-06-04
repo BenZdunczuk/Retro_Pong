@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "test.h"
 #include "menu.h"
 #include "ui_menu.h"
 
@@ -15,9 +14,14 @@
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
 menu::menu(MainWindow *parent, connection* connect)
-    : QDialog(parent), ui(new Ui::menu), mainWindowPtr(parent), connectMenu(connect)
+    : QDialog(parent), ui(new Ui::menu), mainWindowPtr(parent), connectMenu(connect), pTest(nullptr)
 {
     ui->setupUi(this);
+
+    if(mainWindowPtr->getTestOpen()){
+        ui->buttonTest->setEnabled(false);
+        // pTest->setParent(this);
+    }
 }
 
     /**
@@ -72,7 +76,17 @@ void menu::on_buttonNewGame_clicked()
      */
 void menu::on_buttonTest_clicked()
 {
-    test pTest(this,connectMenu);
-    pTest.exec();
+    ui->buttonTest->setEnabled(false);
+    mainWindowPtr->openTest();
+}
+
+    /**
+     * @brief Slot odblokowujący możliwość naciśnięcia przycisku otwierającego okno testowe
+     *
+     * Slot odbiera sygnał wysyłany przez okno testu informujący o jego zamknięciu
+     * i odblokowuje możliwość ponownego otworzenia okna testu przyciskiem
+     */
+void menu::unlockTestButton(){
+    ui->buttonTest->setEnabled(true);
 }
 

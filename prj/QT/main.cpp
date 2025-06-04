@@ -1,9 +1,9 @@
 #include "mainwindow.h"
-#include "connection.h"
 
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <QDebug>
 
 /**
 * \file
@@ -12,12 +12,15 @@
 * Zawiera inicjalizację QApllication, utworzenie i wymuszenie okna MainWidget
 * zawierającego grę i dostęp do menu oraz uruchamia pętlę obsługi aplikacji
 *
-* Posiada moduł do tłumaczenia aplikacji na język angielski (aktualnie nieużywany)
+* Posiada moduł do tłumaczenia aplikacji z języka polskiego na język angielski
 */
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    QLocale::setDefault(QLocale(QLocale::Polish, QLocale::Poland));
+    // QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
@@ -28,6 +31,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
     MainWindow w;
     w.show();
 

@@ -3,6 +3,7 @@
 
 #include "connection.h"
 #include "ui_test.h"
+// #include "mainwindow.h"
 
 #include <QObject>
 #include <QWidget>
@@ -14,6 +15,8 @@
 *
 * Zawiera definicję metod klasy test.
 */
+
+class menu;
 
 namespace Ui {
 /**
@@ -34,7 +37,6 @@ class test : public QDialog
     Q_OBJECT
 
 public:
-
     /**
      * @brief Konstruktor klasy test.
      */
@@ -45,21 +47,43 @@ public:
      */
     ~test();
 
+    /**
+     * @brief Wskaźnik do obiektu połączenia z mikroprocesorem
+     */
     connection* connectTest;
 
-
+    /**
+     * @brief Metoda zamykająca okienko testu
+     */
+    void closeTest();
 
 private slots:
     /**
      * @brief Slot wyświetlający dane numeryczne z sensorów w okienku test
      */
-    void displayData(bool sensor, QStringList data);
+    void displayData(QStringList data);
+
+    /**
+     * @brief Slot zamykający okno
+     */
+    void on_pushButton_clicked();
 
 private:
     /**
      * @brief Wskaźnik do obiektu interfejsu użytkownika wygenerowanego przez Qt Designer.
      */
     Ui::test *ui;
+
+    /**
+     * @brief Wskaźnik do obiektu menu.
+     */
+    menu *pMenu;
+
+signals:
+    /**
+     * @brief Sygnał wysyłany w momencie zamknięcia okna
+     */
+    void testExitSignal();
 };
 
 #endif // TEST_H

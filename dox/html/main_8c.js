@@ -6,6 +6,5 @@ var main_8c =
     [ "main", "main_8c.html#a840291bc02cba5474a4cb46a9b9566fe", null ],
     [ "SystemClock_Config", "main_8c.html#a70af21c671abfcc773614a9a4f63d920", null ],
     [ "filteredAcc", "main_8c.html#a4043d086a0efde53db830298a1693a3b", null ],
-    [ "filteredGyro", "main_8c.html#abea65f119e7ae2c206ade9d3adb32396", null ],
     [ "offset", "main_8c.html#a634637d3de546ac24b6912b9871b6cfc", null ]
 ];

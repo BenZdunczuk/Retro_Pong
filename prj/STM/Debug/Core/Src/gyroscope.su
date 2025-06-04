@@ -1,2 +1,2 @@
-../Core/Src/gyroscope.c:5:9:GyroInit	16	static
-../Core/Src/gyroscope.c:22:6:GyroGetData	64	static
+../Core/Src/gyroscope.c:7:9:GyroInit	16	static
+../Core/Src/gyroscope.c:24:6:GyroGetData	64	static

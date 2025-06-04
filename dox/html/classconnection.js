@@ -3,7 +3,7 @@ var classconnection =
     [ "connection", "classconnection.html#a5d5d79c3d6e8bbfb4087a10dc6bf1fde", null ],
     [ "~connection", "classconnection.html#a974638af9e9e1e5659dee7c9fab326ed", null ],
     [ "computeCRC8", "classconnection.html#a4ddb7dbd757cf77e7e673e7f1ab70ff7", null ],
-    [ "dataProcessed", "classconnection.html#ab61c6e2e2b7381bf275741d7e74631fb", null ],
+    [ "dataProcessed", "classconnection.html#a3cc4605a0ebbfe21b89512afbb6cf93a", null ],
     [ "dataReceived", "classconnection.html#ad3d17d18612b74a1270055c11e76c5d9", null ],
     [ "getConnectionStatus", "classconnection.html#a8ec7de89a2979235d3e8e706756c4ca3", null ],
     [ "processData", "classconnection.html#a0c7a69ca7cf3b747dcb16ae403f2869f", null ],

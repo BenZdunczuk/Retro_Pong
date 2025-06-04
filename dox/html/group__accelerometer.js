@@ -1,4 +1,4 @@
-var accelerometer_8h =
+var group__accelerometer =
 [
     [ "accel_calibrate", "group__accelerometer.html#ga0304c964647a63d55f39c2d964f8e64c", null ],
     [ "accel_lpf_int", "group__accelerometer.html#gaec24004ad91b33c1acfc837ccd9e1fda", null ],

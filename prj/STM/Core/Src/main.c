@@ -32,7 +32,6 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "accelerometer.h"
-#include "gyroscope.h"
 
 /* USER CODE END Includes */
 
@@ -54,7 +53,6 @@
 
 /* USER CODE BEGIN PV */
 
-float filteredGyro[3] = {0};
 int16_t filteredAcc[3] = {0};
 int16_t offset[3];
 
@@ -111,8 +109,6 @@ int main(void)
 
   printf(" - - Start Programu - - ");
 
-//  extern USBD_HandleTypeDef hUsbDeviceFS;
-  if(GyroInit()){Error_Handler();}
   if(accInit()){Error_Handler();}
 
   accel_calibrate(offset, 100);
@@ -126,14 +122,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//	uint8_t message[] = "Hello\r\n";
-//	CDC_Transmit_FS(message, strlen((char*)message));
 
-//	GyroGetData(filteredGyro);
-//	HAL_Delay(500);
 	AccGetData(filteredAcc);
-	printf("A;%7d;%7d;%7d\n",filteredAcc[0],filteredAcc[1],filteredAcc[2]);
-	HAL_Delay(500);
+	printf("%7d;%7d;%7d\n",filteredAcc[0],filteredAcc[1],filteredAcc[2]);
+	HAL_Delay(50);
   }
   /* USER CODE END 3 */
 }

@@ -1,7 +1,8 @@
 #ifndef PONGING_H
 #define PONGING_H
 
-#include "menu.h"
+#pragma once
+
 #include "connection.h"
 #include <QWidget>
 #include <QTimer>
@@ -13,6 +14,8 @@
 *
 * Zawiera definicję metod klasy PongWidget.
 */
+
+class MainWindow;
 
 /**
  * @brief Klasa PongWidget reprezentuje widget wyświetlający grę Pong
@@ -41,29 +44,12 @@ public:
      */
     MainWindow *mainWindow;
 
-    /**
-     * @brief Zmienna przechowująca wskaźnik do obiektu połączenia
-     */
-    connection *connectPong;
-
 protected:
     /**
      * @brief Metoda inicjalizująca rysowanie wykresu
      * @param event Opcjonalny wskaźnik do rysowania.
      */
     void paintEvent(QPaintEvent *event) override;
-
-    /**
-     * @brief Metoda reagująca na kliknięcie przycisku strzałki w górę i w dół
-     * @param event Opcjonalny wskaźnik do rysowania.
-     */
-    void keyPressEvent(QKeyEvent *event) override;
-
-    /**
-     * @brief Metoda reagująca na kliknięcie przycisku strzałki w górę i w dół
-     * @param event Opcjonalny wskaźnik do rysowania.
-     */
-    void keyReleaseEvent(QKeyEvent *event) override;
 
 private slots:
     /**
@@ -74,9 +60,20 @@ private slots:
     /**
      * @brief Metoda interpretująca odczyty sensorów i przekładająca je na sterowanie w grze
      */
-    void calculateMovement(bool sensor,QStringList data);
+    void calculateMovement(QStringList data);
 
 private:
+
+    /**
+     * @brief Metoda inicjalizująca parametry w grze, uruchamiana po otworzeniu widgetu
+     */
+    void showEvent(QShowEvent* event) override;
+
+    /**
+     * @brief Metoda dostosowująca parametry w grze po dynamicznym skalowaniu okna przez użytkownika
+     */
+    void resizeEvent(QResizeEvent* event) override;
+
     /**
      * @brief Obiekt symulujący paletkę gracza
      */
@@ -116,11 +113,6 @@ private:
      * @brief Współrzędne piłęczki
      */
     int ballDX, ballDY;
-
-    /**
-     * @brief Kierunek poruszania i obracania się piłeczki
-     */
-    bool moveUp, moveDown, rotateRight, rotateLeft;
 
     /**
      * @brief Kąt obrotu oraz pozycja paletki

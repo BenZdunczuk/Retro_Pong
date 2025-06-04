@@ -8,6 +8,8 @@
 #include "menu.h"
 #include "connection.h"
 
+#pragma once
+
 /**
 * \file
 * \brief Definicja metody klasy MainWindow
@@ -15,8 +17,14 @@
 * Zawiera definicję metod klasy MainWindow.
 */
 
+// class PongWidget;
+class test;
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
+/**
+ * @brief Przestrzeń nazw Ui zawiera deklaracje klas UI wygenerowanych przez Qt Designer.
+ */
 class MainWindow;
 }
 QT_END_NAMESPACE
@@ -54,9 +62,29 @@ public:
     void togglePause();
 
     /**
+     * @brief Zmienna stan logiczny zmiennej informującej o otwartym oknie testu
+     */
+    void toggleTestOpen();
+
+    /**
+     * @brief Metoda typu getter zwracająca wartość zmiennej isTestOpen
+     */
+    bool getTestOpen();
+
+    /**
      * @brief Zmienna przechowująca wskaźnik do obiektu połączenia
      */
     connection* connectMain;
+
+    /**
+     * @brief Zmienna przechowująca wskaźnik do obiektu testowania połączenia
+     */
+    test* pTest;
+
+    /**
+     * @brief Zmienna przechowująca wskaźnik do obiektu menu
+     */
+    menu* pMenu;
 
 
 private slots:
@@ -81,6 +109,11 @@ private:
      */
     bool isPaused;
 
+    /**
+     * @brief Zmienna boolowska określająca czy otworzone jest okno testu
+     */
+    bool isTestOpen;
+
 public slots:
     /**
      * @brief Slot wznawiający grę
@@ -91,6 +124,21 @@ public slots:
      * @brief Slot resetujący grę
      */
     void restartedGame();
+
+    /**
+     * @brief Slot obsługujący zamknięcie okna test
+     */
+    void testClosed();
+
+    /**
+     * @brief Slot otwierający okienko testu
+     */
+    void openTest();
+
+    /**
+     * @brief Slot odblokowujący przycisk pauzy
+     */
+    void unlockPauseButton();
 
 signals:
     /**

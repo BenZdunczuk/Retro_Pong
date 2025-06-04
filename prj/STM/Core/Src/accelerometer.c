@@ -3,6 +3,11 @@ static short int acc_offset[3]  = {0, 0, 0};
 #define LPF_ALPHA_I   122        // ~0.5 w skali 0–256: 0.3*256 ≈ 77
 #include "accelerometer.h"
 
+/**
+ * @defgroup accelerometer Funkcje obsługujące działanie akcelerometru
+ * @brief Zestaw funkcji do obsługi czujnika akcelerometru, w tym inicjalizację, filtrację i kalibrację
+ * @{
+ */
 
 /**
  * @brief Funkcja inicjalizująca działania akcelerometru
@@ -84,6 +89,8 @@ int16_t accel_lpf_int(int16_t in, int16_t *prev, uint8_t alpha){
      * Pobiera surowe pomiary X/Y/Z z akcelerometru, usuwa offset (kalibrację),
      * a następnie przepuszcza każdą oś przez integer-owy LPF.
      * Wynikiem są trzy wartości całkowite w out[3], gotowe do dalszej obróbki.
+     *
+     * @param[in] out tablica danych poddanych filtracji i usunięciu offsetu
      */
 void AccGetData(int16_t out[3]){
     int16_t raw[3];
@@ -93,3 +100,5 @@ void AccGetData(int16_t out[3]){
         out[i] = accel_lpf_int(centered, &acc_prev[i], LPF_ALPHA_I);
     }
 }
+
+/** @} */  // koniec grupy accelerometer

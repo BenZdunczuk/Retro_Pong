@@ -1,5 +1,6 @@
 #include "test.h"
 #include "chart.h"
+#include "menu.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -23,7 +24,7 @@
  * @param parent Wskaźnik do rodzica.
  */
 test::test(QWidget *parent,connection* connect)
-    : QDialog(parent), ui(new Ui::test), connectTest(connect)
+    : QDialog(parent), ui(new Ui::test), connectTest(connect), pMenu(nullptr)
 {
     ui->setupUi(this);
 
@@ -31,19 +32,14 @@ test::test(QWidget *parent,connection* connect)
     QVBoxLayout *layout = new QVBoxLayout(ui->chartAcc);
     layout->addWidget(wykresAcc);
 
-    chart *wykresGyro= new chart(ui->chartGyro);
-    QVBoxLayout *layout2 = new QVBoxLayout(ui->chartGyro);
-    layout2->addWidget(wykresGyro);
-
     if(connectTest->getConnectionStatus()){
-        ui->connectionStatus->setText("online");
+        ui->connectionStatus->setText(tr("połączono"));
     }else{
-        ui->connectionStatus->setText("offline");
+        ui->connectionStatus->setText(tr("brak połączenia"));
     }
 
     QObject::connect(connectTest,&connection::dataProcessed,this,&test::displayData);
     QObject::connect(connectTest,&connection::dataProcessed,wykresAcc, &chart::onNewData);
-    QObject::connect(connectTest,&connection::dataProcessed,wykresGyro, &chart::onNewData);
 }
 
 /**
@@ -61,15 +57,29 @@ test::~test()
  *
  * Odbiera sygnał z klasy connection z przetworzonymi danymi z czujników i wyświetla je w lineEditach w okienku test
  */
-void test::displayData(bool sensor, QStringList data){
-    if(sensor){             //jeśli to akcelerometr
-        ui->accX->setText(data[0]);
-        ui->accY->setText(data[1]);
-        ui->accZ->setText(data[2]);
-    }
-    else if(!sensor){        //jeśli to żyroskop
-        ui->gyroX->setText(data[0]);
-        ui->gyroY->setText(data[1]);
-        ui->gyroZ->setText(data[2]);
-    }
+void test::displayData(QStringList data){
+    ui->accX->setText(data[0]);
+    ui->accY->setText(data[1]);
+    ui->accZ->setText(data[2]);
 }
+
+/**
+ * @brief Slot zamykający okno po naciśnięciu przycisku Wyjdź
+ *
+ * Powoduje zamknięcie okienka testowania połączenia
+ */
+void test::on_pushButton_clicked()
+{
+    closeTest();
+}
+
+/**
+ * @brief Metoda zamykająca okno
+ *
+ * Powoduje zamknięcie okienka testowania połączenia oraz wysłanie sygnału o zamknięciu
+ */
+void test::closeTest(){
+    emit testExitSignal();
+    test::close();
+}
+

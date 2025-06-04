@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Pong", "index.html", [
+    [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],

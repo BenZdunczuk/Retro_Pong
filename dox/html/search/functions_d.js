@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unpause_0',['unPause',['../classmenu.html#a15df0f3dc7e338b7239bf7f08ce3332d',1,'menu']]]
+  ['verifycrc8_0',['verifyCRC8',['../classconnection.html#a135607005c0c5fd080073e6c4bd6fbb3',1,'connection']]]
 ];

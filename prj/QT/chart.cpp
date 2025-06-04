@@ -23,16 +23,16 @@ chart::chart(QWidget *parent) : QWidget(parent) {
     layout->addWidget(plot);
 
     plot->addGraph();
-    plot->graph(0)->setPen(QPen(Qt::red));
+    plot->graph(0)->setPen(QPen(Qt::red));      //oś X
 
     plot->addGraph();
-    plot->graph(1)->setPen(QPen(Qt::blue));
+    plot->graph(1)->setPen(QPen(Qt::blue));     //oś Y
 
     plot->addGraph();
-    plot->graph(2)->setPen(QPen(Qt::green));
+    plot->graph(2)->setPen(QPen(Qt::green));    //oś Z
 
-    plot->xAxis->setRange(0, 10);
-    plot->yAxis->setRange(-2000, 2000);
+    plot->xAxis->setRange(0, 20);
+    plot->yAxis->setRange(-5000, 5000);
 
     startTime = QDateTime::currentDateTime();
 }
@@ -45,14 +45,12 @@ chart::chart(QWidget *parent) : QWidget(parent) {
      *
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
-void chart::onNewData(bool sensor, QStringList data){
+void chart::onNewData(QStringList data){
     double key = startTime.msecsTo(QDateTime::currentDateTime()) / 1000.0;
 
-    if(sensor){
-        plot->graph(0)->addData(key, data[0].toDouble());
-        plot->graph(1)->addData(key, data[1].toDouble());
-        plot->graph(2)->addData(key, data[2].toDouble());
-        plot->xAxis->setRange(key - 10, key);
-        plot->replot();
-    }
+    plot->graph(0)->addData(key, data[0].toDouble());
+    plot->graph(1)->addData(key, data[1].toDouble());
+    plot->graph(2)->addData(key, data[2].toDouble());
+    plot->xAxis->setRange(key - 10, key);
+    plot->replot();
 }

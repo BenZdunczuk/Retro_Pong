@@ -1342,10 +1342,10 @@ Disassembly of section .text:
  800101e:	bf00      	nop
 
 08001020 <accInit>:
- * Sprawdza, czy czujnik LSM303C jest podłączony i działa:
  *  1) odczytuje ID akcelerometru i porównuje z oczekiwanym,
  *  2) wywołuje BSP_COMPASS_Init() do inicjalizacji sensora.
- * Zwraca 0 przy sukcesie lub kod błędu (1 = niepoprawne ID, 2 = błąd init).
+ *
+ * @return Zwraca 0 przy sukcesie lub kod błędu (1 = niepoprawne ID, 2 = błąd init).
  */
 uint8_t accInit(){
  8001020:	b580      	push	{r7, lr}
@@ -1396,9 +1396,9 @@ uint8_t accInit(){
 
 0800106c <accel_calibrate>:
  *  - zapisuje wynik do bufora offset_cb[] i do wewnętrznego acc_offset[].
- * Parametry:
- *   offset_cb[3] – tablica, do której zwracane są zmierzone offsety,
- *   samples      – liczba próbek użytych do obliczenia średniej.
+ *
+ *  @param[in] offset_cb[3]  tablica, do której zwracane są zmierzone offsety,
+ *  @param[in] samples       liczba próbek użytych do obliczenia średniej.
  */
 void accel_calibrate(int16_t offset_cb[3], uint16_t samples){
  800106c:	b580      	push	{r7, lr}
@@ -1499,10 +1499,10 @@ void accel_calibrate(int16_t offset_cb[3], uint16_t samples){
  800111c:	20000418 	.word	0x20000418
 
 08001120 <accel_lpf_int>:
- *   in    – bieżąca surowa, już wycentrowana wartość,
- *   prev  – wskaźnik na poprzednią wartość filtra (i miejsce przechowywania wyniku),
- *   alpha – współczynnik filtra w skali 0–256.
- * Zwraca przefiltrowaną wartość.
+ * @param[in] in     bieżąca surowa, już wycentrowana wartość,
+ * @param[in] prev   wskaźnik na poprzednią wartość filtra (i miejsce przechowywania wyniku),
+ * @param[in] alpha  współczynnik filtra w skali 0–256.
+ * @return prev przefiltrowana wartość
  */
 int16_t accel_lpf_int(int16_t in, int16_t *prev, uint8_t alpha){
  8001120:	b480      	push	{r7}
@@ -1549,11 +1549,11 @@ int16_t accel_lpf_int(int16_t in, int16_t *prev, uint8_t alpha){
 	...
 
 08001174 <AccGetData>:
- * -----------
- * Pobiera surowe pomiary X/Y/Z z akcelerometru, usuwa offset (kalibrację),
- * a następnie przepuszcza każdą oś przez integer-owy LPF.
- * Wynikiem są trzy wartości całkowite w out[3], gotowe do dalszej obróbki.
- */
+     *
+     * Pobiera surowe pomiary X/Y/Z z akcelerometru, usuwa offset (kalibrację),
+     * a następnie przepuszcza każdą oś przez integer-owy LPF.
+     * Wynikiem są trzy wartości całkowite w out[3], gotowe do dalszej obróbki.
+     */
 void AccGetData(int16_t out[3]){
  8001174:	b590      	push	{r4, r7, lr}
  8001176:	b087      	sub	sp, #28
@@ -1956,9 +1956,10 @@ void MX_GPIO_Init(void)
  800141c:	10120000 	.word	0x10120000
 
 08001420 <GyroInit>:
-#include "gyroscope.h"
 
 #define LPF_ALPHA 0.1f
+
+
 
 uint8_t GyroInit(){
  8001420:	b580      	push	{r7, lr}
@@ -2262,7 +2263,7 @@ int main(void)
 	AccGetData(filteredAcc);
  80015c2:	480d      	ldr	r0, [pc, #52]	@ (80015f8 <main+0x84>)
  80015c4:	f7ff fdd6 	bl	8001174 <AccGetData>
-	printf("A;%7d;%7d;%7d\n",filteredAcc[0],filteredAcc[1],filteredAcc[2]);
+	printf("%7d;%7d;%7d\n",filteredAcc[0],filteredAcc[1],filteredAcc[2]);
  80015c8:	4b0b      	ldr	r3, [pc, #44]	@ (80015f8 <main+0x84>)
  80015ca:	f9b3 3000 	ldrsh.w	r3, [r3]
  80015ce:	4619      	mov	r1, r3
@@ -2273,12 +2274,13 @@ int main(void)
  80015da:	f9b3 3004 	ldrsh.w	r3, [r3, #4]
  80015de:	4807      	ldr	r0, [pc, #28]	@ (80015fc <main+0x88>)
  80015e0:	f00a fb28 	bl	800bc34 <iprintf>
-	HAL_Delay(500);
- 80015e4:	f44f 70fa 	mov.w	r0, #500	@ 0x1f4
- 80015e8:	f001 fce6 	bl	8002fb8 <HAL_Delay>
+	HAL_Delay(50);
+ 80015e4:	2032      	movs	r0, #50	@ 0x32
+ 80015e6:	f001 fce7 	bl	8002fb8 <HAL_Delay>
 	AccGetData(filteredAcc);
- 80015ec:	bf00      	nop
- 80015ee:	e7e8      	b.n	80015c2 <main+0x4e>
+ 80015ea:	bf00      	nop
+ 80015ec:	e7e9      	b.n	80015c2 <main+0x4e>
+ 80015ee:	bf00      	nop
  80015f0:	0800f4b4 	.word	0x0800f4b4
  80015f4:	20000474 	.word	0x20000474
  80015f8:	2000046c 	.word	0x2000046c

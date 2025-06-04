@@ -6,6 +6,7 @@
 #include <QMainWindow>
 
 #include "connection.h"
+#include "test.h"
 
 /**
 * \file
@@ -15,6 +16,9 @@
 */
 
 namespace Ui {
+/**
+ * @brief Przestrzeń nazw Ui zawiera deklaracje klas UI wygenerowanych przez Qt Designer.
+ */
 class menu;
 }
 
@@ -69,6 +73,12 @@ private slots:
      */
     void on_buttonTest_clicked();
 
+public slots:
+    /**
+     * @brief Slot odblokowujący możliwość naciśnięcia przycisku otwierającego okno testowe
+     */
+    void unlockTestButton();
+
 signals:
     /**
      * @brief Sygnał wznawiający działanie gry
@@ -94,6 +104,11 @@ private:
      * @brief Wskaźnik do rodzica klasy menu.
      */
     MainWindow *mainWindowPtr;
+
+    /**
+     * @brief Wskaźnik do obiektu klasy test.
+     */
+    test *pTest;
 };
 
 #endif // MENU_H

@@ -30,7 +30,7 @@ public slots:
     /**
      * @brief Slot dodający nowe dane do wykresu
      */
-    void onNewData(bool sensor, QStringList data);
+    void onNewData(QStringList data);
 
 private:
     /**

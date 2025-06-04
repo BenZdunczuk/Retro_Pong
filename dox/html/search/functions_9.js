@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['paintevent_0',['paintEvent',['../class_pong_widget.html#a76052e4fa6504a1d6d42c9f0a4adbd61',1,'PongWidget']]],
-  ['pongwidget_1',['PongWidget',['../class_pong_widget.html#a6769fbfec9eb9fd6da50ea62a58e17e3',1,'PongWidget']]],
-  ['processdata_2',['processData',['../classconnection.html#a0c7a69ca7cf3b747dcb16ae403f2869f',1,'connection']]]
+  ['resetgame_0',['resetGame',['../class_pong_widget.html#a5b79b6e1d776d074b4b4f48306076787',1,'PongWidget']]],
+  ['restart_1',['restart',['../classmenu.html#a0031cba18b5268bad6b0cbbec7d5d8d5',1,'menu']]],
+  ['restarted_2',['restarted',['../class_main_window.html#a3d57a932399861f94fee7987284beb60',1,'MainWindow']]],
+  ['restartedgame_3',['restartedGame',['../class_main_window.html#a36e6c006461c0b02e98d80d02bf4bdbf',1,'MainWindow']]],
+  ['resumed_4',['resumed',['../class_main_window.html#ae5577ebf34458585e4496dedf20b25b9',1,'MainWindow']]],
+  ['resumedgame_5',['resumedGame',['../class_main_window.html#a2157f61f760f65fa99903540855d1d89',1,'MainWindow']]]
 ];

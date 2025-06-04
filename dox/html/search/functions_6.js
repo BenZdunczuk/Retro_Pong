@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['keypressevent_0',['keyPressEvent',['../class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073',1,'PongWidget']]],
-  ['keyreleaseevent_1',['keyReleaseEvent',['../class_pong_widget.html#a6d33df4864fe204649d309f997ea0422',1,'PongWidget']]]
+  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.c'],['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp']]],
+  ['mainwindow_1',['MainWindow',['../class_main_window.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow']]],
+  ['menu_2',['menu',['../classmenu.html#a117509b0b565b5f9a691d617ce1f1fad',1,'menu']]]
 ];

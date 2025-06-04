@@ -1,11 +1,11 @@
 #include "Ponging.h"
-#include "menu.h"
 #include "mainwindow.h"
 #include <QPainter>
 #include <cmath>
 #include <QEventLoop>
 #include <random>
 // #include <iostream>
+
 
 /**
 * \file
@@ -25,26 +25,13 @@
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
 PongWidget::PongWidget(QWidget *parent, connection *connect)
-    : QWidget(parent),mainWindow(nullptr), connectPong(connect), ballDX(baseSpeed), ballDY(baseSpeed), moveUp(false), moveDown(false), rotateRight(false),
-    rotateLeft(false),rotationAnglePaddle(0), isPaused(false), scoreAI(0), scorePlayer(0), posX(0), posY(0), rotationAngleBall(45), speed(baseSpeed)
+    : QWidget(parent),mainWindow(nullptr), ballDX(baseSpeed), ballDY(baseSpeed),
+    rotationAnglePaddle(0), isPaused(false), scoreAI(0), scorePlayer(0), posX(0), posY(0),
+    rotationAngleBall(45), speed(baseSpeed)
 {
     setFocusPolicy(Qt::StrongFocus);
 
-    QObject::connect(connectPong,&connection::dataProcessed,this,&PongWidget::calculateMovement);
-
-
-    // width oraz height - wymiary gry
-    int w = 800;
-    int h = 600;
-
-    resize(w, h);
-
-    // inicjalizacja wymiarów i lokalizacji obiektów do rysowania
-    aiPaddle = QRect(20, h/2 - 40, 10, 60);
-    playerPaddle = QRect(-5, -40, 10, 60);
-    posY = 280;
-    posX = 760;
-    ball = QRect(w/2 - 10, h/2 - 10, 20, 20);
+    QObject::connect(connect,&connection::dataProcessed,this,&PongWidget::calculateMovement);
 
     timer = new QTimer(this);
     QObject::connect(timer, &QTimer::timeout, this, &PongWidget::gameLoop);
@@ -53,11 +40,47 @@ PongWidget::PongWidget(QWidget *parent, connection *connect)
 }
 
     /**
+     * @brief Metoda inicjalizująca parametry w grze uruchamiana po otworzeniu widgetu
+     *
+     * Inicjalizacja musi nastąpić po utworzeniu obiektu aby rozmiar widgetu został poprawnie określony
+     *
+     * @param[in] event Wskaźnik do zdarzenia pokazania widgetu
+     */
+void PongWidget::showEvent(QShowEvent* event){
+
+    // inicjalizacja wymiarów i lokalizacji obiektów do rysowania
+    aiPaddle = QRect(20, height()/2 - 40, 10, 60);
+    playerPaddle = QRect(-5,height()/2 - 40, 10, 60);
+    posY = height()/2 - 20;
+    posX = width() - 40;
+    // std::cout << "X:" << width() << " Y:" << height() << std::endl;
+    ball = QRect(width()/2 - 10, width()/2 - 10, 20, 20);
+}
+
+    /**
+     * @brief Metoda dostosowująca parametry w grze po dynamicznym skalowaniu okna przez użytkownika
+     *
+     * Resetowana jest pozycja piłeczki aby nie dopuścić do niesportowych zachowań zmiany wielkości
+     * okienka w trakcie gry
+     *
+     * @param[in] event Wskaźnik do zdarzenia zmiany wielkości widgetu
+     */
+void PongWidget::resizeEvent(QResizeEvent* event){
+    aiPaddle = QRect(20, height()/2 - 40, 10, 60);
+    playerPaddle = QRect(-5,height()/2 - 40, 10, 60);
+    posY = height()/2 - 20;
+    posX = width() - 40;
+
+    resetBall();
+}
+
+
+    /**
      * @brief Metoda inicjalizująca rysowanie gry
      *
      * Rysuje boisko (obszar do gry), paletki i piłeczkę
      *
-     * @param event Opcjonalny wskaźnik do rysowania.
+     * @param[in] event Opcjonalny wskaźnik do rysowania.
      */
 void PongWidget::paintEvent(QPaintEvent *event)
 {
@@ -66,9 +89,22 @@ void PongWidget::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing);
 
     painter.fillRect(rect(), Qt::black);
-
     painter.setBrush(Qt::white);
 
+    painter.save();
+    QPen pen;
+    pen.setColor(Qt::white);
+    pen.setWidth(2);
+
+    painter.drawLine(0,height(),width(),height());  // Rysowanie linii bocznych z góry i dołu
+    painter.drawLine(0,0,width(),0);
+
+    pen.setStyle(Qt::DashLine);  // Rysowanie linii przerywanej
+    painter.setPen(pen);
+    painter.drawLine(width()/2, height() - 10, width()/2, 10);
+    painter.restore();
+
+    //obrót paletki poprzez przeniesienie we współrzędne 0,0, wykonanie obrotu i zwrócenie na poprzednie miejsce
     painter.save();
     playerPaddle.moveTo(-5,-30);
     painter.translate(posX,posY);
@@ -83,58 +119,24 @@ void PongWidget::paintEvent(QPaintEvent *event)
 
     painter.setPen(Qt::white);
     painter.setFont(QFont("Courier", 16));
-    painter.drawText(10, 30, QString("Wynik: %1").arg(scoreAI));
-    painter.drawText(660, 30, QString("Wynik: %1").arg(scorePlayer));
-}
-
-    /**
-     * @brief Metoda reagująca na kliknięcie przycisku strzałek na klawiaturze
-     * @param event Opcjonalny wskaźnik do rysowania.
-     */
-void PongWidget::keyPressEvent(QKeyEvent *event){
-    // if (event->key() == Qt::Key_Up) moveUp = true;
-    // if (event->key() == Qt::Key_Down) moveDown = true;
-    // if (event->key() == Qt::Key_Right) rotateRight = true;
-    // if (event->key() == Qt::Key_Left) rotateLeft = true;
-}
-
-    /**
-     * @brief Metoda reagująca na zwolnienie przycisku strzałek na klawiaturze
-     * @param event Opcjonalny wskaźnik do rysowania.
-     */
-void PongWidget::keyReleaseEvent(QKeyEvent *event){
-    // if (event->key() == Qt::Key_Up) moveUp = false;
-    // if (event->key() == Qt::Key_Down) moveDown = false;
-    // if (event->key() == Qt::Key_Right) rotateRight = false;
-    // if (event->key() == Qt::Key_Left) rotateLeft = false;
+    painter.drawText(width()/4 - 10, 0.1*height(), QString("%1").arg(scoreAI));
+    painter.drawText(3*width()/4 - 10, 0.1*height(), QString("%1").arg(scorePlayer));
 }
 
     /**
      * @brief Metoda obsługująca grę, wykonywana w pętli
      *
-     * Obsługuje poruszanie paletką przez gracza, poruszanie paletką przez przeciwnika
-     * oraz obsługuje fizykę gry
+     * Obsługuje ruch piłki i paletki przeciwnika, obsługuje fizykę gry (odbicia)
+     * oraz sprawdza warunki zdobycia punktów (piłka wypada poza boisko)
      *
      */
 void PongWidget::gameLoop(){
     QEventLoop pausedLoop;
     connect(mainWindow,&MainWindow::resumed, &pausedLoop, &QEventLoop::quit);
     connect(mainWindow,&MainWindow::restarted, &pausedLoop, &QEventLoop::quit);
-    if(isPaused){
-        pausedLoop.exec();
-    }
+    if(isPaused) pausedLoop.exec();
 
     connect(mainWindow,&MainWindow::restarted,this,&PongWidget::resetGame);
-
-    /*      gracz       */
-    if (moveUp && posY > 0)
-        posY -= 6;
-    if (moveDown && posY < height())
-        posY += 6;
-    if(rotateLeft)
-        --rotationAnglePaddle;
-    if(rotateRight)
-        ++rotationAnglePaddle;
 
     /*      ai      */
     if (aiPaddle.center().y() < ball.center().y() && aiPaddle.bottom() < height())
@@ -229,24 +231,47 @@ void PongWidget::resetGame(){
     /**
      * @brief Metoda interpretująca odczyty sensorów i przekładająca je na sterowanie w grze
      *
-     * Reaguje na sygnał z danymi z czujników, wysyłany z okna głównego z klasy connection
+     * Interpretuje dane z czujników,reaguje na sygnał wysyłany z okna głównego z klasy connection
      *
-     *@param[in] sensor zmienna określająca typ czujnika (0 - żyroskop, 1 - akcelerometr)
      *@param[in] data przetworzone dane odczytane z czujników w formacie typu string
-     *@param[out] moveDown zmienna boolowska określająca czy ruch paletki w dół ma następować czy nie
-     *@param[out] moveUp zmienna boolowska określająca czy ruch paletki w górę ma następować czy nie
+     *@param[out] posY zmienna określająca położenie paletki w pikselach
+     *@param[out] rotationAngleBall zmienna określająca obrót paletki w stopniach
      */
-void PongWidget::calculateMovement(bool sensor, QStringList data){
-    int threshold = 1000;       //próg dla wartości sensora, po których jest odczytywany ruch
+void PongWidget::calculateMovement(QStringList data){
+    //próg dla wartości sensora, po których jest odczytywany ruch liniowy i obrotowy paletki
+    int thresholdLinear = 2000;
+    int thresholdAngular = 4000;
 
-    if(sensor){
-        if(data[0].toInt() > threshold){
-            moveUp = true;
-        } else if(data[0].toInt() < -threshold){
-            moveDown = true;
-        } else {
-            moveUp = false;
-            moveDown = false;
-        }
+    //minimalne i maksymalne wartości możliwego ruchu
+    int minStepLinear = 5;
+    int maxStepLinear = 20;
+    int minStepAngular = 1;
+    int maxStepAngular = 5;
+
+    //zmiana pozycji(piksele) i kąta(stopnie) paletki
+    int da = 0;
+    int dy = 0;
+
+    //interpretacja danych z osi Y -- ruch paletki
+    if (data[1].toInt() < -thresholdLinear) {
+        dy = (((-data[1].toInt() - thresholdLinear) / 1000) + minStepLinear);
+        if (dy > maxStepLinear) dy = maxStepLinear;
+    } else if (data[1].toInt() > thresholdLinear) {
+        dy = -(((data[1].toInt() - thresholdLinear) / 1000) + minStepLinear);
+        if (dy < -maxStepLinear) dy = -maxStepLinear;
     }
+    if(posY > 0 && posY < height()) posY += dy;
+    else if(posY <= 0) posY = 1;
+    else if(posY >= height()) posY = height()-1;
+
+    //interpretacja danych z osi X -- obrót paletki
+    if (data[0].toInt() < -thresholdAngular) {
+        da = (((-data[0].toInt() - thresholdAngular) / 1000) + minStepAngular);
+        if (da > maxStepAngular) da = maxStepAngular;
+    } else if (data[0].toInt() > thresholdAngular) {
+        da = -(((data[0].toInt() - thresholdAngular) / 1000) + minStepAngular);
+        if (da < -maxStepAngular) da = -maxStepAngular;
+    }
+    if(posY > 0 && posY < height()) rotationAnglePaddle += da;
+    rotationAnglePaddle %= 360;
 }

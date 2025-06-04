@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "menu.h"
 #include "ponging.h"
+#include "test.h"
 #include <QDialog>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -22,9 +23,7 @@
      * @param parent Opcjonalny wskaźnik do rodzica.
      */
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-    , isPaused(false)
+    : QMainWindow(parent), ui(new Ui::MainWindow), isPaused(false), isTestOpen(false), pTest(nullptr), pMenu(nullptr)
 {
     ui->setupUi(this);
 
@@ -46,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
         if(connectMain->verifyCRC8(dataRaw)){
             QByteArray data = dataRaw;
             data.chop(1);
-            qDebug() << "Odebrano:" << data.toStdString();
+            //qDebug() << "Odebrano:" << data.toStdString();
             connectMain->processData(data);
         } else {
             qDebug() << "zle crc";
@@ -69,6 +68,8 @@ MainWindow::~MainWindow()
      * @brief Metoda zamykająca główne okno aplikacji.
      */
 void MainWindow::closeMainWindow() {
+    if(pTest != nullptr) pTest->close();
+
     this->close();
 }
 
@@ -80,9 +81,10 @@ void MainWindow::closeMainWindow() {
 void MainWindow::on_buttonPause_clicked()
 {
     togglePause();
-    menu pMenu(this, connectMain);
-    pMenu.exec();
-
+    pMenu = new menu(this, connectMain);
+    pMenu->show();
+    ui->buttonPause->setText(tr("Zatrzymano grę"));
+    ui->buttonPause->setEnabled(false);
 }
 
     /**
@@ -92,7 +94,14 @@ void MainWindow::togglePause()
 {
     isPaused = !isPaused;
     pongGame->setPause(isPaused);
-    ui->buttonPause->setText(isPaused ? "Wznów" : "Pauza");
+}
+
+    /**
+     * @brief Zmienna stan logiczny zmiennej informującej o otwartym oknie testu
+     */
+void MainWindow::toggleTestOpen()
+{
+    isTestOpen = !isTestOpen;
 }
 
     /**
@@ -101,14 +110,54 @@ void MainWindow::togglePause()
      * Odbiera sygnał z klasy menu i wysyła sygnał do klasy widgetu gry Pong
      */
 void MainWindow::resumedGame(){
+    unlockPauseButton();
     emit resumed();
 }
 
-/**
+    /**
+     * @brief Metoda typu getter zwracająca wartość zmiennej isTestOpen
+     */
+bool MainWindow::getTestOpen(){
+    return isTestOpen;
+}
+
+    /**
      * @brief Slot restartujący grę
      *
      * Odbiera sygnał z klasy menu i wysyła sygnał do klasy widgetu gry Pong
      */
 void MainWindow::restartedGame(){
+    unlockPauseButton();
     emit restarted();
+}
+
+    /**
+     * @brief Slot obsługujący zamknięcie okna test
+     *
+     *  Slot jest uruchamiany w odpowiedzi na zamknięcie okna testu
+     */
+void MainWindow::testClosed(){
+    toggleTestOpen();
+    pMenu->unlockTestButton();
+    pTest = nullptr;
+}
+
+    /**
+     * @brief Slot otwierający okienko testu
+     */
+void MainWindow::openTest(){
+    pTest = new test(this,connectMain);
+    pTest->show();
+    toggleTestOpen();
+    connect(pTest,&test::testExitSignal,this,&MainWindow::testClosed);
+}
+
+    /**
+     * @brief Slot odblokowujący przycisk pauzy
+     *
+     *  Wykonywany w momencie wznowienia gry w menu, pozwala na ponowne zatrzymanie i otworzenie menu
+     */
+void MainWindow::unlockPauseButton(){
+    ui->buttonPause->setEnabled(true);
+    ui->buttonPause->setText(tr("Pauza"));
 }

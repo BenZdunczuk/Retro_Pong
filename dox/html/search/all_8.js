@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['keypressevent_0',['keyPressEvent',['../class_pong_widget.html#a7c4f97b186f82c8df1b65068d6a79073',1,'PongWidget']]],
-  ['keyreleaseevent_1',['keyReleaseEvent',['../class_pong_widget.html#a6d33df4864fe204649d309f997ea0422',1,'PongWidget']]]
+  ['lpf_5falpha_5fi_0',['LPF_ALPHA_I',['../accelerometer_8c.html#a2eab56ade7642392a5cf1c2ffaf187d1',1,'accelerometer.c']]]
 ];

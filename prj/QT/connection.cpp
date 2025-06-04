@@ -45,11 +45,11 @@ void connection::start(){
     serial.setFlowControl(QSerialPort::NoFlowControl);
 
     if (serial.open(QIODevice::ReadWrite)) {
-        std::cout << "Polaczono" << std::endl;
+        // std::cout << "Polaczono" << std::endl;
         connect(&serial, &QSerialPort::readyRead, this, &connection::handleReadyRead);
         isConnected = true;
     } else {
-        std::cout << "Blad polaczenia" << std::endl;
+        // std::cout << "Blad polaczenia" << std::endl;
         isConnected = false;
     }
 }
@@ -98,26 +98,15 @@ void connection::processData(const QByteArray dataRaw){
     for(int i=0;i<dataSplit.size();++i){
         QStringList segment = dataSplit[i].split(';');
 
-        if (segment.size() == 4) {
-            if(segment[0] == 'G'){
-                gyroData[0] = segment[1];
-                gyroData[1] = segment[2];
-                gyroData[2] = segment[3];
-                QStringList gyro;
-                for (int i = 0; i < 3; ++i) {
-                    gyro << gyroData[i];
-                }
-                emit dataProcessed(0,gyro);
-            } else if(segment[0] == 'A'){
-                accData[0] = segment[1];
-                accData[1] = segment[2];
-                accData[2] = segment[3];
-                QStringList acc;
-                for (int i = 0; i < 3; ++i) {
-                    acc << accData[i];
-                }
-                emit dataProcessed(1,acc);
+        if (segment.size() == 3) {
+            accData[0] = segment[0];
+            accData[1] = segment[1];
+            accData[2] = segment[2];
+            QStringList acc;
+            for (int i = 0; i < 3; ++i) {
+                acc << accData[i];
             }
+            emit dataProcessed(acc);
         }
     }
 }

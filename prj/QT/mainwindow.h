@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QPushButton>
+#include <QTranslator>
 #include "ponging.h"
 #include "menu.h"
 #include "connection.h"
@@ -85,6 +86,21 @@ public:
      * @brief Zmienna przechowująca wskaźnik do obiektu menu
      */
     menu* pMenu;
+
+    /**
+     * @brief Zmienna wskaźnikowa przechowująca obiekt tłumacza
+     */
+    QTranslator *translatorMainWindow;
+
+    /**
+     * @brief Metoda zmieniająca język całej aplikacji
+     */
+    void switchLanguage(const QString &languageCode);
+
+    /**
+     * @brief Metoda typu setter ustawiająca obiekt tłumacza
+     */
+    void setTranslator(QTranslator *newTranslator);
 
 
 private slots:

@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="pl_PL">
   <context>
     <name>MainWindow</name>
     <message>
       <source>Pauza</source>
-      <translation>Pause</translation>
+      <translation>Pauza</translation>
     </message>
     <message>
       <source>Zatrzymano grę</source>
-      <translation>Game paused</translation>
+      <translation>Zatrzymano grę</translation>
     </message>
   </context>
 <context>
   <name>menu</name>
   <message>
     <source>Wznów grę</source>
-    <translation>Resume game</translation>
+    <translation>Wznów grę</translation>
   </message>
   <message>
     <source>Nowa gra</source>
-    <translation>New game</translation>
+    <translation>Nowa gra</translation>
   </message>
   <message>
     <source>Wyjdź z gry</source>
-    <translation>Exit</translation>
+    <translation>Wyjdź z gry</translation>
   </message>
   <message>
     <source>Monitor połączenia</source>
-    <translation>Connection monitor</translation>
+    <translation>Monitor połączenia</translation>
   </message>
 </context>
 <context>
   <name>test</name>
   <message>
     <source>połączono</source>
-    <translation>online</translation>
+    <translation>połączono</translation>
   </message>
   <message>
     <source>brak połączenia</source>
-    <translation>offline</translation>
+    <translation>brak połączenia</translation>
   </message>
   <message>
     <source>Wyjdź</source>
-    <translation>Go back</translation>
+    <translation>Wyjdź</translation>
   </message>
   <message>
     <source>Akcelerometr:</source>
-    <translation>Accelerometer:</translation>
+    <translation>Akcelerometr:</translation>
   </message>
   <message>
     <source>Status połączenia:</source>
-    <translation>Connection status:</translation>
+    <translation>Status połączenia:</translation>
   </message>
   <message>
     <source>Monitor połączenia</source>
-    <translation>Connection Monitor</translation>
+    <translation>Monitor połączenia</translation>
   </message>
 </context>
 </TS>

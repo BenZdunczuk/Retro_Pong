@@ -57,6 +57,11 @@ public:
      */
     void closeTest();
 
+    /**
+     * @brief Metoda obsługująca tłumaczenie ui okna klasy
+     */
+    void reTranslate();
+
 private slots:
     /**
      * @brief Slot wyświetlający dane numeryczne z sensorów w okienku test
@@ -78,6 +83,11 @@ private:
      * @brief Wskaźnik do obiektu menu.
      */
     menu *pMenu;
+
+    /**
+     * @brief Metoda reagująca na zamknięcie okna
+     */
+    void closeEvent(QCloseEvent *event) override;
 
 signals:
     /**

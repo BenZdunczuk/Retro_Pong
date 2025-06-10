@@ -17,8 +17,10 @@ qt_add_executable(pong
     ponging.h ponging.cpp
     connection.h connection.cpp
     qcustomplot.h qcustomplot.cpp
-
+    resources.qrc
 )
+
+qt_add_translations(pong TS_FILES pong_pl_PL.ts)
 
 qt_add_translations(
     TARGETS pong

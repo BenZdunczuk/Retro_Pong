@@ -74,6 +74,10 @@ color: white;</string>
           <property name="text">
            <string>Pauza</string>
           </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/flags/flags/flagUSA.png</normaloff>:/flags/flags/flagUSA.png</iconset>
+          </property>
           <property name="checkable">
            <bool>false</bool>
           </property>
@@ -121,6 +125,8 @@ color: white;</string>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

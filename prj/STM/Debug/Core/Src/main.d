@@ -44,12 +44,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303c/../Common/magneto.h \
  C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
  C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_compass.h \
- C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h \
- ../Core/Inc/gyroscope.h \
- C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/l3gd20/l3gd20.h \
- C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/l3gd20/../Common/gyro.h \
- C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h \
- C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h
+ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -102,8 +97,3 @@ C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/lsm303
 C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
 C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_compass.h:
 C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h:
-../Core/Inc/gyroscope.h:
-C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/l3gd20/l3gd20.h:
-C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/Components/l3gd20/../Common/gyro.h:
-C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery_gyroscope.h:
-C:/Users/bzdun/OneDrive/Dokumenter/Qt/pong/prj/STM/Drivers/BSP/STM32L476G-Discovery/../Components/l3gd20/l3gd20.h:

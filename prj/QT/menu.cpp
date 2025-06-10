@@ -2,6 +2,8 @@
 #include "menu.h"
 #include "ui_menu.h"
 
+#include <QIcon>
+
 /**
 * \file
 * \brief Definicja metody klasy menu
@@ -18,10 +20,13 @@ menu::menu(MainWindow *parent, connection* connect)
 {
     ui->setupUi(this);
 
-    if(mainWindowPtr->getTestOpen()){
-        ui->buttonTest->setEnabled(false);
-        // pTest->setParent(this);
-    }
+    if(mainWindowPtr->getTestOpen())
+    ui->buttonTest->setEnabled(false);
+
+    ui->buttonUS->setEnabled(true);
+    ui->buttonPL->setEnabled(false);
+
+    ui->buttonUS->setIcon(QIcon(":flags\flagUSA.png"));
 }
 
     /**
@@ -89,4 +94,54 @@ void menu::on_buttonTest_clicked()
 void menu::unlockTestButton(){
     ui->buttonTest->setEnabled(true);
 }
+
+    /**
+     * @brief Metoda obsługująca tłumaczenie ui okna klasy
+     *
+     * Uruchomiana podczas zmiany języka w menu aplikacji
+     */
+void menu::reTranslate(){
+    ui->retranslateUi(this);
+}
+
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku zmiany języka na angielski
+     *
+     * Powoduje zmianę języka aplikacji z polskiego na angielski
+     * oraz zablokowanie tego przycisku i odblokowanie przycisku zmieniającego język na polski
+     */
+void menu::on_buttonUS_clicked(){
+    mainWindowPtr->switchLanguage("en_US");
+    ui->buttonUS->setEnabled(false);
+    ui->buttonPL->setEnabled(true);
+}
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku zmiany języka na polski
+     *
+     * Powoduje zmianę języka aplikacji z angielskiego na polski
+     * oraz zablokowanie tego przycisku i odblokowanie przycisku zmieniającego język na angielski
+     */
+void menu::on_buttonPL_clicked(){
+    mainWindowPtr->switchLanguage("pl_PL");
+    ui->buttonUS->setEnabled(true);
+    ui->buttonPL->setEnabled(false);
+}
+
+//     /**
+//      * @brief Metoda reagująca na zmianę wymiarów okienka menu
+//      *
+//      * Reaguje na dynamiczną zmianę wielkości okienka menu i dopasowywuje ikony aby wypełniały całe przyciski
+//      */
+// void menu::resizeEvent(QResizeEvent *event)
+// {
+//     QDialog::resizeEvent(event);
+
+//     QSize buttonPLSize = ui->buttonPL->size();
+//     QSize buttonUSSize = ui->buttonUS->size();
+
+//     ui->buttonPL->setIconSize(QSize(buttonPLSize.width(),buttonPLSize.height()));
+//     ui->buttonUS->setIconSize(QSize(buttonUSSize.width(),buttonUSSize.height()));
+// }
 

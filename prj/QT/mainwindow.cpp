@@ -54,6 +54,10 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(qApp, &QCoreApplication::aboutToQuit, connectMain, &connection::stop);
 
     thread->start();
+
+    pMenu = new menu(this, connectMain);
+    pMenu->show();
+    togglePause();
 }
 
     /**
@@ -81,7 +85,6 @@ void MainWindow::closeMainWindow() {
 void MainWindow::on_buttonPause_clicked()
 {
     togglePause();
-    pMenu = new menu(this, connectMain);
     pMenu->show();
     ui->buttonPause->setText(tr("Zatrzymano grę"));
     ui->buttonPause->setEnabled(false);
@@ -160,4 +163,31 @@ void MainWindow::openTest(){
 void MainWindow::unlockPauseButton(){
     ui->buttonPause->setEnabled(true);
     ui->buttonPause->setText(tr("Pauza"));
+}
+
+    /**
+     * @brief Metoda zmieniająca język całej aplikacji
+     *
+     *  Wykonywana w momencie przełączenia języka aplikacji w menu
+     */
+void MainWindow::switchLanguage(const QString &languageCode) {
+    qApp->removeTranslator(translatorMainWindow);
+
+    translatorMainWindow = new QTranslator(this);
+
+    if (translatorMainWindow->load("pong_" + languageCode + ".qm"))
+    qApp->installTranslator(translatorMainWindow);
+
+    ui->retranslateUi(this);
+    pMenu->reTranslate();
+    if(pTest != nullptr) pTest->reTranslate();
+}
+
+    /**
+     * @brief Metoda typu setter ustawiająca obiekt tłumacza
+     *
+     *  @param[in] newTranslator wskaźnik do nowego obiektu tłumacza
+     */
+void MainWindow::setTranslator(QTranslator *newTranslator){
+    translatorMainWindow = newTranslator;
 }

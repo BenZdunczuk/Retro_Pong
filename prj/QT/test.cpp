@@ -49,6 +49,7 @@ test::test(QWidget *parent,connection* connect)
  */
 test::~test()
 {
+    emit testExitSignal();
     delete ui;
 }
 
@@ -81,5 +82,24 @@ void test::on_pushButton_clicked()
 void test::closeTest(){
     emit testExitSignal();
     test::close();
+}
+
+    /**
+     * @brief Metoda obsługująca tłumaczenie ui okna klasy
+     *
+     * Uruchomiana podczas zmiany języka w menu aplikacji
+     */
+void test::reTranslate(){
+    ui->retranslateUi(this);
+}
+
+    /**
+     * @brief Metoda reagująca na zamknięcie okna
+     *
+     * Reaguje na manualne zamknięcie okna przyciskiem w prawym górnym kącie okna
+     */
+void test::closeEvent(QCloseEvent *event) {
+    emit testExitSignal();
+    event->accept();
 }
 

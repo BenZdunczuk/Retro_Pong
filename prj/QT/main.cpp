@@ -18,19 +18,15 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QString translationFileName = "pong_pl_PL.qm";
 
-    QLocale::setDefault(QLocale(QLocale::Polish, QLocale::Poland));
-    // QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
-
-    QTranslator translator;
-    const QStringList uiLanguages = QLocale::system().uiLanguages();
-    for (const QString &locale : uiLanguages) {
-        const QString baseName = "pong_" + QLocale(locale).name();
-        if (translator.load(":/i18n/" + baseName)) {
-            a.installTranslator(&translator);
-            break;
-        }
+    QTranslator *translatorMain = new QTranslator;
+    if (translatorMain->load(translationFileName)){
+        a.installTranslator(translatorMain);
     }
+
+    // QPixmap pix(":/flags/flagUS.png");
+    // qDebug() << "Pixmap loaded?" << !pix.isNull();
 
     MainWindow w;
     w.show();

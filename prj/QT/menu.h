@@ -28,7 +28,7 @@ class MainWindow;
  * @brief Klasa menu reprezentuje menu aplikacji Pong.
  *
  * Zawiera interfejs graficzny oparty na QDialog, który umożliwia dostęp do 4 przycisków:
- * wznowienia gry, rozpoczęcia nowej gry, wyjścia z gry oraz uruchomienia benchmarku
+ * wznowienia gry, rozpoczęcia nowej gry, wyjścia z gry oraz uruchomienia okna testowego
  */
 class menu : public QDialog
 {
@@ -50,11 +50,14 @@ public:
      */
     connection* connectMenu;
 
+    /**
+     * @brief Metoda obsługująca tłumaczenie ui okna klasy
+     */
+    void reTranslate();
+
 private slots:
     /**
      * @brief Metoda obsługująca kliknięcie przycisku wznowienia gry.
-     *
-     * Powoduje wznowienie gry oraz zamknięcie okienka menu
      */
     void on_buttonGoBack_clicked();
 
@@ -72,6 +75,16 @@ private slots:
      * @brief Metoda obsługująca kliknięcie przycisku testowania połączenia.
      */
     void on_buttonTest_clicked();
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku zmiany języka na angielski
+     */
+    void on_buttonUS_clicked();
+
+    /**
+     * @brief Metoda obsługująca kliknięcie przycisku zmiany języka na polski
+     */
+    void on_buttonPL_clicked();
 
 public slots:
     /**
@@ -109,6 +122,8 @@ private:
      * @brief Wskaźnik do obiektu klasy test.
      */
     test *pTest;
+
+    // void resizeEvent(QResizeEvent *event) override;
 };
 
 #endif // MENU_H

@@ -1,4 +1,4 @@
-../Core/Src/accelerometer.c:16:9:accInit	16	static
-../Core/Src/accelerometer.c:41:6:accel_calibrate	40	static
-../Core/Src/accelerometer.c:73:9:accel_lpf_int	24	static
-../Core/Src/accelerometer.c:88:6:AccGetData	40	static
+../Core/Src/accelerometer.c:21:9:accInit	16	static
+../Core/Src/accelerometer.c:46:6:accel_calibrate	40	static
+../Core/Src/accelerometer.c:78:9:accel_lpf_int	24	static
+../Core/Src/accelerometer.c:95:6:AccGetData	40	static

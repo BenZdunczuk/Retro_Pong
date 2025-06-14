@@ -20,7 +20,7 @@
      *
      * Inicjalizuje okno graficzne oraz widget z grą Pong
      *
-     * @param parent Opcjonalny wskaźnik do rodzica.
+     * @param[in] parent Opcjonalny wskaźnik do rodzica.
      */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow), isPaused(false), isTestOpen(false), pTest(nullptr), pMenu(nullptr)
@@ -56,8 +56,8 @@ MainWindow::MainWindow(QWidget *parent)
     thread->start();
 
     pMenu = new menu(this, connectMain);
-    pMenu->show();
-    togglePause();
+    // pMenu->show();
+    on_buttonPause_clicked();
 }
 
     /**
@@ -125,7 +125,7 @@ bool MainWindow::getTestOpen(){
 }
 
     /**
-     * @brief Slot restartujący grę
+     * @brief Slot resetujący grę
      *
      * Odbiera sygnał z klasy menu i wysyła sygnał do klasy widgetu gry Pong
      */
@@ -147,6 +147,11 @@ void MainWindow::testClosed(){
 
     /**
      * @brief Slot otwierający okienko testu
+     *
+     *  Slot jest wywoływany z klasy menu, tworzy i inicjalizuje klasę monitora połączenia,
+     *  zmienia zmienną informującą o stanie okna monitora połączenia oraz łączy slot zamknięcia okna monitora połączenia
+     *  z sygnałem wysyłanym z monitora połączenia
+     *
      */
 void MainWindow::openTest(){
     pTest = new test(this,connectMain);
@@ -168,7 +173,10 @@ void MainWindow::unlockPauseButton(){
     /**
      * @brief Metoda zmieniająca język całej aplikacji
      *
-     *  Wykonywana w momencie przełączenia języka aplikacji w menu
+     *  Wykonywana w momencie przełączenia języka aplikacji w menu, wczytuje nowy plik z tłumaczeniem
+     *
+     *  @param[in] languageCode kod języka, pl_PL - polski, en_US - angielski
+     *
      */
 void MainWindow::switchLanguage(const QString &languageCode) {
     qApp->removeTranslator(translatorMainWindow);

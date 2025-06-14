@@ -13,7 +13,8 @@
 
     /**
      * @brief Konstruktor klasy menu.
-     * @param parent Opcjonalny wskaźnik do rodzica.
+     * @param[in] parent Opcjonalny wskaźnik do rodzica.
+     * @param[in] connect Wskaźnik do obiektu połączenia
      */
 menu::menu(MainWindow *parent, connection* connect)
     : QDialog(parent), ui(new Ui::menu), mainWindowPtr(parent), connectMenu(connect), pTest(nullptr)
@@ -25,8 +26,6 @@ menu::menu(MainWindow *parent, connection* connect)
 
     ui->buttonUS->setEnabled(true);
     ui->buttonPL->setEnabled(false);
-
-    ui->buttonUS->setIcon(QIcon(":flags\flagUSA.png"));
 }
 
     /**
@@ -128,20 +127,3 @@ void menu::on_buttonPL_clicked(){
     ui->buttonUS->setEnabled(true);
     ui->buttonPL->setEnabled(false);
 }
-
-//     /**
-//      * @brief Metoda reagująca na zmianę wymiarów okienka menu
-//      *
-//      * Reaguje na dynamiczną zmianę wielkości okienka menu i dopasowywuje ikony aby wypełniały całe przyciski
-//      */
-// void menu::resizeEvent(QResizeEvent *event)
-// {
-//     QDialog::resizeEvent(event);
-
-//     QSize buttonPLSize = ui->buttonPL->size();
-//     QSize buttonUSSize = ui->buttonUS->size();
-
-//     ui->buttonPL->setIconSize(QSize(buttonPLSize.width(),buttonPLSize.height()));
-//     ui->buttonUS->setIconSize(QSize(buttonUSSize.width(),buttonUSSize.height()));
-// }
-

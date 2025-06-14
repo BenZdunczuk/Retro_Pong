@@ -85,7 +85,8 @@ void connection::handleReadyRead(){
     /**
      * @brief Metoda obrabiająca surowe dane
      *
-     * Metoda obrabia surowe dane w postaci tablicy bajtów i zwraca dane w postaci liczbowej w rozróżnieniu na osie X,Y i Z.
+     * Metoda obrabia surowe dane w postaci tablicy bajtów
+     * i zwraca dane poprzez sygnał dataProcessed() w postaci liczbowej w rozróżnieniu na osie X,Y i Z.
      *
      * @param[in] dataRaw dane odebrane bezpośrednio z czujnika
      */

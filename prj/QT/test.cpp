@@ -21,7 +21,7 @@
  * Tworzy obiekt dialogowy, inicjalizuje interfejs użytkownika do testowania połączenia i dodaje dwa wykresy typu `chart`
  * do obu używanych czujników z mikrokontrolera (acc - akcelerator, gyro-żyroskop).
  *
- * @param parent Wskaźnik do rodzica.
+ * @param[in] parent Wskaźnik do rodzica.
  */
 test::test(QWidget *parent,connection* connect)
     : QDialog(parent), ui(new Ui::test), connectTest(connect), pMenu(nullptr)
@@ -57,6 +57,8 @@ test::~test()
  * @brief Slot wyświetlający dane numeryczne z sensorów w okienku test
  *
  * Odbiera sygnał z klasy connection z przetworzonymi danymi z czujników i wyświetla je w lineEditach w okienku test
+ *
+ *  @param[in] data Przetworzone i opracowane dane z akcelerometru,
  */
 void test::displayData(QStringList data){
     ui->accX->setText(data[0]);
@@ -91,12 +93,20 @@ void test::closeTest(){
      */
 void test::reTranslate(){
     ui->retranslateUi(this);
+
+    if(connectTest->getConnectionStatus()){
+        ui->connectionStatus->setText(tr("połączono"));
+    }else{
+        ui->connectionStatus->setText(tr("brak połączenia"));
+    }
 }
 
     /**
      * @brief Metoda reagująca na zamknięcie okna
      *
      * Reaguje na manualne zamknięcie okna przyciskiem w prawym górnym kącie okna
+     *
+     *  @param[in] event Wskaźnik do zdarzenia zamknięcia okna
      */
 void test::closeEvent(QCloseEvent *event) {
     emit testExitSignal();

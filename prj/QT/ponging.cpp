@@ -22,7 +22,8 @@
      * Określa wymiary widgetu gry, inicjalizuje obiekty paletek oraz piłeczki,
      * inicjalizuje QTimer używany to aktualizowania rysowania gry
      *
-     * @param parent Opcjonalny wskaźnik do rodzica.
+     * @param[in] parent Opcjonalny wskaźnik do rodzica.
+     * @param[in] connect Wskaźnik do obiektu połączenia
      */
 PongWidget::PongWidget(QWidget *parent, connection *connect)
     : QWidget(parent),mainWindow(nullptr), ballDX(baseSpeed), ballDY(baseSpeed),
@@ -199,8 +200,7 @@ void PongWidget::setPause(bool pause)
 
     /**
      * @brief Metoda obliczająca długości wektorów składowych piłeczek
-     * @param[in] angle Kąt obrotu piłeczki względem osi OX
-     * @param[out] angle Kąt obrotu piłeczki modulo 360, jakby doszło do zatoczenia pełnego koła
+     * @param[in/out] angle Kąt obrotu piłeczki względem osi OX
      */
 int PongWidget::rotation(int angle){
     speed *= 1.05;      //przyśpieszenie gry
@@ -210,9 +210,12 @@ int PongWidget::rotation(int angle){
 }
 
     /**
-     * @brief Metoda typu getter umożliwiająca dostęp do atrybutu score
-     * @param[in] angle Kąt obrotu obiektu względem osi OX
-     * @param[out] angle Kąt obrotu modulo 360, jakby doszło do zatoczenia pełnego koła
+     * @brief Metoda kąt odbicia
+     *
+     * @param[in] angleA Kąt obrotu obiektu względem osi OX
+     * @param[in] angleB Kąt obrotu obiektu względem osi OY
+     *
+     * @return angleA Kąt odbicia
      */
 int PongWidget::reflaction(int angleA, int angleB){
     angleA = 2*angleB - angleA;
@@ -234,8 +237,6 @@ void PongWidget::resetGame(){
      * Interpretuje dane z czujników,reaguje na sygnał wysyłany z okna głównego z klasy connection
      *
      *@param[in] data przetworzone dane odczytane z czujników w formacie typu string
-     *@param[out] posY zmienna określająca położenie paletki w pikselach
-     *@param[out] rotationAngleBall zmienna określająca obrót paletki w stopniach
      */
 void PongWidget::calculateMovement(QStringList data){
     //próg dla wartości sensora, po których jest odczytywany ruch liniowy i obrotowy paletki

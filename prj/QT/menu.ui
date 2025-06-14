@@ -21,8 +21,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -114,6 +114,12 @@
        </property>
        <property name="checkable">
         <bool>true</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
        </property>
       </widget>
      </item>

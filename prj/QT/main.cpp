@@ -25,9 +25,6 @@ int main(int argc, char *argv[])
         a.installTranslator(translatorMain);
     }
 
-    // QPixmap pix(":/flags/flagUS.png");
-    // qDebug() << "Pixmap loaded?" << !pix.isNull();
-
     MainWindow w;
     w.show();
 

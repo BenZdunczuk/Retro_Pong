@@ -85,15 +85,11 @@ private:
 signals:
     /**
      * @brief Sygnał wysyłany w momencie odebrania danych, przechowujący odebrane dane
-     *
-     * @param data surowe dane z czujników w postaci tablicy bajtów
      */
     void dataReceived(const QByteArray &data);
 
     /**
      * @brief Sygnał wysyłany w po obrobieniu danych, przechowujący informacje o typie czujnika oraz dane z podziałem na osie
-     *
-     * @param dataProcessed przetworzone dane w postaci listy stringów (mogą być łatwo przetworzone na wartości numeryczne)
      */
     void dataProcessed(QStringList dataProcessed);
 };

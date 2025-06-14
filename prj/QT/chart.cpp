@@ -15,7 +15,7 @@
      *
      *  Inicjalizuje widget wykresu danych z sensorów, wraz z trzema danymi pomiarowymi dla osi X,Y i Z
      *
-     * @param parent Opcjonalny wskaźnik do rodzica.
+     * @param[in] parent Opcjonalny wskaźnik do rodzica.
      */
 chart::chart(QWidget *parent) : QWidget(parent) {
     plot = new QCustomPlot(this);
@@ -43,7 +43,7 @@ chart::chart(QWidget *parent) : QWidget(parent) {
      *  Inicjalizuje widget wykresu danych z sensorów, wraz z trzema danymi pomiarowymi dla osi X,Y i Z,
      *  reaguje na sygnał z danymi z klasy connection.
      *
-     * @param parent Opcjonalny wskaźnik do rodzica.
+     * @param[in] parent Opcjonalny wskaźnik do rodzica.
      */
 void chart::onNewData(QStringList data){
     double key = startTime.msecsTo(QDateTime::currentDateTime()) / 1000.0;

@@ -122,8 +122,6 @@ private:
      * @brief Wskaźnik do obiektu klasy test.
      */
     test *pTest;
-
-    // void resizeEvent(QResizeEvent *event) override;
 };
 
 #endif // MENU_H

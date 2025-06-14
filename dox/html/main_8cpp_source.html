@@ -118,27 +118,20 @@ $(function(){initNavTree('main_8cpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">   18</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    QApplication a(argc, argv);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    QLocale::setDefault(QLocale(QLocale::Polish, QLocale::Poland));</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    QTranslator translator;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> QStringList uiLanguages = QLocale::system().uiLanguages();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> QString &amp;locale : uiLanguages) {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">const</span> QString baseName = <span class="stringliteral">&quot;pong_&quot;</span> + QLocale(locale).name();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">if</span> (translator.load(<span class="stringliteral">&quot;:/i18n/&quot;</span> + baseName)) {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            a.installTranslator(&amp;translator);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_main_window.html">MainWindow</a> w;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    w.show();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> a.exec();</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    QString translationFileName = <span class="stringliteral">&quot;pong_pl_PL.qm&quot;</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    QTranslator *translatorMain = <span class="keyword">new</span> QTranslator;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span> (translatorMain-&gt;load(translationFileName)){</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        a.installTranslator(translatorMain);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_main_window.html">MainWindow</a> w;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    w.show();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">return</span> a.exec();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
 </div>
-<div class="ttc" id="aclass_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Klasa MainWindow reprezentuje główne okno aplikacji Pong.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00033">mainwindow.h:34</a></div></div>
+<div class="ttc" id="aclass_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Klasa MainWindow reprezentuje główne okno aplikacji Pong.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00039">mainwindow.h:40</a></div></div>
 <div class="ttc" id="amain_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdoc">The application entry point.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00079">main.c:79</a></div></div>
 <div class="ttc" id="amainwindow_8h_html"><div class="ttname"><a href="mainwindow_8h.html">mainwindow.h</a></div><div class="ttdoc">Definicja metody klasy MainWindow.</div></div>
 </div><!-- fragment --></div><!-- contents -->

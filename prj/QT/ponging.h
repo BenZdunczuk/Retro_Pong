@@ -28,14 +28,12 @@ class PongWidget : public QWidget
 
 public:
     /**
-     * @brief Konstruktor klasy menu.
-     * @param parent Opcjonalny wskaźnik do rodzica.
+     * @brief Konstruktor klasy PongWidget.
      */
     explicit PongWidget(QWidget *parent = nullptr,connection *connect = nullptr);
 
     /**
      * @brief Metoda typu setter umożliwiająca dostęp do atrybutu paused
-     * @param paused Stan gry (zatrzymana/trwająca)
      */
     void setPause(bool paused);
 
@@ -47,7 +45,6 @@ public:
 protected:
     /**
      * @brief Metoda inicjalizująca rysowanie wykresu
-     * @param event Opcjonalny wskaźnik do rysowania.
      */
     void paintEvent(QPaintEvent *event) override;
 

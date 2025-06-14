@@ -111,48 +111,63 @@ $(function(){initNavTree('test_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="connection_8h.html">connection.h</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;ui_test.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;QObject&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;QDialog&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_ui.html">Ui</a> {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">class </span>test;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classtest.html">   32</a></span><span class="keyword">class </span><a class="code hl_function" href="classtest.html#aee13dd1a3e87517069145358b9120024">test</a> : <span class="keyword">public</span> QDialog</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    Q_OBJECT</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classtest.html#aee13dd1a3e87517069145358b9120024">test</a>(QWidget *parent = <span class="keyword">nullptr</span>,<a class="code hl_class" href="classconnection.html">connection</a> *connect = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="classtest.html#ad117cf4e90c87c17bb9b030d23810ec8">~test</a>();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classtest.html#adea1f80caf73674754232646a568abbb">   51</a></span>    <a class="code hl_class" href="classconnection.html">connection</a>* <a class="code hl_variable" href="classtest.html#adea1f80caf73674754232646a568abbb">connectTest</a>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">private</span> slots:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> displayData(QStringList data);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> on_pushButton_clicked();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    Ui::test *ui;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// #include &quot;mainwindow.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;QDialog&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">class </span><a class="code hl_class" href="classmenu.html">menu</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_ui.html">Ui</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span>test;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classtest.html">   35</a></span><span class="keyword">class </span><a class="code hl_function" href="classtest.html#aee13dd1a3e87517069145358b9120024">test</a> : <span class="keyword">public</span> QDialog</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    Q_OBJECT</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classtest.html#aee13dd1a3e87517069145358b9120024">test</a>(QWidget *parent = <span class="keyword">nullptr</span>,<a class="code hl_class" href="classconnection.html">connection</a> *connect = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="classtest.html#ad117cf4e90c87c17bb9b030d23810ec8">~test</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classtest.html#adea1f80caf73674754232646a568abbb">   53</a></span>    <a class="code hl_class" href="classconnection.html">connection</a>* <a class="code hl_variable" href="classtest.html#adea1f80caf73674754232646a568abbb">connectTest</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classtest.html#a51cbde511396812dab3ebe9f89e1e99f">closeTest</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classtest.html#a76c6c13e19629c1b762c34e8d9c9f6bf">reTranslate</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> displayData(QStringList data);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> on_pushButton_clicked();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    Ui::test *ui;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="classmenu.html">menu</a> *pMenu;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> closeEvent(QCloseEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>signals:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classtest.html#ae754abe81d3252533d0fccb0322843b8">   96</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classtest.html#ae754abe81d3252533d0fccb0322843b8">testExitSignal</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
 </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif </span><span class="comment">// TEST_H</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">// TEST_H</span></div>
 <div class="ttc" id="aclassconnection_html"><div class="ttname"><a href="classconnection.html">connection</a></div><div class="ttdoc">Klasa connection reprezentuje połączenie pomiędzy aplikacją w QT a mikrokontrolerem STM.</div><div class="ttdef"><b>Definition</b> <a href="connection_8h_source.html#l00022">connection.h:23</a></div></div>
-<div class="ttc" id="aclasstest_html_ad117cf4e90c87c17bb9b030d23810ec8"><div class="ttname"><a href="classtest.html#ad117cf4e90c87c17bb9b030d23810ec8">test::~test</a></div><div class="ttdeci">~test()</div><div class="ttdoc">Destruktor klasy test.</div><div class="ttdef"><b>Definition</b> <a href="test_8cpp_source.html#l00049">test.cpp:49</a></div></div>
-<div class="ttc" id="aclasstest_html_adea1f80caf73674754232646a568abbb"><div class="ttname"><a href="classtest.html#adea1f80caf73674754232646a568abbb">test::connectTest</a></div><div class="ttdeci">connection * connectTest</div><div class="ttdoc">Wskaźnik do obiektu połączenia z mikroprocesorem.</div><div class="ttdef"><b>Definition</b> <a href="#l00051">test.h:51</a></div></div>
-<div class="ttc" id="aclasstest_html_aee13dd1a3e87517069145358b9120024"><div class="ttname"><a href="classtest.html#aee13dd1a3e87517069145358b9120024">test::test</a></div><div class="ttdeci">test(QWidget *parent=nullptr, connection *connect=nullptr)</div><div class="ttdoc">Konstruktor klasy test.</div><div class="ttdef"><b>Definition</b> <a href="test_8cpp_source.html#l00025">test.cpp:25</a></div></div>
+<div class="ttc" id="aclassmenu_html"><div class="ttname"><a href="classmenu.html">menu</a></div><div class="ttdoc">Klasa menu reprezentuje menu aplikacji Pong.</div><div class="ttdef"><b>Definition</b> <a href="menu_8h_source.html#l00033">menu.h:34</a></div></div>
+<div class="ttc" id="aclasstest_html_a51cbde511396812dab3ebe9f89e1e99f"><div class="ttname"><a href="classtest.html#a51cbde511396812dab3ebe9f89e1e99f">test::closeTest</a></div><div class="ttdeci">void closeTest()</div><div class="ttdoc">Metoda zamykająca okienko testu.</div><div class="ttdef"><b>Definition</b> <a href="test_8cpp_source.html#l00082">test.cpp:82</a></div></div>
+<div class="ttc" id="aclasstest_html_a76c6c13e19629c1b762c34e8d9c9f6bf"><div class="ttname"><a href="classtest.html#a76c6c13e19629c1b762c34e8d9c9f6bf">test::reTranslate</a></div><div class="ttdeci">void reTranslate()</div><div class="ttdoc">Metoda obsługująca tłumaczenie ui okna klasy.</div><div class="ttdef"><b>Definition</b> <a href="test_8cpp_source.html#l00092">test.cpp:92</a></div></div>
+<div class="ttc" id="aclasstest_html_ad117cf4e90c87c17bb9b030d23810ec8"><div class="ttname"><a href="classtest.html#ad117cf4e90c87c17bb9b030d23810ec8">test::~test</a></div><div class="ttdeci">~test()</div><div class="ttdoc">Destruktor klasy test.</div><div class="ttdef"><b>Definition</b> <a href="test_8cpp_source.html#l00050">test.cpp:50</a></div></div>
+<div class="ttc" id="aclasstest_html_adea1f80caf73674754232646a568abbb"><div class="ttname"><a href="classtest.html#adea1f80caf73674754232646a568abbb">test::connectTest</a></div><div class="ttdeci">connection * connectTest</div><div class="ttdoc">Wskaźnik do obiektu połączenia z mikroprocesorem.</div><div class="ttdef"><b>Definition</b> <a href="#l00053">test.h:53</a></div></div>
+<div class="ttc" id="aclasstest_html_ae754abe81d3252533d0fccb0322843b8"><div class="ttname"><a href="classtest.html#ae754abe81d3252533d0fccb0322843b8">test::testExitSignal</a></div><div class="ttdeci">void testExitSignal()</div><div class="ttdoc">Sygnał wysyłany w momencie zamknięcia okna.</div></div>
+<div class="ttc" id="aclasstest_html_aee13dd1a3e87517069145358b9120024"><div class="ttname"><a href="classtest.html#aee13dd1a3e87517069145358b9120024">test::test</a></div><div class="ttdeci">test(QWidget *parent=nullptr, connection *connect=nullptr)</div><div class="ttdoc">Konstruktor klasy test.</div><div class="ttdef"><b>Definition</b> <a href="test_8cpp_source.html#l00026">test.cpp:26</a></div></div>
 <div class="ttc" id="aconnection_8h_html"><div class="ttname"><a href="connection_8h.html">connection.h</a></div><div class="ttdoc">Definicja metody klasy connection.</div></div>
-<div class="ttc" id="anamespace_ui_html"><div class="ttname"><a href="namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00019">mainwindow.h:19</a></div></div>
+<div class="ttc" id="anamespace_ui_html"><div class="ttname"><a href="namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00025">mainwindow.h:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

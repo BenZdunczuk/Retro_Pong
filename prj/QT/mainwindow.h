@@ -23,9 +23,6 @@ class test;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
-/**
- * @brief Przestrzeń nazw Ui zawiera deklaracje klas UI wygenerowanych przez Qt Designer.
- */
 class MainWindow;
 }
 QT_END_NAMESPACE
@@ -43,7 +40,6 @@ class MainWindow : public QMainWindow
 public:
     /**
      * @brief Konstruktor klasy MainWindow.
-     * @param parent Opcjonalny wskaźnik do rodzica.
      */
     MainWindow(QWidget *parent = nullptr);
 

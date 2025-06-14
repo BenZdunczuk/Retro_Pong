@@ -74,7 +74,7 @@
 }</string>
          </property>
          <property name="text">
-          <string>offline</string>
+          <string/>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
